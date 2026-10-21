@@ -1,0 +1,30 @@
+[
+  {
+    "slug": "sgabello-01",
+    "name": "Sgabello 01",
+    "chapter": "Capitolo 01",
+    "tagline": "Un oggetto, molteplici possibilità.",
+    "description": "Uno sgabello dal carattere scultoreo, capace di trasformarsi anche in un tavolino d'appoggio, adattandosi a spazi e interpretazioni differenti.",
+    "material": "Legno massello",
+    "origin": "Realizzato a mano a Livigno",
+    "price": 590,
+    "currency": "EUR",
+    "status": "preorder",
+    "modes": [
+      {
+        "id": "seduta",
+        "label": "Seduta",
+        "title": "Sgabello",
+        "text": "Geometrie decise e proporzioni studiate: due linee che si incontrano e trovano il proprio equilibrio sotto una seduta piena.",
+        "image": "/images/sgabello-scultura.jpg"
+      },
+      {
+        "id": "tavolino",
+        "label": "Tavolino",
+        "title": "Tavolino d'appoggio",
+        "text": "Vista dall'alto rivela la naturale bellezza del legno: venature, nodi e sfumature che rendono ogni superficie unica.",
+        "image": "/images/sgabello-alto.jpg"
+      }
+    ]
+  }
+]

@@ -1,0 +1,9 @@
+node_modules
+.next
+next-env.d.ts
+*.tsbuildinfo
+.env*.local
+data/subscribers.json
+
+# Font commerciale Groupe: non ridistribuire (vedi README)
+src/fonts/*.otf
