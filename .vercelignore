@@ -1,0 +1,10 @@
+# Usato al posto di .gitignore dalla CLI Vercel: i font Groupe qui vengono caricati (servono al build).
+node_modules
+.next
+*.tsbuildinfo
+.env*.local
+data/subscribers.json
+data/orders.json
+
+# Backend Django: gira separatamente
+backend

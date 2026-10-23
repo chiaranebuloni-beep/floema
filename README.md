@@ -38,7 +38,7 @@ L'archivio su file JSON vale solo per lo sviluppo locale: prima del go-live va s
 
 ## Brand
 
-- Titoli: Groupe (`src/fonts/`, non versionato: licenza commerciale)
-- Testi: Montserrat · Accento: Cinzel (Google Fonts, solo per "/flo·è·ma/")
+- Font Groupe in `src/fonts/`, non versionato (licenza commerciale)
+- Titoli e testi: Helvetica Neue (font di sistema) · Groupe solo per i numeri (1984, prezzo) e "/flo·è·ma/"
 - Palette: Sabbia `#D8C8B8`, Tortora `#A29686`, Fango `#6F665B`, Antracite `#1E1E1E`, Rovere `#6B4A2E`
 - Foto dal Piano Editoriale; logo vettoriale estratto dalla brand identity

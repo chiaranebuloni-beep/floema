@@ -4,11 +4,9 @@ import { Hero } from "@/components/sections/Hero";
 import { Manifesto } from "@/components/sections/Manifesto";
 import { ProductChapter } from "@/components/sections/ProductChapter";
 import { Perspectives } from "@/components/sections/Perspectives";
-import { Marquee } from "@/components/sections/Marquee";
 import { Etymology } from "@/components/sections/Etymology";
 import { Heritage } from "@/components/sections/Heritage";
 import { Architects } from "@/components/sections/Architects";
-import { Newsletter } from "@/components/sections/Newsletter";
 import { Footer } from "@/components/Footer";
 import { RevealAnimations } from "@/components/RevealAnimations";
 
@@ -26,11 +24,9 @@ export default async function Home() {
         <Manifesto />
         <ProductChapter product={product} />
         <Perspectives />
-        <Marquee />
         <Etymology />
         <Heritage />
         <Architects />
-        <Newsletter />
       </main>
       <Footer />
       <RevealAnimations />

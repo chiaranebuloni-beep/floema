@@ -20,7 +20,12 @@ export async function POST(req: Request) {
   const subscribers = await readCollection<Subscriber[]>("subscribers", []);
   if (!subscribers.some((s) => s.email === email)) {
     subscribers.push({ email, profile, createdAt: new Date().toISOString() });
-    await writeCollection("subscribers", subscribers);
+    try {
+      await writeCollection("subscribers", subscribers);
+    } catch {
+      // Su hosting serverless (es. Vercel) il disco è in sola lettura: serve un database.
+      return NextResponse.json({ error: "Le iscrizioni apriranno a breve. Riprova tra qualche giorno." }, { status: 503 });
+    }
   }
   return NextResponse.json({ ok: true });
 }

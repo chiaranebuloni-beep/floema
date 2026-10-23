@@ -1,0 +1,4 @@
+<h1 style="font-weight:300;font-size:26px;letter-spacing:.04em;text-transform:uppercase;margin:0 0 16px;">In viaggio.</h1>
+<p>Il tuo ordine <strong>{{ order.reference }}</strong> è stato spedito{% if order.carrier %} con {{ order.carrier }}{% endif %}.</p>
+{% if order.tracking_number %}<p>Numero di tracking: <strong>{{ order.tracking_number }}</strong></p>{% endif %}
+<p style="font-size:13px;color:#8a7b6b;">Indirizzo di consegna: {{ order.address }}, {{ order.zip_code }} {{ order.city }}, {{ order.country }}</p>

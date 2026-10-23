@@ -1,0 +1,10 @@
+Grazie, {{ order.name }}.
+
+Abbiamo ricevuto il tuo ordine {{ order.reference }}.
+{% for line in order.lines.all %}
+- {{ line.product_name }}{% if line.variant_name %} — {{ line.variant_name }}{% endif %} × {{ line.quantity }}: {{ line.total|floatformat:2 }} €{% endfor %}
+
+Totale: {{ order.total|floatformat:2 }} € (IVA inclusa)
+Spedizione a: {{ order.address }}, {{ order.zip_code }} {{ order.city }}, {{ order.country }}
+
+FLOEMA Wood Studio — {{ store_email }}

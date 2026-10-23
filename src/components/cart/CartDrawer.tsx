@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect } from "react";
 import { useCart } from "./CartProvider";
 import { formatPrice } from "@/lib/format";
@@ -31,17 +32,19 @@ export function CartDrawer() {
         ) : (
           <ul className="drawer__list">
             {priced.map((l) => (
-              <li key={l.slug} className="drawer__line">
+              <li key={l.key} className="drawer__line">
                 <div className="drawer__thumb">
                   <Image src={l.image} alt="" fill sizes="96px" />
                 </div>
                 <div>
                   <p className="drawer__name">{l.name}</p>
-                  <p className="drawer__meta">Pre-ordine · {formatPrice(l.unitPrice)}</p>
+                  <p className="drawer__meta">
+                    {l.variantName && `${l.variantName} · `}Pre-ordine · {formatPrice(l.unitPrice)}
+                  </p>
                   <div className="qty">
-                    <button aria-label="Diminuisci" tabIndex={open ? 0 : -1} onClick={() => setQty(l.slug, l.qty - 1)}>−</button>
+                    <button aria-label="Diminuisci" tabIndex={open ? 0 : -1} onClick={() => setQty(l.slug, l.variant, l.qty - 1)}>−</button>
                     <span>{l.qty}</span>
-                    <button aria-label="Aumenta" tabIndex={open ? 0 : -1} onClick={() => setQty(l.slug, Math.min(l.qty + 1, 10))}>+</button>
+                    <button aria-label="Aumenta" tabIndex={open ? 0 : -1} onClick={() => setQty(l.slug, l.variant, Math.min(l.qty + 1, 10))}>+</button>
                   </div>
                 </div>
                 <p className="drawer__total">{formatPrice(l.total)}</p>
@@ -56,9 +59,15 @@ export function CartDrawer() {
             <span>{formatPrice(subtotal)}</span>
           </div>
           <p className="drawer__note">Spedizione e imposte calcolate al checkout.</p>
-          <button className="btn btn--solid btn--full" disabled tabIndex={open ? 0 : -1}>
-            Checkout in arrivo
-          </button>
+          {priced.length > 0 ? (
+            <Link href="/checkout" className="btn btn--solid btn--full" tabIndex={open ? 0 : -1} onClick={() => setOpen(false)}>
+              Vai al checkout
+            </Link>
+          ) : (
+            <button className="btn btn--solid btn--full" disabled tabIndex={open ? 0 : -1}>
+              Vai al checkout
+            </button>
+          )}
         </footer>
       </aside>
     </div>

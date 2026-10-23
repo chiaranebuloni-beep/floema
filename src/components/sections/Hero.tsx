@@ -58,20 +58,12 @@ export function Hero() {
       <div className="hero__veil" />
 
       <div className="hero__inner">
-        <div className="hero__top">
-          <p className="eyebrow" data-hero-fade>
-            Wood Studio — Livigno, Valtellina
-          </p>
+        {/* Titolo e pulsante sulla stessa riga, centrati tra loro in verticale. */}
+        <div className="hero__row">
           <h1 className="hero__claim" data-lines data-manual>
             <span className="mask"><span className="mask__in">Dalla natura,</span></span>
             <span className="mask"><span className="mask__in">l&apos;essenza del design.</span></span>
           </h1>
-        </div>
-
-        <div className="hero__bottom">
-          <p className="hero__lead" data-hero-fade>
-            Un nuovo modo di interpretare il legno attraverso forme essenziali e un design senza tempo.
-          </p>
           <div data-hero-fade>
             <Magnetic>
               <a href="#creazione" className="btn btn--ghost-light">
@@ -85,11 +77,6 @@ export function Hero() {
           <LogoWord className="hero__word" />
         </h2>
       </div>
-
-      <a href="#manifesto" className="hero__scroll" data-hero-fade aria-label="Scorri">
-        <span>Scorri</span>
-        <i />
-      </a>
     </section>
   );
 }

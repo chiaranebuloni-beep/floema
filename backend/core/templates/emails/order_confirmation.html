@@ -1,0 +1,4 @@
+<h1 style="font-weight:300;font-size:26px;letter-spacing:.04em;text-transform:uppercase;margin:0 0 16px;">Grazie, {{ order.name }}.</h1>
+<p>Abbiamo ricevuto il tuo ordine <strong>{{ order.reference }}</strong>. Ogni pezzo FLOEMA viene realizzato a mano nel nostro laboratorio di Livigno: ti scriveremo quando entrerà in produzione e quando partirà la spedizione.</p>
+{% include "emails/_lines.html" %}
+<p style="font-size:13px;color:#8a7b6b;">Spedizione a: {{ order.address }}, {{ order.zip_code }} {{ order.city }}, {{ order.country }}</p>

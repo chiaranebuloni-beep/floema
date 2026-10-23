@@ -1,0 +1,7 @@
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:24px 0;border-top:1px solid #ece4d8;">
+  {% for line in order.lines.all %}
+  <tr><td style="padding:12px 0;border-bottom:1px solid #ece4d8;">{{ line.product_name }}{% if line.variant_name %} — {{ line.variant_name }}{% endif %} × {{ line.quantity }}</td>
+      <td align="right" style="padding:12px 0;border-bottom:1px solid #ece4d8;">{{ line.total|floatformat:2 }} €</td></tr>
+  {% endfor %}
+  <tr><td style="padding:8px 0;font-weight:bold;">Totale</td><td align="right" style="padding:8px 0;font-weight:bold;">{{ order.total|floatformat:2 }} €</td></tr>
+</table>

@@ -1,0 +1,302 @@
+#
+msgid ""
+msgstr ""
+"Language: it\n"
+"Content-Type: text/plain; charset=utf-8\n"
+
+msgid "General"
+msgstr "Riepilogo"
+
+msgid "Search apps and models..."
+msgstr "Cerca sezioni e modelli…"
+
+msgid "All applications"
+msgstr "Tutte le sezioni"
+
+msgid "Apply Filters"
+msgstr "Applica filtri"
+
+msgid "Filters"
+msgstr "Filtri"
+
+msgid "Clear all filters"
+msgstr "Rimuovi tutti i filtri"
+
+msgid "Reset filters"
+msgstr "Azzera filtri"
+
+msgid "Toggle filter"
+msgstr "Mostra/nascondi filtro"
+
+msgid "Date from"
+msgstr "Dal"
+
+msgid "Date to"
+msgstr "Al"
+
+msgid "From"
+msgstr "Da"
+
+msgid "To"
+msgstr "A"
+
+msgid "Show counts"
+msgstr "Mostra conteggi"
+
+msgid "Hide counts"
+msgstr "Nascondi conteggi"
+
+msgid "Toggle sidebar"
+msgstr "Mostra/nascondi menu"
+
+msgid "Toggle dark/light mode"
+msgstr "Tema chiaro/scuro"
+
+msgid "Dark"
+msgstr "Scuro"
+
+msgid "Light"
+msgstr "Chiaro"
+
+msgid "System"
+msgstr "Sistema"
+
+msgid "Default"
+msgstr "Predefinito"
+
+msgid "Return to site"
+msgstr "Torna al sito"
+
+msgid "View site"
+msgstr "Vedi il sito"
+
+msgid "View on site"
+msgstr "Vedi sul sito"
+
+msgid "Log out"
+msgstr "Esci"
+
+msgid "Change password"
+msgstr "Cambia password"
+
+msgid "Add new item"
+msgstr "Aggiungi"
+
+msgid "Add row"
+msgstr "Aggiungi riga"
+
+msgid "Create new record"
+msgstr "Nuovo"
+
+msgid "Select action"
+msgstr "Seleziona azione"
+
+msgid "Select action to run"
+msgstr "Scegli un'azione"
+
+msgid "Run"
+msgstr "Esegui"
+
+msgid "Run the selected action"
+msgstr "Esegui l'azione selezionata"
+
+msgid "Select all"
+msgstr "Seleziona tutto"
+
+msgid "Clear selection"
+msgstr "Deseleziona"
+
+msgid "Click here to select the objects across all pages"
+msgstr "Seleziona gli elementi di tutte le pagine"
+
+msgid "No results found"
+msgstr "Nessun risultato"
+
+msgid "Nothing matched your search"
+msgstr "Nessun risultato per la ricerca"
+
+msgid "This page yielded into no results."
+msgstr "Nessun elemento da mostrare."
+
+msgid "No data"
+msgstr "Nessun dato"
+
+msgid "Type to search"
+msgstr "Scrivi per cercare"
+
+msgid "Recent searches"
+msgstr "Ricerche recenti"
+
+msgid "Open command tool"
+msgstr "Apri ricerca rapida"
+
+msgid "Available shortcuts"
+msgstr "Scorciatoie disponibili"
+
+msgid "Global shortcuts"
+msgstr "Scorciatoie generali"
+
+msgid "Changelist shortcuts"
+msgstr "Scorciatoie elenco"
+
+msgid "Command tool shortcuts"
+msgstr "Scorciatoie ricerca"
+
+msgid "Open shortcuts list"
+msgstr "Mostra scorciatoie"
+
+msgid "Navigate"
+msgstr "Naviga"
+
+msgid "Open selection"
+msgstr "Apri"
+
+msgid "Open selection in new tab"
+msgstr "Apri in una nuova scheda"
+
+msgid "Go back"
+msgstr "Indietro"
+
+msgid "Close"
+msgstr "Chiudi"
+
+msgid "Cancel"
+msgstr "Annulla"
+
+msgid "Submit"
+msgstr "Invia"
+
+msgid "Update"
+msgstr "Aggiorna"
+
+msgid "Preview"
+msgstr "Anteprima"
+
+msgid "Summary"
+msgstr "Riepilogo"
+
+msgid "Errors"
+msgstr "Errori"
+
+msgid "Skipped"
+msgstr "Saltati"
+
+msgid "Export"
+msgstr "Esporta"
+
+msgid "Import"
+msgstr "Importa"
+
+msgid "Confirm import"
+msgstr "Conferma importazione"
+
+msgid "Select format"
+msgstr "Formato"
+
+msgid "Current file"
+msgstr "File attuale"
+
+msgid "Choose file to upload"
+msgstr "Scegli un file"
+
+msgid "Click to download"
+msgstr "Scarica"
+
+msgid "This exporter will export the following fields: "
+msgstr "Verranno esportati questi campi: "
+
+msgid "This exporter will export the following fields"
+msgstr "Verranno esportati questi campi"
+
+msgid "This importer will import the following fields: "
+msgstr "Verranno importati questi campi: "
+
+msgid "Some rows failed to validate"
+msgstr "Alcune righe non sono valide"
+
+msgid ""
+"Please correct these errors in your data where possible, then reupload it "
+"using the form above."
+msgstr "Correggi gli errori nel file e caricalo di nuovo."
+
+msgid ""
+"Below is a preview of data to be imported. If you are satisfied with the "
+"results, click 'Confirm import'"
+msgstr ""
+"Anteprima dei dati da importare. Se è tutto corretto, clicca «Conferma "
+"importazione»."
+
+msgid "History"
+msgstr "Storico"
+
+msgid "Change History"
+msgstr "Storico modifiche"
+
+msgid "Revert"
+msgstr "Ripristina"
+
+msgid "Revert to this version"
+msgstr "Ripristina questa versione"
+
+msgid "There are no differences."
+msgstr "Nessuna differenza."
+
+msgid "This object doesn't have a change history."
+msgstr "Nessuna modifica registrata."
+
+msgid "Record picture"
+msgstr "Immagine"
+
+msgid "Image preview"
+msgstr "Anteprima immagine"
+
+msgid "Collapse"
+msgstr "Comprimi"
+
+msgid "Remove from sorting"
+msgstr "Rimuovi ordinamento"
+
+msgid "Toggle sorting"
+msgstr "Cambia ordinamento"
+
+msgid "Select record"
+msgstr "Seleziona"
+
+msgid "This item will be deleted."
+msgstr "Questo elemento verrà eliminato."
+
+msgid "Toggle password visibility"
+msgstr "Mostra/nascondi password"
+
+msgid "Recent actions"
+msgstr "Azioni recenti"
+
+msgid "Unknown"
+msgstr "Sconosciuto"
+
+msgid "Value"
+msgstr "Valore"
+
+msgid "Yes"
+msgstr "Sì"
+
+msgid "No"
+msgstr "No"
+
+msgid "True"
+msgstr "Sì"
+
+msgid "False"
+msgstr "No"
+
+msgid "Previous"
+msgstr "Precedente"
+
+msgid "Next"
+msgstr "Successivo"
+
+msgid "previous"
+msgstr "precedente"
+
+msgid "next"
+msgstr "successivo"

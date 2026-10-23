@@ -1,0 +1,19 @@
+{
+  "regions": [
+    "fra1"
+  ],
+  "buildCommand": "PY=$(uv python find 3.14) && $PY manage.py migrate --noinput && $PY manage.py seed --online",
+  "outputDirectory": "public",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/api/index"
+    }
+  ],
+  "functions": {
+    "api/index.py": {
+      "maxDuration": 30,
+      "includeFiles": "{config,core,catalog,orders,contacts,locale}/**"
+    }
+  }
+}

@@ -7,3 +7,18 @@ data/subscribers.json
 
 # Font commerciale Groupe: non ridistribuire (vedi README)
 src/fonts/*.otf
+.vercel
+.vercel
+data/orders.json
+
+# Backend Django
+backend/.venv
+backend/.bootstrap
+backend/db.sqlite3
+backend/media
+backend/staticfiles
+backend/.env
+backend/CREDENZIALI-LOCALI.txt
+__pycache__/
+
+.DS_Store

@@ -47,25 +47,28 @@ export function Manifesto() {
           ))}
         </p>
 
-        <div className="manifesto__grid">
-          <figure className="manifesto__img" data-img-reveal data-cursor="Materia">
-            <Image src="/images/dettaglio-geometria.jpg" alt="Incastro tra seduta e gambe dello sgabello" fill sizes="(max-width: 768px) 90vw, 34vw" />
-          </figure>
-          <div className="manifesto__copy">
-            <p className="lead" data-fade>
-              Per noi, progettare significa ascoltare il legno, rispettarne la natura e trasformarlo in qualcosa che va oltre la sua
-              funzione.
-            </p>
-            <p className="body" data-fade="0.1">
-              FLOEMA nasce dall&apos;incontro tra esperienza artigianale, materia naturale e visione contemporanea. Ogni pezzo è
-              progettato per durare nel tempo, rispettando la materia e la sua natura.
-            </p>
-            <ul className="values" data-fade="0.2">
-              <li>Essenza</li>
-              <li>Forma</li>
-              <li>Funzione</li>
-            </ul>
-          </div>
+      </div>
+
+      <figure className="manifesto__img" data-img-reveal>
+        <div className="manifesto__img-in" data-parallax="10">
+          <Image src="/images/manifesto-legno-naturale.jpg" alt="Superficie di legno con anelli di crescita e venature" fill sizes="100vw" />
+        </div>
+      </figure>
+
+      <div className="container manifesto__copy">
+        <p className="lead" data-fade>
+          Per noi, progettare significa ascoltare il legno, rispettarne la natura e trasformarlo in qualcosa che va oltre la sua funzione.
+        </p>
+        <div className="manifesto__side">
+          <p className="body" data-fade="0.1">
+            FLOEMA nasce dall&apos;incontro tra esperienza artigianale, materia naturale e visione contemporanea. Ogni pezzo è progettato
+            per durare nel tempo, rispettando la materia e la sua natura.
+          </p>
+          <ul className="values" data-fade="0.2">
+            <li>Essenza</li>
+            <li>Forma</li>
+            <li>Funzione</li>
+          </ul>
         </div>
       </div>
     </section>

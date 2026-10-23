@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { gsap, prefersReducedMotion } from "@/lib/gsap";
 import { onReady } from "../Preloader";
@@ -65,26 +64,20 @@ export function Heritage() {
             <span className="heritage__place" data-fade>
               Livigno — SO
             </span>
-          </div>
-
-          <div className="heritage__copy">
-            <Lines as="h2" className="display display--dark" lines={["Esperienza artigianale,", "visione contemporanea."]} />
-            <p className="lead" data-fade>
-              FLOEMA nasce dalla Falegnameria Galli, bottega di paese fondata a Livigno nel 1984 dalle sapienti mani di Giovanbattista
-              Galli.
-            </p>
-            <p className="body" data-fade="0.1">
+            <p className="body heritage__body" data-fade="0.1">
               Oggi l&apos;attività è guidata dai figli Alex, Nadir ed Emanuele, con una squadra di abili falegnami che segue ogni fase:
               dalla progettazione alla scelta del legno, fino alla rifinitura a mano dei dettagli. Da questa esperienza prende vita un
               nuovo modo di interpretare il legno.
             </p>
           </div>
 
-          <figure className="heritage__img" data-img-reveal data-cursor="Venature">
-            <div className="heritage__img-in" data-parallax="8">
-              <Image src="/images/materia-venature.jpg" alt="Venature di legno antico" fill sizes="(max-width: 900px) 90vw, 30vw" />
-            </div>
-          </figure>
+          <div className="heritage__copy">
+            <Lines as="h2" className="display display--dark" lines={["Esperienza artigianale,", <>visione contemporanea.</>]} />
+            <p className="lead" data-fade>
+              FLOEMA nasce dalla Falegnameria Galli, bottega di paese fondata a Livigno nel 1984 dalle sapienti mani di Giovanbattista
+              Galli.
+            </p>
+          </div>
         </div>
 
         <span className="rule" data-rule />

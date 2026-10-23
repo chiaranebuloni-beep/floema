@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
-import { Montserrat, Cinzel } from "next/font/google";
 import "./globals.css";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { CartProvider } from "@/components/cart/CartProvider";
@@ -20,16 +19,6 @@ const groupe = localFont({
   display: "swap",
 });
 
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  weight: ["300", "400", "500"],
-  variable: "--font-montserrat",
-  display: "swap",
-});
-
-// Cinzel (versione Google della Cinzel Pro) usato solo per pochi accenti editoriali.
-const cinzel = Cinzel({ subsets: ["latin"], weight: ["400"], variable: "--font-cinzel", display: "swap" });
-
 export const metadata: Metadata = {
   title: "FLOEMA Wood Studio — Dalla natura, l'essenza del design",
   description:
@@ -40,7 +29,7 @@ export const viewport: Viewport = { themeColor: "#1e1e1e" };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="it" className={`${groupe.variable} ${montserrat.variable} ${cinzel.variable}`}>
+    <html lang="it" className={`${groupe.variable}`}>
       <body>
         <CartProvider>
           <Preloader />

@@ -1,0 +1,4 @@
+Il tuo ordine {{ order.reference }} è stato spedito{% if order.carrier %} con {{ order.carrier }}{% endif %}.
+{% if order.tracking_number %}Tracking: {{ order.tracking_number }}{% endif %}
+
+FLOEMA Wood Studio — {{ store_email }}

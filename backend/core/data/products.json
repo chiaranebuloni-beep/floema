@@ -1,0 +1,88 @@
+[
+  {
+    "slug": "sgabello-01",
+    "name": "Sgabello 01",
+    "chapter": "Capitolo 01",
+    "description": "Uno sgabello dal carattere scultoreo, capace di trasformarsi anche in un tavolino d'appoggio, adattandosi a spazi e interpretazioni differenti.",
+    "material": "Legno massello",
+    "dimensions": "35 × 35 cm, altezza 45 cm",
+    "origin": "Realizzato a mano a Livigno",
+    "price": 590,
+    "currency": "EUR",
+    "status": "preorder",
+    "images": [
+      {
+        "src": "/images/sgabello-scultura.jpg",
+        "alt": "Sgabello 01 in bianco e nero, vista di tre quarti"
+      },
+      {
+        "src": "/images/sgabello-alto.jpg",
+        "alt": "Sgabello 01 visto dall'alto"
+      },
+      {
+        "src": "/images/dettaglio-geometria.jpg",
+        "alt": "Spigolo del piano e incastro con la tavola"
+      },
+      {
+        "src": "/images/dettaglio-piano.jpg",
+        "alt": "Dettaglio del piano e della gamba"
+      }
+    ],
+    "modes": [
+      {
+        "id": "seduta",
+        "label": "Seduta",
+        "title": "Sgabello",
+        "text": "Geometrie decise e proporzioni studiate: due linee che si incontrano e trovano il proprio equilibrio sotto una seduta piena.",
+        "image": "/images/sgabello-scultura.jpg"
+      },
+      {
+        "id": "tavolino",
+        "label": "Tavolino",
+        "title": "Tavolino d'appoggio",
+        "text": "Vista dall'alto rivela la naturale bellezza del legno: venature, nodi e sfumature che rendono ogni superficie unica.",
+        "image": "/images/sgabello-alto.jpg"
+      }
+    ],
+    "variants": [
+      {
+        "id": "naturale",
+        "kind": "color",
+        "name": "Naturale",
+        "extra": 0,
+        "swatch": "#ead7bd",
+        "woodTint": "#ffffff",
+        "legTint": "#ffffff"
+      },
+      {
+        "id": "miele",
+        "kind": "color",
+        "name": "Miele",
+        "extra": 0,
+        "swatch": "#c98f57",
+        "woodTint": "#f0b27a",
+        "legTint": "#d9a36e"
+      },
+      {
+        "id": "fume",
+        "kind": "color",
+        "name": "Fumé",
+        "extra": 0,
+        "swatch": "#5b4636",
+        "woodTint": "#8a6b55",
+        "legTint": "#6e5442"
+      }
+    ],
+    "details": {
+      "placeholder": true,
+      "wood": "Abete o cirmolo per piano e tavola, gamba in legno più scuro — da confermare",
+      "finish": "Finitura naturale a olio — da confermare",
+      "mechanism": "Si usa come sgabello o, capovolto, come tavolino d'appoggio — da confermare",
+      "care": "Pulire con un panno morbido appena umido; evitare detergenti aggressivi e fonti di calore dirette — da confermare",
+      "certifications": "Da confermare",
+      "shipping": "Spedizione in Italia e in Europa con corriere espresso, imballo su misura — tempi e costi da confermare",
+      "returns": "Diritto di recesso entro 14 giorni dalla consegna — condizioni da confermare",
+      "leadTime": "Prodotto su ordinazione — tempi da confermare"
+    }
+  }
+]

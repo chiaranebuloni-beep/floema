@@ -1,0 +1,10 @@
+.venv
+.bootstrap
+__pycache__
+db.sqlite3
+staticfiles
+.env
+.env*
+CREDENZIALI-LOCALI.txt
+CHIAVI-VERCEL.txt
+CREDENZIALI-ONLINE.txt

@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { gsap, prefersReducedMotion } from "@/lib/gsap";
-import { LogoSeed } from "./Logo";
+import { LogoMark } from "./Logo";
 
 declare global {
   interface Window {
@@ -59,7 +59,7 @@ export function Preloader() {
   return (
     <div ref={root} className="preloader" aria-hidden>
       <div className="preloader__inner">
-        <LogoSeed className="preloader__seed" />
+        <LogoMark className="preloader__seed" />
         <div className="preloader__bar">
           <span className="preloader__line" />
         </div>
