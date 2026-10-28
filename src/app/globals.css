@@ -967,9 +967,7 @@ address {
   flex-direction: column;
   gap: 28px;
 }
-.heritage__copy .display {
-  font-size: clamp(32px, 3.6vw, 60px);
-}
+
 
 /* ---------- Architetti ---------- */
 .arch {
@@ -2312,9 +2310,11 @@ address {
   max-width: 28ch;
 }
 .chapter .display,
-.news__grid .display,
-.heritage__copy .display {
+.news__grid .display {
   font-size: clamp(28px, 3.2vw, 54px);
+}
+.heritage__title {
+  font-size: clamp(26px, 2.7vw, 46px);
 }
 .persp__intro .display {
   font-size: clamp(26px, 2.8vw, 48px);
@@ -2461,13 +2461,29 @@ address {
   }
 }
 
-/* Lo studio: il titolo di destra parte all'altezza delle cifre del 1984, non dell'etichetta «Dal». */
+/* Lo studio: in alto anno e titolo (allineati in basso), sotto i due testi che partono alla stessa altezza. */
 @media (min-width: 901px) {
   .heritage__grid {
-    align-items: start;
+    grid-template-areas:
+      "year title"
+      "body copy";
+    row-gap: 0;
+    align-items: end;
+  }
+  .heritage__year {
+    grid-area: year;
+  }
+  .heritage__title {
+    grid-area: title;
+  }
+  .heritage__body {
+    grid-area: body;
+    align-self: start;
   }
   .heritage__copy {
-    padding-top: 32px;
+    grid-area: copy;
+    align-self: start;
+    margin-top: clamp(28px, 3vw, 48px);
   }
 }
 
