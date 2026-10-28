@@ -36,7 +36,6 @@ export function ProductDetail({ product }: { product: Product }) {
     { t: "Dimensioni", body: product.dimensions ?? "—" },
     { t: "Legno", body: d.wood },
     { t: "Finitura", body: d.finish },
-    { t: "Utilizzo", body: d.mechanism },
     { t: "Cura e manutenzione", body: d.care },
   ];
   const purchase = [
@@ -84,6 +83,7 @@ export function ProductDetail({ product }: { product: Product }) {
           </p>
           <h1 className="pcard__name">{product.name}</h1>
           <p className="pcard__price">{formatPrice(variantPrice(product, chosen))}</p>
+          <p className="pdp__lead">Spedizione esclusa</p>
           <p className="body pdp__desc">{product.description}</p>
 
           {VARIANT_KINDS.map(({ kind, label }) => {

@@ -9,7 +9,7 @@ import { Lines } from "@/components/Lines";
 
 export const metadata: Metadata = {
   title: "Shop — FLOEMA Wood Studio",
-  description: "Sgabello 01: legno massello realizzato a mano a Livigno, sgabello e tavolino d'appoggio. Scegli la colorazione.",
+  description: "FLOEMA 01: sgabello in legno massello realizzato a mano a Livigno, anche tavolino d'appoggio. Scegli la colorazione.",
 };
 
 export const revalidate = 60;

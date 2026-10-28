@@ -10,13 +10,12 @@ export const metadata: Metadata = {
   description: "Le essenze, le lavorazioni e i toni del legno con cui nasce ogni creazione FLOEMA.",
 };
 
-// Essenze e lavorazioni dal catalogo materiali della Falegnameria Galli.
+// Essenze e toni indicati dal cliente (ottobre 2026); lavorazioni dal catalogo materiali della Falegnameria Galli.
 const ESSENZE = [
-  { name: "Abete", note: "Anche nelle versioni bio e termotrattata" },
-  { name: "Larice", note: "Anche nelle versioni bio e termotrattata" },
-  { name: "Cirmolo", note: "Anche nella versione bio" },
-  { name: "Rovere", note: "Anche nella versione bio" },
-  { name: "Legno antico", note: "Patina grigia, scura o chiara" },
+  { name: "Legno antico", note: "Bruno caldo e miele scuro, con sfumature dal dorato intenso al grigiastro" },
+  { name: "Rovere", note: "Marrone chiaro, color nocciola o miele" },
+  { name: "Cirmolo", note: "Dal bianco-giallastro al miele rossiccio" },
+  { name: "Abete", note: "Laccato o bruciato, nero intenso" },
 ];
 
 const LAVORAZIONI = ["Effetto asciato", "Piallato a mano", "Piano sega", "Spazzolato", "Incisioni e lavorazioni 3D"];

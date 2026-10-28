@@ -9,7 +9,7 @@ import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment
 const CM = 1 / 45;
 const HEIGHT = 45;
 const TOP = 35; // piano 35 × 35
-const THICK = 2.8; // spessore di piano e tavola
+const THICK = 3.8; // spessore di seduta e tavola (dato del cliente)
 const UNDER = HEIGHT - THICK; // quota del sotto-piano
 // Tavola inclinata a 55,1°: dallo spigolo destro del piano scende a terra a sinistra.
 const BOARD_COT = 1 / Math.tan((55.1 * Math.PI) / 180);
@@ -23,7 +23,7 @@ const LEG_DX = UNDER / Math.tan(((180 - 109) * Math.PI) / 180);
 const LEG_DEPTH = 5; // non quotata: stimata dalla vista 3D, centrata
 
 // Legno vero, ritagliato dalla foto dall'alto del piano. Tutti i pezzi usano lo stesso legno chiaro:
-// la colorazione (anche la gamba nera del Fumé) si ottiene con le tinte delle varianti, ricavate dalle foto.
+// la colorazione (anche la gamba nera del Legno antico) si ottiene con le tinte delle varianti, ricavate dalle foto.
 const WOOD_URL = "/images/textures/legno-chiaro.jpg";
 const TEX_SPAN = 1.3; // quanta lunghezza di legno (in altezze del modello) copre una ripetizione della texture
 const TEX_ASPECT = 620 / 415;
@@ -276,5 +276,5 @@ export default function Stool3D({ woodTint = "#ffffff", legTint = "#ffffff" }: P
     mats.current.leg.color.set(legTint);
   }, [woodTint, legTint]);
 
-  return <div ref={mount} className="stool3d__canvas" aria-label="Modello 3D dello Sgabello 01, trascina per ruotarlo" role="img" />;
+  return <div ref={mount} className="stool3d__canvas" aria-label="Modello 3D dello sgabello FLOEMA 01, trascina per ruotarlo" role="img" />;
 }

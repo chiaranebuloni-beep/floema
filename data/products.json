@@ -1,59 +1,59 @@
 [
   {
     "slug": "sgabello-01",
-    "name": "Sgabello 01",
+    "name": "FLOEMA 01",
     "chapter": "Capitolo 01",
     "description": "Uno sgabello dal carattere scultoreo, capace di trasformarsi anche in un tavolino d'appoggio, adattandosi a spazi e interpretazioni differenti.",
     "material": "Legno massello",
-    "dimensions": "35 × 35 cm, altezza 45 cm",
+    "dimensions": "Seduta 35 × 35 cm, altezza 45 cm, spessore di seduta e tavola 3,8 cm. Portata 150 kg",
     "origin": "Realizzato a mano a Livigno",
-    "price": 590,
+    "price": 490,
     "currency": "EUR",
     "status": "preorder",
     "images": [
       {
         "src": "/images/sgabello-naturale-fondo.jpg",
-        "alt": "Sgabello 01 in finitura Naturale, su fondo chiaro",
+        "alt": "Sgabello FLOEMA 01 in cirmolo, su fondo chiaro",
         "variant": "naturale"
       },
       {
         "src": "/images/sgabello-naturale-studio.jpg",
-        "alt": "Sgabello 01 in finitura Naturale, in studio",
+        "alt": "Sgabello FLOEMA 01 in cirmolo, in studio",
         "variant": "naturale"
       },
       {
         "src": "/images/sgabello-naturale-ambiente.jpg",
-        "alt": "Sgabello 01 in finitura Naturale, accanto a un divano",
+        "alt": "Sgabello FLOEMA 01 in cirmolo, accanto a un divano",
         "variant": "naturale"
       },
       {
         "src": "/images/sgabello-miele-fondo.jpg",
-        "alt": "Sgabello 01 in finitura Miele, su fondo chiaro",
+        "alt": "Sgabello FLOEMA 01 in rovere, su fondo chiaro",
         "variant": "miele"
       },
       {
         "src": "/images/sgabello-miele-studio.jpg",
-        "alt": "Sgabello 01 in finitura Miele, in studio",
+        "alt": "Sgabello FLOEMA 01 in rovere, in studio",
         "variant": "miele"
       },
       {
         "src": "/images/sgabello-miele-ambiente.jpg",
-        "alt": "Sgabello 01 in finitura Miele, accanto a un divano",
+        "alt": "Sgabello FLOEMA 01 in rovere, accanto a un divano",
         "variant": "miele"
       },
       {
         "src": "/images/sgabello-fume-fondo.jpg",
-        "alt": "Sgabello 01 in finitura Fumé, su fondo chiaro",
+        "alt": "Sgabello FLOEMA 01 in legno antico con gamba in abete nero, su fondo chiaro",
         "variant": "fume"
       },
       {
         "src": "/images/sgabello-fume-studio.jpg",
-        "alt": "Sgabello 01 in finitura Fumé, in studio",
+        "alt": "Sgabello FLOEMA 01 in legno antico con gamba in abete nero, in studio",
         "variant": "fume"
       },
       {
         "src": "/images/sgabello-fume-ambiente.jpg",
-        "alt": "Sgabello 01 in finitura Fumé, accanto a un divano",
+        "alt": "Sgabello FLOEMA 01 in legno antico con gamba in abete nero, accanto a un divano",
         "variant": "fume"
       }
     ],
@@ -77,7 +77,7 @@
       {
         "id": "naturale",
         "kind": "color",
-        "name": "Naturale",
+        "name": "Cirmolo",
         "extra": 0,
         "swatch": "#ead7bd",
         "woodTint": "#fff3e0",
@@ -86,29 +86,29 @@
       {
         "id": "miele",
         "kind": "color",
-        "name": "Miele",
+        "name": "Rovere",
         "extra": 0,
-        "swatch": "#c98f57",
+        "swatch": "#c99a62",
         "woodTint": "#ecc99a",
         "legTint": "#fff3e0"
       },
       {
         "id": "fume",
         "kind": "color",
-        "name": "Fumé",
+        "name": "Legno antico",
         "extra": 0,
-        "swatch": "#5b4636",
+        "swatch": "#8b5e3c",
         "woodTint": "#dfae7c",
         "legTint": "#2e2c2b"
       }
     ],
     "details": {
       "placeholder": true,
-      "wood": "Abete o cirmolo per piano e tavola, gamba in legno più scuro — da confermare",
-      "finish": "Finitura naturale a olio — da confermare",
+      "wood": "Legno antico, rovere, cirmolo e abete. Cirmolo: dal bianco-giallastro al miele rossiccio. Rovere: marrone chiaro, nocciola o miele. Legno antico: bruno caldo e miele scuro, con sfumature dal dorato intenso al grigiastro, abbinato alla gamba in abete laccato o bruciato nero intenso",
+      "finish": "Spazzolata e verniciata",
       "mechanism": "Si usa come sgabello o, capovolto, come tavolino d'appoggio — da confermare",
-      "care": "Pulire con un panno morbido appena umido; evitare detergenti aggressivi e fonti di calore dirette — da confermare",
-      "certifications": "Da confermare",
+      "care": "Pulire con un panno umido",
+      "certifications": "Legno certificato PEFC. Vernice conforme alle norme DIN 53160-1 e DIN 53160-2 (elevata resistenza a sudore e saliva) e ÖNORM EN 71-3 (assenza o rilascio controllato di metalli pesanti come piombo, cadmio e mercurio)",
       "shipping": "Spedizione in Italia e in Europa con corriere espresso, imballo su misura — tempi e costi da confermare",
       "returns": "Diritto di recesso entro 14 giorni dalla consegna — condizioni da confermare",
       "leadTime": "Prodotto su ordinazione — tempi da confermare"
