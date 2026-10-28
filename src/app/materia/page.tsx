@@ -51,7 +51,7 @@ export default function MateriaPage() {
               <Image src="/images/materia-venature.jpg" alt="Venature di legno antico in luce radente" fill sizes="(max-width: 900px) 92vw, 44vw" />
             </figure>
             <figure className="mat-duo__img mat-duo__img--low" data-img-reveal>
-              <Image src="/images/dettaglio-piano.jpg" alt="Nodi e venature sul piano dello sgabello" fill sizes="(max-width: 900px) 92vw, 44vw" />
+              <Image src="/images/dettaglio-spigolo.jpg" alt="Spigolo dello sgabello con gamba in legno scuro" fill sizes="(max-width: 900px) 92vw, 44vw" />
             </figure>
           </div>
         </section>
