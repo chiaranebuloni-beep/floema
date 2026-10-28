@@ -4,10 +4,11 @@ import { readCollection } from "./store";
 import type { CartLine, PricedLine, Product } from "./types";
 import { resolveVariants, variantKey, variantLabel, variantPrice } from "./variants";
 
-export async function getProducts(): Promise<Product[]> {
+// Per le pagine il catalogo resta in cache un minuto; per i prezzi del carrello (`fresh`) si rilegge sempre.
+export async function getProducts({ fresh = false } = {}): Promise<Product[]> {
   if (backendUrl()) {
     try {
-      const res = await backendFetch("/api/products/");
+      const res = await backendFetch("/api/products/", fresh ? undefined : { revalidate: 60 });
       if (res.ok) return (await res.json()) as Product[];
     } catch {
       // Backend non raggiungibile: si ripiega sul catalogo locale.
@@ -24,7 +25,7 @@ export const lineKey = (slug: string, variant?: string) => `${slug}:${variant ??
 
 // I prezzi vengono sempre ricalcolati lato server: il client invia solo slug, colorazione e quantità.
 export async function priceCart(lines: CartLine[]) {
-  const products = await getProducts();
+  const products = await getProducts({ fresh: true });
   const priced: PricedLine[] = [];
   for (const line of lines) {
     const product = products.find((p) => p.slug === line.slug);

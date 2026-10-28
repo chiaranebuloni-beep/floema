@@ -381,6 +381,9 @@ address {
   place-items: center;
   clip-path: inset(0 0 0 0);
 }
+.no-intro .preloader {
+  display: none;
+}
 .preloader__inner {
   display: flex;
   flex-direction: column;

@@ -7,6 +7,7 @@ import { CartDrawer } from "@/components/cart/CartDrawer";
 import { Cursor } from "@/components/Cursor";
 import { Header } from "@/components/Header";
 import { Preloader } from "@/components/Preloader";
+import { INTRO_KEY } from "@/lib/intro";
 
 const groupe = localFont({
   src: [
@@ -29,7 +30,15 @@ export const viewport: Viewport = { themeColor: "#1e1e1e" };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="it" className={`${groupe.variable}`}>
+    <html lang="it" className={`${groupe.variable}`} suppressHydrationWarning>
+      <head>
+        {/* Prima del disegno della pagina: se l'ingresso è già stato visto in questa visita, il preloader non compare. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if(sessionStorage.getItem("${INTRO_KEY}"))document.documentElement.classList.add("no-intro")}catch(e){}`,
+          }}
+        />
+      </head>
       <body>
         <CartProvider>
           <Preloader />
