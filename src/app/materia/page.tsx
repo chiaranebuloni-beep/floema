@@ -41,8 +41,7 @@ export default function MateriaPage() {
               </p>
               <p className="body" data-fade="0.1">
                 È questa unicità a rendere il legno così affascinante: una bellezza autentica, che scegliamo di valorizzare in ogni nostra
-                creazione. Per noi progettare significa ascoltare il legno, rispettarne la natura e trasformarlo in qualcosa che va oltre
-                la sua funzione.
+                creazione.
               </p>
             </div>
           </div>
