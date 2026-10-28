@@ -8,6 +8,7 @@ import { Cursor } from "@/components/Cursor";
 import { Header } from "@/components/Header";
 import { Preloader } from "@/components/Preloader";
 import { INTRO_KEY } from "@/lib/intro";
+import { SITE_URL } from "@/lib/site";
 
 const groupe = localFont({
   src: [
@@ -20,10 +21,16 @@ const groupe = localFont({
   display: "swap",
 });
 
+const TITLE = "FLOEMA Wood Studio — Dalla natura, l'essenza del design";
+const DESCRIPTION =
+  "FLOEMA Wood Studio: arredi di design in legno massello, realizzati a mano a Livigno. Scopri la prima creazione, uno sgabello che diventa tavolino d'appoggio e comodino.";
+
 export const metadata: Metadata = {
-  title: "FLOEMA Wood Studio — Dalla natura, l'essenza del design",
-  description:
-    "FLOEMA Wood Studio: arredi di design in legno massello, realizzati a mano a Livigno. Scopri la prima creazione, uno sgabello che diventa tavolino d'appoggio e comodino.",
+  metadataBase: new URL(SITE_URL),
+  title: TITLE,
+  description: DESCRIPTION,
+  openGraph: { type: "website", locale: "it_IT", siteName: "FLOEMA Wood Studio", title: TITLE, description: DESCRIPTION },
+  twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION },
 };
 
 export const viewport: Viewport = { themeColor: "#1e1e1e" };
