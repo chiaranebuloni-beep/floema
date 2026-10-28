@@ -22,7 +22,7 @@ const groupe = localFont({
 export const metadata: Metadata = {
   title: "FLOEMA Wood Studio — Dalla natura, l'essenza del design",
   description:
-    "FLOEMA Wood Studio: arredi di design in legno massello, realizzati a mano a Livigno. Scopri la prima creazione, uno sgabello che diventa tavolino.",
+    "FLOEMA Wood Studio: arredi di design in legno massello, realizzati a mano a Livigno. Scopri la prima creazione, uno sgabello che diventa tavolino d'appoggio e comodino.",
 };
 
 export const viewport: Viewport = { themeColor: "#1e1e1e" };

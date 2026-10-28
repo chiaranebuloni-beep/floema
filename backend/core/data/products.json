@@ -3,7 +3,7 @@
     "slug": "sgabello-01",
     "name": "FLOEMA 01",
     "chapter": "Capitolo 01",
-    "description": "Uno sgabello dal carattere scultoreo, capace di trasformarsi anche in un tavolino d'appoggio, adattandosi a spazi e interpretazioni differenti.",
+    "description": "Uno sgabello dal carattere scultoreo, capace di trasformarsi anche in un tavolino d'appoggio o in un comodino, adattandosi a spazi e interpretazioni differenti.",
     "material": "Legno massello",
     "dimensions": "Seduta 35 × 35 cm, altezza 45 cm, spessore di seduta e tavola 3,8 cm. Portata 150 kg",
     "origin": "Realizzato a mano a Livigno",
@@ -71,6 +71,13 @@
         "title": "Tavolino d'appoggio",
         "text": "Vista dall'alto rivela la naturale bellezza del legno: venature, nodi e sfumature che rendono ogni superficie unica.",
         "image": "/images/sgabello-alto.jpg"
+      },
+      {
+        "id": "comodino",
+        "label": "Comodino",
+        "title": "Comodino",
+        "text": "Accanto al letto diventa un comodino essenziale: un piano pieno per tenere a portata di mano ciò che serve.",
+        "image": "/images/sgabello-naturale-fondo.jpg"
       }
     ],
     "variants": [
@@ -106,7 +113,7 @@
       "placeholder": true,
       "wood": "Legno antico, rovere, cirmolo e abete. Cirmolo: dal bianco-giallastro al miele rossiccio. Rovere: marrone chiaro, nocciola o miele. Legno antico: bruno caldo e miele scuro, con sfumature dal dorato intenso al grigiastro, abbinato alla gamba in abete laccato o bruciato nero intenso",
       "finish": "Spazzolata e verniciata",
-      "mechanism": "Si usa come sgabello o, capovolto, come tavolino d'appoggio — da confermare",
+      "mechanism": "Si usa come sgabello, come tavolino d'appoggio o come comodino",
       "care": "Pulire con un panno umido",
       "certifications": "Legno certificato PEFC. Vernice conforme alle norme DIN 53160-1 e DIN 53160-2 (elevata resistenza a sudore e saliva) e ÖNORM EN 71-3 (assenza o rilascio controllato di metalli pesanti come piombo, cadmio e mercurio)",
       "shipping": "Spedizione in Italia e in Europa con corriere espresso, imballo su misura — tempi e costi da confermare",
