@@ -34,7 +34,7 @@ export function ProductDetail({ product }: { product: Product }) {
   // Caratteristiche del prodotto e informazioni d'acquisto in due elenchi apribili distinti.
   const specs = [
     { t: "Dimensioni", body: product.dimensions ?? "—" },
-    { t: "Legno", body: d.wood },
+    { t: "Legno", body: chosen.find((v) => v.wood)?.wood ?? d.wood },
     { t: "Finitura", body: d.finish },
     { t: "Cura e manutenzione", body: d.care },
   ];
@@ -76,7 +76,6 @@ export function ProductDetail({ product }: { product: Product }) {
           <nav className="pdp__crumbs" aria-label="Percorso">
             <Link href="/shop">Shop</Link> <span aria-hidden>/</span> <span>{product.name}</span>
           </nav>
-          {d.placeholder && <p className="pdp__draft">Contenuti provvisori — in attesa dei dati definitivi del cliente</p>}
           <p className="pcard__meta">
             <span>{product.chapter}</span>
             <span>{product.material}</span>
@@ -93,7 +92,7 @@ export function ProductDetail({ product }: { product: Product }) {
             return (
               <fieldset key={kind} className="pdp__variants">
                 <legend className="eyebrow eyebrow--dark">
-                  {label} <strong>{current?.name}</strong>
+                  {label}
                 </legend>
                 <div className={kind === "color" ? "pdp__swatches" : "pdp__options"}>
                   {options.map((v) => (

@@ -72,7 +72,7 @@ class Command(BaseCommand):
                 variant, _ = Variant.objects.update_or_create(code=v["id"], defaults={
                     "kind": v.get("kind", "color"), "name": v["name"], "extra_price": Decimal(str(v.get("extra", 0))),
                     "swatch": v.get("swatch", ""), "wood_tint": v.get("woodTint", ""), "leg_tint": v.get("legTint", ""),
-                    "position": n,
+                    "wood": v.get("wood", ""), "position": n,
                 })
                 product.variants.add(variant)
             for n, m in enumerate(data.get("modes", [])):

@@ -139,7 +139,7 @@ export function CheckoutForm({ stripe }: { stripe: boolean }) {
                 </div>
                 <div>
                   <span>Spedizione</span>
-                  <span>Da confermare</span>
+                  <span>Esclusa</span>
                 </div>
                 <div className="checkout__total">
                   <span>Totale</span>

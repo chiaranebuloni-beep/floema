@@ -13,6 +13,7 @@ export type ProductVariant = {
   kind: VariantKind;
   name: string;
   extra: number; // supplemento sul prezzo del prodotto
+  wood?: string; // descrizione del legno di questa variante, al posto di quella del prodotto
   swatch?: string; // solo colori: pallino nel selettore
   woodTint?: string; // solo colori: tinta del legno chiaro nel 3D
   legTint?: string; // solo colori: tinta della gamba nel 3D

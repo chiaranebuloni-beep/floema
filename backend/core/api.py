@@ -45,7 +45,7 @@ def serialize_product(p):
                    for i in p.images.select_related("variant")],
         "modes": [{"id": m.key, "label": m.label, "title": m.title, "text": m.text, "image": m.image} for m in p.modes.all()],
         "variants": [
-            {"id": v.code, "kind": v.kind, "name": v.name, "extra": float(v.extra_price),
+            {"id": v.code, "kind": v.kind, "name": v.name, "extra": float(v.extra_price), **({"wood": v.wood} if v.wood else {}),
              **({"swatch": v.swatch, "woodTint": v.wood_tint or "#ffffff", "legTint": v.leg_tint or "#ffffff"} if v.kind == "color" else {})}
             for v in p.variants.all() if v.is_active
         ],

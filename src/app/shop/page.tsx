@@ -37,16 +37,10 @@ export default async function ShopPage() {
             <Lines as="h2" className="display" lines={["Un oggetto,", "molteplici possibilità."]} />
             <ul className="shop-info__list">
               <li data-fade>
-                <span>Materia</span>
-                Legno massello: venature, nodi e sfumature rendono ogni superficie unica.
-              </li>
-              <li data-fade="0.05">
-                <span>Lavorazione</span>
-                Progettato e realizzato a mano a Livigno, rifinito nei dettagli.
-              </li>
-              <li data-fade="0.1">
                 <span>Utilizzo</span>
-                Sgabello, tavolino d&apos;appoggio o comodino, mantenendo sempre la propria identità.
+                Sgabello quando serve una seduta in più, tavolino d&apos;appoggio accanto al divano, comodino vicino al letto. Un solo
+                oggetto che si sposta da una stanza all&apos;altra e si adatta agli spazi e ai momenti della giornata, mantenendo
+                sempre la propria identità.
               </li>
             </ul>
           </div>

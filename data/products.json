@@ -84,8 +84,9 @@
       {
         "id": "naturale",
         "kind": "color",
-        "name": "Cirmolo",
+        "name": "Naturale",
         "extra": 0,
+        "wood": "Cirmolo, dal bianco-giallastro al miele rossiccio.",
         "swatch": "#ead7bd",
         "woodTint": "#fff3e0",
         "legTint": "#fff3e0"
@@ -93,8 +94,9 @@
       {
         "id": "miele",
         "kind": "color",
-        "name": "Rovere",
+        "name": "Miele",
         "extra": 0,
+        "wood": "Rovere, marrone chiaro, color nocciola o miele.",
         "swatch": "#c99a62",
         "woodTint": "#ecc99a",
         "legTint": "#fff3e0"
@@ -102,8 +104,9 @@
       {
         "id": "fume",
         "kind": "color",
-        "name": "Legno antico",
+        "name": "Fumé",
         "extra": 0,
+        "wood": "Legno antico, bruno caldo e miele scuro, con sfumature dal dorato intenso al grigiastro, abbinato alla gamba in abete laccato o bruciato nero intenso.",
         "swatch": "#8b5e3c",
         "woodTint": "#dfae7c",
         "legTint": "#2e2c2b"
@@ -116,9 +119,9 @@
       "mechanism": "Si usa come sgabello, come tavolino d'appoggio o come comodino",
       "care": "Pulire con un panno umido",
       "certifications": "Legno certificato PEFC. Vernice conforme alle norme DIN 53160-1 e DIN 53160-2 (elevata resistenza a sudore e saliva) e ÖNORM EN 71-3 (assenza o rilascio controllato di metalli pesanti come piombo, cadmio e mercurio)",
-      "shipping": "Spedizione in Italia e in Europa con corriere espresso, imballo su misura — tempi e costi da confermare",
-      "returns": "Diritto di recesso entro 14 giorni dalla consegna — condizioni da confermare",
-      "leadTime": "Prodotto su ordinazione — tempi da confermare"
+      "shipping": "Spedizione in Italia e in Europa con corriere espresso, imballo su misura",
+      "returns": "Diritto di recesso entro 14 giorni dalla consegna",
+      "leadTime": "Prodotto su ordinazione"
     }
   }
 ]

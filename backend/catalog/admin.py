@@ -99,7 +99,7 @@ class VariantAdmin(ModelAdmin):
     search_fields = ["name", "code"]
     prepopulated_fields = {"code": ["name"]}
     fieldsets = [
-        (None, {"fields": [("kind", "name", "code"), ("extra_price", "is_active", "position"), "products"]}),
+        (None, {"fields": [("kind", "name", "code"), ("extra_price", "is_active", "position"), "products", "wood"]}),
         ("Solo per i colori", {"fields": [("swatch", "wood_tint", "leg_tint")],
                                "description": "Colore del pallino nel selettore e tinte applicate al modello 3D. Per materiali e dimensioni lasciali vuoti."}),
     ]

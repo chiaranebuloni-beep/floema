@@ -19,6 +19,9 @@ class Variant(models.Model):
     swatch = models.CharField("colore del selettore", max_length=7, blank=True, help_text="Solo per i colori.")
     wood_tint = models.CharField("tinta legno 3D", max_length=7, blank=True, help_text="Solo per i colori.")
     leg_tint = models.CharField("tinta gamba 3D", max_length=7, blank=True, help_text="Solo per i colori.")
+    wood = models.TextField(
+        "descrizione legno", blank=True, help_text="Testo della riga «Legno» sul sito quando è scelta questa variante. Vuoto = quello del prodotto."
+    )
     is_active = models.BooleanField("in vendita", default=True)
     position = models.PositiveIntegerField("ordine", default=0)
 
