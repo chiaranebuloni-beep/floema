@@ -4,12 +4,6 @@ import { gsap, prefersReducedMotion } from "@/lib/gsap";
 import { onReady } from "../Preloader";
 import { Lines } from "../Lines";
 
-const PILLARS = [
-  { n: "01", t: "Origine autentica", d: "Legno lavorato in Valtellina, con l'esperienza di una bottega artigiana nata a Livigno. Non un claim: una storia verificabile." },
-  { n: "02", t: "Design con firma", d: "Ogni pezzo ha una silhouette riconoscibile. Un linguaggio visivo coerente, non una collezione di oggetti eterogenei." },
-  { n: "03", t: "Il processo è valore", d: "Macchinari di nuova generazione e rifinitura a mano dei dettagli. Il dietro le quinte è parte del prodotto." },
-];
-
 export function Heritage() {
   const root = useRef<HTMLElement>(null);
   const year = useRef<HTMLSpanElement>(null);
@@ -28,14 +22,6 @@ export function Heritage() {
             if (year.current) year.current.textContent = String(Math.round(n.v));
           },
           scrollTrigger: { trigger: year.current, start: "top 85%" },
-        });
-        gsap.from(".pillar", {
-          y: 60,
-          opacity: 0,
-          stagger: 0.12,
-          duration: 1.2,
-          ease: "power3.out",
-          scrollTrigger: { trigger: ".pillars", start: "top 85%" },
         });
       }, root);
     });
@@ -78,17 +64,6 @@ export function Heritage() {
               Galli.
             </p>
           </div>
-        </div>
-
-        <span className="rule" data-rule />
-        <div className="pillars">
-          {PILLARS.map((p) => (
-            <article key={p.n} className="pillar">
-              <span className="pillar__n">{p.n}</span>
-              <h3 className="pillar__t">{p.t}</h3>
-              <p className="body">{p.d}</p>
-            </article>
-          ))}
         </div>
       </div>
     </section>

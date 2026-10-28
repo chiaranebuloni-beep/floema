@@ -803,6 +803,18 @@ address {
 .persp__track::-webkit-scrollbar {
   display: none;
 }
+/* Su computer le schede occupano tutta la larghezza della pagina, allineate al titolo; su telefono scorrono. */
+@media (min-width: 901px) {
+  .persp__track {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, 1fr);
+    max-width: 1560px;
+    margin: 0 auto;
+    overflow: visible;
+    scroll-snap-type: none;
+  }
+}
 .persp__card {
   flex: 0 0 clamp(280px, 28vw, 440px);
   display: flex;
@@ -957,33 +969,6 @@ address {
 }
 .heritage__copy .display {
   font-size: clamp(32px, 3.6vw, 60px);
-}
-.rule {
-  display: block;
-  height: 1px;
-  background: var(--line-dark);
-  margin: clamp(64px, 8vw, 128px) 0 clamp(40px, 4vw, 64px);
-}
-.pillars {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(28px, 4vw, 72px);
-}
-.pillar {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-.pillar__n {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.2em;
-  color: var(--rovere);
-}
-.pillar__t {
-  font-family: var(--f-head);
-  font-weight: 300;
-  font-size: clamp(22px, 1.8vw, 28px);
 }
 
 /* ---------- Architetti ---------- */
@@ -1560,10 +1545,6 @@ address {
   color: var(--tortora);
   padding-top: 4px;
 }
-.shop-info__cta {
-  grid-column: 2;
-  justify-self: start;
-}
 
 /* Materia */
 .mat-intro {
@@ -1950,9 +1931,6 @@ address {
   .contact__grid,
   .timeline {
     grid-template-columns: minmax(0, 1fr);
-  }
-  .shop-info__cta {
-    grid-column: 1;
   }
   .shop__head {
     flex-direction: column;
@@ -2345,7 +2323,6 @@ address {
   font-size: clamp(22px, 2.2vw, 36px);
 }
 .persp__title,
-.pillar__t,
 .menu__nav a,
 .news__done,
 .drawer__name,
@@ -2376,8 +2353,7 @@ address {
   .chapter__grid,
   .heritage__grid,
   .news__grid,
-  .arch__cols,
-  .pillars {
+  .arch__cols {
     grid-template-columns: minmax(0, 1fr);
   }
   /* Su telefono il legno resta solo dietro la parte alta; i paragrafi proseguono sul fondo scuro. */

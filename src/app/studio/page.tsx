@@ -7,6 +7,7 @@ import { RevealAnimations } from "@/components/RevealAnimations";
 import { Lines } from "@/components/Lines";
 import { Magnetic } from "@/components/Magnetic";
 import { Slideshow } from "@/components/pages/Slideshow";
+import { CountUp } from "@/components/CountUp";
 
 export const metadata: Metadata = {
   title: "Studio — FLOEMA Wood Studio",
@@ -53,7 +54,11 @@ export default function StudioPage() {
             <ol className="timeline">
               {TAPPE.map((t, i) => (
                 <li key={t.year} className="timeline__item" data-fade={String(i * 0.08)}>
-                  <span className={`timeline__year ${/^\d+$/.test(t.year) ? "" : "timeline__year--text"}`}>{t.year}</span>
+                  {/^\d+$/.test(t.year) ? (
+                    <CountUp to={Number(t.year)} className="timeline__year" />
+                  ) : (
+                    <span className="timeline__year timeline__year--text">{t.year}</span>
+                  )}
                   <h2 className="timeline__t">{t.t}</h2>
                   <p className="body">{t.d}</p>
                 </li>

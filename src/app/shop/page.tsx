@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getProducts } from "@/lib/products";
 import { PageHero } from "@/components/pages/PageHero";
@@ -50,9 +49,6 @@ export default async function ShopPage() {
                 Sgabello o tavolino d&apos;appoggio, mantenendo sempre la propria identità.
               </li>
             </ul>
-            <Link href="/materia" className="btn btn--ghost-light shop-info__cta" data-fade>
-              Scopri la materia
-            </Link>
           </div>
         </section>
       </main>
