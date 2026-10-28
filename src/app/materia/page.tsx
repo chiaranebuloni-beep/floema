@@ -27,8 +27,8 @@ export default function MateriaPage() {
         <PageHero
           index="01"
           eyebrow="Materia"
-          lines={["Tutto nasce", "dalla materia."]}
-          lead="Dalle sue caratteristiche, dalle sue imperfezioni, dalle possibilità che racchiude."
+          lines={["Scelto a mano,", "lavorato con rispetto."]}
+          lead="Legno antico, rovere, cirmolo e abete: essenze selezionate una a una, per lasciar parlare venature, nodi e sfumature."
           image={{ src: "/images/manifesto-legno-naturale.jpg", alt: "Superficie di legno con anelli di crescita e venature" }}
         />
 
