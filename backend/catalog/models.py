@@ -82,6 +82,10 @@ class Product(models.Model):
 
 class ProductImage(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="images")
+    variant = models.ForeignKey(
+        Variant, verbose_name="colorazione", null=True, blank=True, on_delete=models.SET_NULL,
+        limit_choices_to={"kind": Variant.Kind.COLOR}, help_text="Vuoto = mostrata con tutte le colorazioni.",
+    )
     path = models.CharField("immagine", max_length=200, help_text="Percorso nel sito, es. /images/sgabello-alto.jpg")
     alt = models.CharField("descrizione", max_length=160, blank=True)
     position = models.PositiveIntegerField("ordine", default=0)

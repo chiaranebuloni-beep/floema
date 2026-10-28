@@ -22,10 +22,14 @@ export function ProductDetail({ product }: { product: Product }) {
   const chosen = resolveVariants(product, codes);
   const color = chosen.find((v) => v.kind === "color");
   // Scegliere un'opzione sostituisce quella dello stesso tipo e lascia invariate le altre.
-  const choose = (kind: string, id: string) =>
+  const choose = (kind: string, id: string) => {
     setCodes(variantKey(chosen.map((v) => (v.kind === kind ? product.variants.find((o) => o.id === id) ?? v : v))));
+    // Cambiando colore, se si sta guardando una foto si passa alla prima foto del nuovo colore.
+    if (kind === "color" && view !== "3d") setView(0);
+  };
   const d = product.details;
-  const photos = product.images;
+  // Foto della colorazione scelta, più quelle comuni a tutte.
+  const photos = product.images.filter((i) => !i.variant || i.variant === color?.id);
 
   // Caratteristiche del prodotto e informazioni d'acquisto in due elenchi apribili distinti.
   const specs = [
@@ -45,8 +49,8 @@ export function ProductDetail({ product }: { product: Product }) {
     <section className="pdp" data-theme="light">
       <div className="container pdp__grid">
         <div className="pdp__gallery">
-          <div className={`pdp__stage ${view === "3d" ? "pdp__stage--3d" : ""}`}>
-            {view === "3d" ? (
+          <div className={`pdp__stage ${view === "3d" || !photos[view] ? "pdp__stage--3d" : ""}`}>
+            {view === "3d" || !photos[view] ? (
               <>
                 <Stool3D woodTint={color?.woodTint} legTint={color?.legTint} />
                 <span className="pcard__hint" aria-hidden>

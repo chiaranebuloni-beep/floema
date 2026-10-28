@@ -1702,6 +1702,22 @@ address {
 .studio-story {
   background: var(--avorio);
 }
+.studio-team {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  margin: clamp(48px, 7vw, 110px) 0 0;
+  overflow: hidden;
+}
+.studio-team img {
+  object-fit: cover;
+}
+.studio-team__caption {
+  margin-top: 14px;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fango);
+}
 .timeline {
   list-style: none;
   margin: 0;
@@ -1763,6 +1779,66 @@ address {
 }
 .studio-method__img img {
   object-fit: cover;
+}
+.slideshow__img {
+  opacity: 0;
+  transition: opacity 1.4s var(--ease);
+}
+.slideshow__img.is-active {
+  opacity: 1;
+}
+.slideshow__dots {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  display: flex;
+  gap: 6px;
+  z-index: 2;
+}
+.slideshow__dots button {
+  flex: 1;
+  height: 16px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.slideshow__dots button::before,
+.slideshow__dots span {
+  content: "";
+  display: block;
+  height: 1px;
+}
+.slideshow__dots button {
+  position: relative;
+}
+.slideshow__dots button::before {
+  position: absolute;
+  inset: auto 0;
+  background: var(--light-soft);
+}
+.slideshow__dots span {
+  position: relative;
+  width: 0;
+  background: var(--light);
+}
+.slideshow__dots button.is-active span {
+  animation: slideshow-progress linear forwards;
+}
+.slideshow__dots button:focus-visible {
+  outline: 1px solid var(--light);
+  outline-offset: 2px;
+}
+@keyframes slideshow-progress {
+  from { width: 0; }
+  to { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .slideshow__img { transition: none; }
+  .slideshow__dots button.is-active span { animation: none; width: 100%; }
 }
 .steps {
   list-style: none;

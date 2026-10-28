@@ -81,7 +81,10 @@ class Command(BaseCommand):
                 })
             if not product.images.exists():
                 for n, image in enumerate(data.get("images", [])):
-                    ProductImage.objects.create(product=product, path=image["src"], alt=image.get("alt", ""), position=n)
+                    ProductImage.objects.create(
+                        product=product, path=image["src"], alt=image.get("alt", ""), position=n,
+                        variant=Variant.objects.filter(code=image.get("variant") or "").first(),
+                    )
             self.stdout.write(f"Prodotto: {product.name} ({product.variants.count()} varianti)")
 
     def admin_user(self):

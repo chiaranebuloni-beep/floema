@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { RevealAnimations } from "@/components/RevealAnimations";
 import { Lines } from "@/components/Lines";
 import { Magnetic } from "@/components/Magnetic";
+import { Slideshow } from "@/components/pages/Slideshow";
 
 export const metadata: Metadata = {
   title: "Studio — FLOEMA Wood Studio",
@@ -15,6 +16,13 @@ export const metadata: Metadata = {
 const TAPPE = [
   { year: "1984", t: "La bottega", d: "Giovanbattista Galli apre a Livigno una piccola bottega artigiana di paese, spinto dalla passione per il legno." },
   { year: "2026", t: "FLOEMA", d: "Nasce FLOEMA Wood Studio: esperienza artigianale, materia naturale e visione contemporanea." },
+];
+
+const METODO_FOTO = [
+  { src: "/images/metodo-17.jpg", alt: "Dettaglio dell'incastro tra piano e tavola in legno vissuto" },
+  { src: "/images/metodo-18.jpg", alt: "Un artigiano rifinisce a mano lo spigolo di una tavola" },
+  { src: "/images/metodo-19.jpg", alt: "Taglio di una tavola di legno grezzo in laboratorio" },
+  { src: "/images/metodo-20.jpg", alt: "Un artigiano controlla l'incastro della gamba sotto il piano" },
 ];
 
 const METODO = [
@@ -51,6 +59,17 @@ export default function StudioPage() {
                 </li>
               ))}
             </ol>
+            <figure className="studio-team" data-img-reveal>
+              <Image
+                src="/images/team-falegnameria-bn.jpg"
+                alt="Il team della Falegnameria Galli in laboratorio, con le magliette FLOEMA"
+                fill
+                sizes="(max-width: 900px) 92vw, 84vw"
+              />
+            </figure>
+            <p className="studio-team__caption" data-fade>
+              Il team della Falegnameria Galli, nel laboratorio di Livigno.
+            </p>
           </div>
         </section>
 
@@ -63,7 +82,7 @@ export default function StudioPage() {
               </div>
               <Lines as="h2" className="display" lines={["Prima della forma,", "c'è il progetto."]} />
               <figure className="studio-method__img" data-img-reveal>
-                <Image src="/images/studio-schizzo.webp" alt="Disegno a matita dell'incrocio delle travi dello sgabello" fill sizes="(max-width: 900px) 92vw, 36vw" />
+                <Slideshow slides={METODO_FOTO} sizes="(max-width: 900px) 92vw, 36vw" />
               </figure>
             </div>
             <ol className="steps">

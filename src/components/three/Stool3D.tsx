@@ -22,10 +22,9 @@ const LEG_FOOT_W = 8.3;
 const LEG_DX = UNDER / Math.tan(((180 - 109) * Math.PI) / 180);
 const LEG_DEPTH = 5; // non quotata: stimata dalla vista 3D, centrata
 
-// Legno vero, ritagliato dalla foto dall'alto del piano e tinto come nel disegno tecnico:
-// piano e tavola in legno chiaro, gamba più scura.
-const WOOD_LIGHT_URL = "/images/textures/legno-chiaro.jpg";
-const WOOD_DARK_URL = "/images/textures/legno-scuro.jpg";
+// Legno vero, ritagliato dalla foto dall'alto del piano. Tutti i pezzi usano lo stesso legno chiaro:
+// la colorazione (anche la gamba nera del Fumé) si ottiene con le tinte delle varianti, ricavate dalle foto.
+const WOOD_URL = "/images/textures/legno-chiaro.jpg";
 const TEX_SPAN = 1.3; // quanta lunghezza di legno (in altezze del modello) copre una ripetizione della texture
 const TEX_ASPECT = 620 / 415;
 
@@ -73,9 +72,9 @@ function prism(points: [number, number][], depth: number, z: number, material: T
   return mesh;
 }
 
-function buildStool(light: THREE.Texture, dark: THREE.Texture) {
-  const woodMat = new THREE.MeshStandardMaterial({ map: light, bumpMap: light, bumpScale: 1.4, roughness: 0.75, metalness: 0 });
-  const legMat = new THREE.MeshStandardMaterial({ map: dark, bumpMap: dark, bumpScale: 1.4, roughness: 0.6, metalness: 0 });
+function buildStool(wood: THREE.Texture) {
+  const woodMat = new THREE.MeshStandardMaterial({ map: wood, bumpMap: wood, bumpScale: 1.4, roughness: 0.75, metalness: 0 });
+  const legMat = new THREE.MeshStandardMaterial({ map: wood, bumpMap: wood, bumpScale: 1.4, roughness: 0.7, metalness: 0 });
   const P = (x: number, y: number): [number, number] => [x * CM, y * CM];
   const boardIn = (y: number) => BOARD_IN + y * BOARD_COT;
   const boardOut = (y: number) => BOARD_OUT + y * BOARD_COT;
@@ -166,9 +165,8 @@ export default function Stool3D({ woodTint = "#ffffff", legTint = "#ffffff" }: P
       t.anisotropy = renderer.capabilities.getMaxAnisotropy();
       return t;
     };
-    const texLight = loadWood(WOOD_LIGHT_URL);
-    const texDark = loadWood(WOOD_DARK_URL);
-    const { stool, woodMat, legMat } = buildStool(texLight, texDark);
+    const texWood = loadWood(WOOD_URL);
+    const { stool, woodMat, legMat } = buildStool(texWood);
     mats.current = { wood: woodMat, leg: legMat };
     woodMat.color.set(tints.current.woodTint);
     legMat.color.set(tints.current.legTint);
@@ -264,8 +262,7 @@ export default function Stool3D({ woodTint = "#ffffff", legTint = "#ffffff" }: P
         o.geometry.dispose();
         (o.material as THREE.Material).dispose();
       });
-      texLight.dispose();
-      texDark.dispose();
+      texWood.dispose();
       pmrem.dispose();
       renderer.dispose();
       renderer.domElement.remove();

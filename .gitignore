@@ -22,3 +22,7 @@ backend/CREDENZIALI-LOCALI.txt
 __pycache__/
 
 .DS_Store
+
+# Foto originali consegnate dal cliente: sul sito vanno le versioni ottimizzate in public/images
+foto nuove/
+il metodo/

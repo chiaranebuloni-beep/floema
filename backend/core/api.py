@@ -41,7 +41,8 @@ def serialize_product(p):
         "slug": p.slug, "name": p.name, "chapter": p.chapter, "description": p.description,
         "material": p.material, "dimensions": p.dimensions, "origin": p.origin, "price": float(p.price),
         "currency": "EUR", "status": p.status,
-        "images": [{"src": i.path, "alt": i.alt} for i in p.images.all()],
+        "images": [{"src": i.path, "alt": i.alt, "variant": i.variant.code if i.variant else None}
+                   for i in p.images.select_related("variant")],
         "modes": [{"id": m.key, "label": m.label, "title": m.title, "text": m.text, "image": m.image} for m in p.modes.all()],
         "variants": [
             {"id": v.code, "kind": v.kind, "name": v.name, "extra": float(v.extra_price),

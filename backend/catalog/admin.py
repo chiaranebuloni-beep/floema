@@ -23,7 +23,7 @@ class ImageInline(TabularInline):
     model = ProductImage
     extra = 0
     tab = True
-    fields = ["preview", "path", "alt", "position"]
+    fields = ["preview", "path", "variant", "alt", "position"]
     readonly_fields = ["preview"]
     verbose_name_plural = "Immagini"
 

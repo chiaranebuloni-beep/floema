@@ -41,7 +41,7 @@ export type Product = {
   price: number;
   currency: "EUR";
   status: "available" | "preorder" | "soldout";
-  images: { src: string; alt: string }[]; // galleria della pagina prodotto
+  images: { src: string; alt: string; variant?: string | null }[]; // galleria; variant = colorazione a cui si riferisce
   modes: ProductMode[];
   variants: ProductVariant[];
   details: ProductDetails;
