@@ -3,7 +3,6 @@ import { getProduct } from "@/lib/products";
 import { Hero } from "@/components/sections/Hero";
 import { Manifesto, ManifestoCopy } from "@/components/sections/Manifesto";
 import { ProductChapter } from "@/components/sections/ProductChapter";
-import { Perspectives } from "@/components/sections/Perspectives";
 import { Etymology } from "@/components/sections/Etymology";
 import { Heritage } from "@/components/sections/Heritage";
 import { Architects } from "@/components/sections/Architects";
@@ -25,7 +24,6 @@ export default async function Home() {
         <Etymology />
         <ManifestoCopy />
         <ProductChapter product={product} />
-        <Perspectives />
         <Heritage />
         <Architects />
       </main>

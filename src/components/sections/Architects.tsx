@@ -1,11 +1,13 @@
+import Link from "next/link";
 import { Lines } from "../Lines";
+import { Magnetic } from "../Magnetic";
 
 export function Architects() {
   return (
     <section id="architetti" className="section arch" data-theme="dark">
       <div className="container arch__inner">
         <div className="section__label section__label--light" data-fade>
-          <span>06</span>
+          <span>05</span>
           <span>Per i professionisti</span>
         </div>
         <Lines as="h2" className="display" lines={["Architetti e", <>interior designer.</>]} />
@@ -19,6 +21,13 @@ export function Architects() {
             <li>Disegni tecnici e simulazioni fotorealistiche</li>
             <li>Legno, metallo, pietra e vetro come dettagli distintivi</li>
           </ul>
+        </div>
+        <div className="home-cta" data-fade="0.2">
+          <Magnetic>
+            <Link href="/contatti" className="btn btn--light">
+              Parliamo del tuo progetto
+            </Link>
+          </Magnetic>
         </div>
       </div>
     </section>

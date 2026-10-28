@@ -2435,3 +2435,8 @@ address {
 .persp__progress[hidden] {
   display: none;
 }
+
+/* Link della home verso le pagine interne (Materia, Studio, Contatti) */
+.home-cta {
+  margin-top: 48px;
+}

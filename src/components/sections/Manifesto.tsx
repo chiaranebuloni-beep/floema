@@ -2,6 +2,8 @@
 import { useEffect, useRef } from "react";
 import { gsap, prefersReducedMotion } from "@/lib/gsap";
 import { onReady } from "../Preloader";
+import Link from "next/link";
+import { Magnetic } from "../Magnetic";
 
 const TEXT = "Tutto nasce dalla materia. Dalle sue caratteristiche, dalle sue imperfezioni, dalle possibilità che racchiude.";
 
@@ -68,6 +70,13 @@ export function ManifestoCopy() {
             <li>Forma</li>
             <li>Funzione</li>
           </ul>
+          <div className="home-cta" data-fade="0.3">
+            <Magnetic>
+              <Link href="/materia" className="btn btn--solid">
+                Scopri la materia
+              </Link>
+            </Magnetic>
+          </div>
         </div>
       </div>
     </section>

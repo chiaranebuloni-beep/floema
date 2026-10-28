@@ -3,6 +3,8 @@ import { useEffect, useRef } from "react";
 import { gsap, prefersReducedMotion } from "@/lib/gsap";
 import { onReady } from "../Preloader";
 import { Lines } from "../Lines";
+import Link from "next/link";
+import { Magnetic } from "../Magnetic";
 
 export function Heritage() {
   const root = useRef<HTMLElement>(null);
@@ -35,7 +37,7 @@ export function Heritage() {
     <section id="studio" ref={root} className="section heritage" data-theme="light">
       <div className="container">
         <div className="section__label" data-fade>
-          <span>05</span>
+          <span>04</span>
           <span>Lo studio</span>
         </div>
 
@@ -63,6 +65,13 @@ export function Heritage() {
               FLOEMA nasce dalla Falegnameria Galli, bottega di paese fondata a Livigno nel 1984 dalle sapienti mani di Giovanbattista
               Galli.
             </p>
+            <div className="home-cta" data-fade="0.1">
+              <Magnetic>
+                <Link href="/studio" className="btn btn--solid">
+                  Scopri lo studio
+                </Link>
+              </Magnetic>
+            </div>
           </div>
         </div>
       </div>

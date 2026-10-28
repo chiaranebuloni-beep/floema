@@ -18,7 +18,7 @@ const ESSENZE = [
   { name: "Abete", note: "Laccato o bruciato, nero intenso" },
 ];
 
-const LAVORAZIONI = ["Effetto asciato", "Piallato a mano", "Piano sega", "Spazzolato", "Incisioni e lavorazioni 3D"];
+const LAVORAZIONI = ["Spazzolato", "Verniciato"];
 
 export default function MateriaPage() {
   return (
