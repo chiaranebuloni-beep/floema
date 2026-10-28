@@ -1522,7 +1522,7 @@ address {
   display: grid;
   grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
   gap: clamp(32px, 6vw, 110px);
-  align-items: start;
+  align-items: center;
 }
 .shop-info__list li {
   display: grid;
