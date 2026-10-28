@@ -2440,3 +2440,86 @@ address {
 .home-cta {
   margin-top: 48px;
 }
+
+/* Shop su telefono: l'apertura diventa una striscia, così il prodotto si vede subito. */
+@media (max-width: 760px) {
+  .phero:has(+ .pdp) {
+    min-height: 0;
+    padding: 104px 0 28px;
+  }
+  .phero:has(+ .pdp) .phero__inner {
+    gap: 14px;
+  }
+  .phero:has(+ .pdp) .phero__title {
+    font-size: 26px;
+  }
+  .phero:has(+ .pdp) .phero__lead {
+    display: none;
+  }
+  .phero + .pdp {
+    padding-top: 32px;
+  }
+}
+
+/* Lo studio: il titolo di destra parte all'altezza delle cifre del 1984, non dell'etichetta «Dal». */
+@media (min-width: 901px) {
+  .heritage__grid {
+    align-items: start;
+  }
+  .heritage__copy {
+    padding-top: 32px;
+  }
+}
+
+/* Barra d'acquisto fissa in basso, solo su telefono. */
+.pdp__bar {
+  display: none;
+}
+@media (max-width: 760px) {
+  .pdp__bar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 80;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px var(--gutter) calc(12px + env(safe-area-inset-bottom));
+    background: var(--crema);
+    box-shadow: 0 -12px 32px rgba(30, 30, 30, 0.06);
+    border-top: 1px solid var(--line-dark);
+    transform: translateY(100%);
+    transition: transform 0.6s var(--ease);
+  }
+  .pdp__bar.is-visible {
+    transform: translateY(0);
+  }
+  .pdp__bar-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+  }
+  .pdp__bar-name {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--fango);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .pdp__bar-price {
+    font-family: var(--f-display);
+    font-weight: 200;
+    font-size: 24px;
+    letter-spacing: 0.04em;
+  }
+  .pdp__bar .btn {
+    height: 48px;
+    padding: 0 26px;
+    flex-shrink: 0;
+  }
+}

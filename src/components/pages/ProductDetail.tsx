@@ -2,7 +2,7 @@
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Product } from "@/lib/types";
 import { formatPrice } from "@/lib/format";
 import { VARIANT_KINDS, resolveVariants, variantKey, variantPrice } from "@/lib/variants";
@@ -28,6 +28,25 @@ export function ProductDetail({ product }: { product: Product }) {
     if (kind === "color" && view !== "3d") setView(0);
   };
   const d = product.details;
+  const buyLabel = product.status === "preorder" ? "Pre-ordina" : "Aggiungi al carrello";
+  const buy = () => add(product.slug, codes || undefined, qty);
+
+  // Su telefono una barra fissa con prezzo e acquisto resta visibile mentre si guarda il prodotto,
+  // e si nasconde quando il pulsante d'acquisto della pagina è già sullo schermo.
+  const section = useRef<HTMLElement>(null);
+  const buyRow = useRef<HTMLDivElement>(null);
+  const [inSection, setInSection] = useState(false);
+  const [buyVisible, setBuyVisible] = useState(false);
+  useEffect(() => {
+    const observe = (el: Element | null, set: (v: boolean) => void) => {
+      if (!el) return;
+      const io = new IntersectionObserver(([e]) => set(e.isIntersecting));
+      io.observe(el);
+      return io;
+    };
+    const ios = [observe(section.current, setInSection), observe(buyRow.current, setBuyVisible)];
+    return () => ios.forEach((io) => io?.disconnect());
+  }, []);
   // Foto della colorazione scelta, più quelle comuni a tutte.
   const photos = product.images.filter((i) => !i.variant || i.variant === color?.id);
 
@@ -45,7 +64,7 @@ export function ProductDetail({ product }: { product: Product }) {
   ];
 
   return (
-    <section className="pdp" data-theme="light">
+    <section ref={section} className="pdp" data-theme="light">
       <div className="container pdp__grid">
         <div className="pdp__gallery">
           <div className={`pdp__stage ${view === "3d" || !photos[view] ? "pdp__stage--3d" : ""}`}>
@@ -120,15 +139,15 @@ export function ProductDetail({ product }: { product: Product }) {
             );
           })}
 
-          <div className="pdp__buy">
+          <div ref={buyRow} className="pdp__buy">
             <div className="qty qty--lg" aria-label="Quantità">
               <button aria-label="Diminuisci" onClick={() => setQty((q) => Math.max(1, q - 1))}>−</button>
               <span>{qty}</span>
               <button aria-label="Aumenta" onClick={() => setQty((q) => Math.min(10, q + 1))}>+</button>
             </div>
             <Magnetic>
-              <button className="btn btn--solid" onClick={() => add(product.slug, codes || undefined, qty)}>
-                {product.status === "preorder" ? "Pre-ordina" : "Aggiungi al carrello"}
+              <button className="btn btn--solid" onClick={buy}>
+                {buyLabel}
               </button>
             </Magnetic>
           </div>
@@ -155,6 +174,19 @@ export function ProductDetail({ product }: { product: Product }) {
             </div>
           </div>
         </div>
+      </div>
+
+      <div className={`pdp__bar ${inSection && !buyVisible ? "is-visible" : ""}`} aria-hidden={!inSection || buyVisible}>
+        <div className="pdp__bar-info">
+          <span className="pdp__bar-name">
+            {product.name}
+            {color && ` · ${color.name}`}
+          </span>
+          <span className="pdp__bar-price">{formatPrice(variantPrice(product, chosen) * qty)}</span>
+        </div>
+        <button className="btn btn--solid" onClick={buy} tabIndex={inSection && !buyVisible ? 0 : -1}>
+          {buyLabel}
+        </button>
       </div>
     </section>
   );

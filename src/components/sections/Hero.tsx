@@ -1,10 +1,15 @@
 "use client";
-import Image from "next/image";
+import { getImageProps } from "next/image";
 import { useEffect, useRef } from "react";
 import { gsap, prefersReducedMotion } from "@/lib/gsap";
 import { LogoWord } from "../Logo";
 import { onReady } from "../Preloader";
 import { Magnetic } from "../Magnetic";
+
+// Su telefono una foto verticale, su schermi larghi quella orizzontale.
+const HERO = { alt: "Spigolo in legno massello illuminato da luce radente", fill: true, priority: true, sizes: "100vw" };
+const { srcSet: heroWide } = getImageProps({ ...HERO, src: "/images/hero-spigolo.jpg" }).props;
+const { srcSet: heroTall, ...heroImg } = getImageProps({ ...HERO, src: "/images/hero-spigolo-mobile.jpg" }).props;
 
 export function Hero() {
   const root = useRef<HTMLElement>(null);
@@ -52,7 +57,12 @@ export function Hero() {
     <section id="top" ref={root} className="hero" data-theme="dark">
       <div className="hero__media">
         <div className="hero__media-inner">
-          <Image src="/images/hero-spigolo.jpg" alt="Spigolo in legno massello illuminato da luce radente" fill priority sizes="100vw" />
+          <picture>
+            <source media="(min-width: 761px)" srcSet={heroWide} />
+            <source media="(max-width: 760px)" srcSet={heroTall} />
+            {/* eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text */}
+            <img {...heroImg} />
+          </picture>
         </div>
       </div>
       <div className="hero__veil" />
