@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import type { Product } from "@/lib/types";
-import { formatPrice } from "@/lib/format";
 import Link from "next/link";
 import { Lines } from "../Lines";
 import { Magnetic } from "../Magnetic";
@@ -19,7 +18,7 @@ export function ProductChapter({ product }: { product: Product }) {
 
         <div className="chapter__info">
           <div className="section__label section__label--light" data-fade>
-            <span>02</span>
+            <span>03</span>
             <span>La prima creazione</span>
           </div>
           <Lines as="h2" className="display" lines={["Il primo capitolo", <>prende forma.</>]} />
@@ -27,35 +26,28 @@ export function ProductChapter({ product }: { product: Product }) {
             {product.description}
           </p>
 
-          <dl className="specs" data-fade>
-            <div>
-              <dt>Materiale</dt>
-              <dd>{product.material}</dd>
-            </div>
+          {/* Solo i titoli: il dettaglio si apre al clic, come nelle tendine della pagina Shop. */}
+          <div className="pdp__accordion pdp__accordion--light" data-fade>
             {product.dimensions && (
-              <div>
-                <dt>Dimensioni</dt>
-                <dd>{product.dimensions}</dd>
-              </div>
+              <details>
+                <summary>Dimensioni</summary>
+                <p className="body body--light">{product.dimensions}</p>
+              </details>
             )}
-            <div>
-              <dt>Lavorazione</dt>
-              <dd>{product.origin}</dd>
-            </div>
-            <div>
-              <dt>Utilizzo</dt>
-              <dd>{product.modes.map((m) => m.title).join(" · ")}</dd>
-            </div>
-          </dl>
+            <details>
+              <summary>Lavorazione</summary>
+              <p className="body body--light">{product.origin}</p>
+            </details>
+            <details>
+              <summary>Utilizzo</summary>
+              <p className="body body--light">{product.modes.map((m) => m.title).join(" · ")}</p>
+            </details>
+          </div>
 
           <div className="chapter__buy" data-fade>
-            <div>
-              <p className="chapter__name">{product.name}</p>
-              <p className="chapter__price">{formatPrice(product.price)}</p>
-            </div>
             <Magnetic>
               <Link href="/shop" className="btn btn--light">
-                {product.status === "preorder" ? "Pre-ordina" : "Aggiungi al carrello"}
+                Scopri lo sgabello
               </Link>
             </Magnetic>
           </div>

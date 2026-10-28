@@ -3,17 +3,17 @@ import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 const CARDS = [
-  { img: "/images/progetto-schizzo.jpg", tag: "Progetto", title: "Prima della forma, c'è il progetto.", text: "Uno studio di proporzioni, inclinazioni e geometrie, dove ogni elemento viene pensato in relazione agli altri." },
-  { img: "/images/dettaglio-geometria.jpg", tag: "Geometria", title: "Una linea incontra un'altra.", text: "Le geometrie si intrecciano, la materia trova il proprio equilibrio. Estetica e funzione dialogano." },
-  { img: "/images/dettaglio-piano.jpg", tag: "Dettaglio", title: "Il design si rivela nei dettagli.", text: "Nella precisione delle geometrie, nell'incontro tra le superfici, nell'equilibrio tra materia e struttura." },
-  { img: "/images/materia-venature.jpg", tag: "Materia", title: "Nessuna venatura è uguale a un'altra.", text: "Ogni nodo, ogni sfumatura, ogni segno racconta la storia di una materia viva." },
-  { img: "/images/sgabello-alto.jpg", tag: "Unicità", title: "Una bellezza autentica.", text: "Vista dall'alto, venature, nodi e sfumature rendono ogni superficie unica. La valorizziamo in ogni nostra creazione." },
+  { img: "/images/prospettiva-progetto.jpg", alt: "Mano che traccia a matita una linea sul legno", tag: "Progetto", title: "Prima della forma, c'è il progetto.", text: "Uno studio di proporzioni, inclinazioni e geometrie, dove ogni elemento viene pensato in relazione agli altri." },
+  { img: "/images/prospettiva-geometria.jpg", alt: "Incastro tra piano e tavola in legno vissuto", tag: "Geometria", title: "Una linea incontra un'altra.", text: "Le geometrie si intrecciano, la materia trova il proprio equilibrio. Estetica e funzione dialogano." },
+  { img: "/images/prospettiva-materia.jpg", alt: "Venature e nodi di una tavola di legno vissuto", tag: "Materia", title: "Nessuna venatura è uguale a un'altra.", text: "Ogni nodo, ogni sfumatura, ogni segno racconta la storia di una materia viva." },
 ];
 
 export function Perspectives() {
   const track = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
   const [edges, setEdges] = useState({ start: true, end: false });
+  // Con poche schede che entrano tutte nello schermo, frecce e barra di avanzamento non servono.
+  const [scrollable, setScrollable] = useState(true);
 
   // La galleria scorre solo in orizzontale (frecce, trackpad, swipe): la rotella continua a scendere nella pagina.
   const update = useCallback(() => {
@@ -22,6 +22,7 @@ export function Perspectives() {
     const max = el.scrollWidth - el.clientWidth;
     setProgress(max > 0 ? el.scrollLeft / max : 0);
     setEdges({ start: el.scrollLeft <= 2, end: el.scrollLeft >= max - 2 });
+    setScrollable(max > 2);
   }, []);
 
   useEffect(() => {
@@ -47,7 +48,7 @@ export function Perspectives() {
       <div className="container persp__head">
         <div className="persp__intro">
           <div className="section__label" data-fade>
-            <span>03</span>
+            <span>04</span>
             <span>Prospettive</span>
           </div>
           <h2 className="display display--dark" data-lines>
@@ -59,7 +60,7 @@ export function Perspectives() {
             struttura dal carattere deciso.
           </p>
         </div>
-        <div className="persp__nav" data-fade>
+        <div className="persp__nav" data-fade hidden={!scrollable}>
           <button className="persp__arrow" onClick={() => go(-1)} disabled={edges.start} aria-label="Scheda precedente">
             <span aria-hidden>←</span>
           </button>
@@ -73,7 +74,7 @@ export function Perspectives() {
         {CARDS.map((c, i) => (
           <article key={c.tag} className="persp__card">
             <div className="persp__img">
-              <Image src={c.img} alt={c.title} fill sizes="(max-width: 900px) 78vw, 30vw" />
+              <Image src={c.img} alt={c.alt} fill sizes="(max-width: 900px) 78vw, 30vw" />
             </div>
             <div className="persp__meta">
               <span>0{i + 1}</span>
@@ -86,7 +87,7 @@ export function Perspectives() {
       </div>
 
       <div className="container">
-        <div className="persp__progress" aria-hidden>
+        <div className="persp__progress" aria-hidden hidden={!scrollable}>
           <i style={{ transform: `scaleX(${0.12 + progress * 0.88})` }} />
         </div>
       </div>

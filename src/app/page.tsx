@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { getProduct } from "@/lib/products";
 import { Hero } from "@/components/sections/Hero";
-import { Manifesto } from "@/components/sections/Manifesto";
+import { Manifesto, ManifestoCopy } from "@/components/sections/Manifesto";
 import { ProductChapter } from "@/components/sections/ProductChapter";
 import { Perspectives } from "@/components/sections/Perspectives";
 import { Etymology } from "@/components/sections/Etymology";
@@ -22,9 +22,10 @@ export default async function Home() {
       <main>
         <Hero />
         <Manifesto />
+        <Etymology />
+        <ManifestoCopy />
         <ProductChapter product={product} />
         <Perspectives />
-        <Etymology />
         <Heritage />
         <Architects />
       </main>

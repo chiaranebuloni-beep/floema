@@ -59,9 +59,19 @@ export default function StudioPage() {
                 </li>
               ))}
             </ol>
-            <figure className="studio-team" data-img-reveal>
+          </div>
+        </section>
+
+        <section className="section studio-team" data-theme="dark">
+          <div className="container">
+            <div className="section__label section__label--light" data-fade>
+              <span>03</span>
+              <span>Le persone</span>
+            </div>
+            <Lines as="h2" className="display" lines={["Le mani", "di FLOEMA."]} />
+            <figure className="studio-team__img" data-img-reveal>
               <Image
-                src="/images/team-falegnameria-bn.jpg"
+                src="/images/team-falegnameria-panoramica.jpg"
                 alt="Il team della Falegnameria Galli in laboratorio, con le magliette FLOEMA"
                 fill
                 sizes="(max-width: 900px) 92vw, 84vw"
@@ -77,7 +87,7 @@ export default function StudioPage() {
           <div className="container studio-method__grid">
             <div className="studio-method__intro">
               <div className="section__label section__label--light" data-fade>
-                <span>03</span>
+                <span>04</span>
                 <span>Il metodo</span>
               </div>
               <Lines as="h2" className="display" lines={["Prima della forma,", "c'è il progetto."]} />
@@ -103,7 +113,7 @@ export default function StudioPage() {
           <div className="container studio-pro__grid">
             <div>
               <div className="section__label" data-fade>
-                <span>04</span>
+                <span>05</span>
                 <span>Per i professionisti</span>
               </div>
               <Lines as="h2" className="display display--dark" lines={["Architetti e", "interior designer."]} />

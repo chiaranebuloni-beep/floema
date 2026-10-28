@@ -1,7 +1,7 @@
 "use client";
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { gsap, prefersReducedMotion } from "@/lib/gsap";
-import { LogoMark } from "../Logo";
 import { onReady } from "../Preloader";
 import { Lines } from "../Lines";
 
@@ -13,11 +13,6 @@ export function Etymology() {
     let ctx: gsap.Context | undefined;
     const off = onReady(() => {
       ctx = gsap.context(() => {
-        gsap.fromTo(
-          ".etym__seed",
-          { yPercent: 15, rotate: -8, scale: 0.9 },
-          { yPercent: -15, rotate: 8, scale: 1.05, ease: "none", scrollTrigger: { trigger: root.current, start: "top bottom", end: "bottom top", scrub: true } },
-        );
         gsap.from(".etym__phon span", {
           opacity: 0,
           y: 30,
@@ -37,11 +32,16 @@ export function Etymology() {
 
   return (
     <section ref={root} className="section etym" data-theme="dark">
-      <LogoMark className="etym__seed" />
+      {/* Il nome scritto direttamente sul legno, con una velatura scura sfumata per la leggibilità. */}
+      <figure className="etym__bg" aria-hidden>
+        <div className="etym__bg-in" data-parallax="8">
+          <Image src="/images/manifesto-legno-naturale.jpg" alt="" fill sizes="100vw" />
+        </div>
+      </figure>
       <div className="container etym__inner">
         <div className="etym__head">
           <div className="section__label section__label--light" data-fade>
-            <span>04</span>
+            <span>02</span>
             <span>Il nome</span>
           </div>
           <p className="etym__phon" aria-label="flo-e-ma">
@@ -52,19 +52,7 @@ export function Etymology() {
           <p className="etym__gram" data-fade>
             s.m. — botanica
           </p>
-        </div>
-        <div className="etym__body">
-        <Lines as="h2" className="display etym__def" lines={["Tessuto vitale delle piante,", "attraverso cui scorre", <>il nutrimento.</>]} />
-        <div className="etym__cols">
-          <p className="body body--light" data-fade>
-            In botanica, il floema è il tessuto attraverso cui le piante trasportano le sostanze nutritive necessarie alla loro crescita. Un
-            elemento vitale, che custodisce il legame tra le diverse parti della pianta.
-          </p>
-          <p className="body body--light" data-fade="0.1">
-            Abbiamo scelto questo nome perché racchiude ciò che ci ispira: la natura, la materia e la capacità di trasformarle in nuove
-            forme. <strong>Dalla natura, l&apos;essenza del nostro design.</strong>
-          </p>
-        </div>
+          <Lines as="h2" className="display etym__def" lines={["Tessuto vitale delle piante,", "attraverso cui scorre", <>il nutrimento.</>]} />
         </div>
       </div>
     </section>

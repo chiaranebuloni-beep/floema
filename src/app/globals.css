@@ -255,17 +255,17 @@ address {
   color: var(--ink);
 }
 .btn--light::before {
-  background: var(--rovere);
-}
-.btn--light:hover {
-  color: var(--light);
+  background: var(--sabbia);
 }
 .btn--solid {
   background: var(--ink);
   color: var(--light);
 }
 .btn--solid::before {
-  background: var(--rovere);
+  background: var(--sabbia);
+}
+.btn--solid:hover {
+  color: var(--ink);
 }
 .btn--full {
   width: 100%;
@@ -659,23 +659,10 @@ address {
 .manifesto__word {
   display: inline;
 }
-.manifesto__img {
-  position: relative;
-  margin-top: clamp(64px, 9vw, 140px);
-  height: clamp(300px, 58vh, 620px);
-  overflow: hidden;
-  background: var(--sabbia);
-}
-.manifesto__img-in {
-  position: absolute;
-  inset: -14% 0;
-}
-.manifesto__img img {
-  object-fit: cover;
-  object-position: center 42%;
+.manifesto--copy {
+  padding-top: clamp(64px, 8vw, 120px);
 }
 .manifesto__copy {
-  margin-top: clamp(48px, 6vw, 96px);
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: clamp(32px, 8vw, 160px);
@@ -748,44 +735,12 @@ address {
 .chapter__info .section__label {
   margin-bottom: 0;
 }
-.specs {
-  display: grid;
-  border-top: 1px solid var(--line-light);
-}
-.specs div {
-  display: grid;
-  grid-template-columns: 140px 1fr;
-  gap: 16px;
-  padding: 16px 0;
-  border-bottom: 1px solid var(--line-light);
-  font-size: 14px;
-}
-.specs dt {
-  font-size: 10px;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--tortora);
-  padding-top: 3px;
-}
 .chapter__buy {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 24px;
   flex-wrap: wrap;
-}
-.chapter__name {
-  font-size: 11px;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--tortora);
-}
-.chapter__price {
-  font-family: var(--f-display);
-  font-weight: 200;
-  letter-spacing: 0.04em;
-  font-size: clamp(36px, 3.4vw, 52px);
-  line-height: 1.1;
 }
 
 /* ---------- Prospettive (scroll orizzontale) ---------- */
@@ -904,25 +859,37 @@ address {
   background: var(--carbone);
   color: var(--light);
   overflow: hidden;
-  padding: clamp(64px, 8vw, 120px) 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  padding: clamp(96px, 12vw, 180px) 0 clamp(64px, 8vw, 120px);
 }
-.etym__seed {
+.etym__bg {
   position: absolute;
-  right: -4vw;
-  top: 50%;
-  margin-top: -14vw;
-  width: 28vw;
-  height: auto;
-  color: var(--light);
-  opacity: 0.05;
-  pointer-events: none;
+  inset: 0;
+  margin: 0;
+  overflow: hidden;
+}
+.etym__bg-in {
+  position: absolute;
+  inset: -10% 0;
+}
+.etym__bg img {
+  object-fit: cover;
+}
+/* Velatura: più scura in basso e a sinistra, dove sta il testo; il legno resta visibile in alto a destra. */
+.etym__bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top, rgba(42, 44, 42, 0.92) 0%, rgba(42, 44, 42, 0.7) 45%, rgba(42, 44, 42, 0.32) 100%),
+    linear-gradient(to right, rgba(42, 44, 42, 0.5) 0%, rgba(42, 44, 42, 0) 65%);
 }
 .etym__inner {
   position: relative;
-  display: grid;
-  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
-  gap: clamp(32px, 6vw, 110px);
-  align-items: start;
+  z-index: 1;
+  width: 100%;
 }
 .etym__head .section__label {
   margin-bottom: clamp(20px, 2.4vw, 36px);
@@ -945,18 +912,8 @@ address {
   text-transform: uppercase;
   color: var(--tortora);
 }
-.etym__body {
-  padding-top: clamp(0px, 3.6vw, 56px);
-}
-.etym__cols .body {
-  text-align: justify;
-  hyphens: auto;
-}
-.etym__cols {
-  margin-top: clamp(24px, 2.6vw, 40px);
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(20px, 3vw, 48px);
+.etym__head .etym__def {
+  margin-top: clamp(32px, 4vw, 64px);
 }
 
 /* ---------- Heritage ---------- */
@@ -1703,12 +1660,17 @@ address {
   background: var(--avorio);
 }
 .studio-team {
+  background: var(--antracite);
+  color: var(--light);
+  padding-bottom: 0;
+}
+.studio-team__img {
   position: relative;
-  aspect-ratio: 3 / 2;
-  margin: clamp(48px, 7vw, 110px) 0 0;
+  aspect-ratio: 5 / 2;
+  margin: clamp(36px, 5vw, 72px) 0 0;
   overflow: hidden;
 }
-.studio-team img {
+.studio-team__img img {
   object-fit: cover;
 }
 .studio-team__caption {
@@ -1716,7 +1678,7 @@ address {
   font-size: 12px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--fango);
+  color: var(--tortora);
 }
 .timeline {
   list-style: none;
@@ -2242,17 +2204,13 @@ address {
 .pdp__desc {
   max-width: 46ch;
 }
-.specs--light {
-  border-top-color: var(--line-dark);
+/* Tendine su fondo scuro (sezione della prima creazione in home). */
+.pdp__accordion--light,
+.pdp__accordion--light details {
+  border-color: var(--line-light);
 }
-.specs--light div {
-  border-bottom-color: var(--line-dark);
-}
-.specs--light dt {
-  color: var(--fango);
-}
-.specs--light dd {
-  color: var(--ink);
+.pdp__accordion--light summary {
+  color: var(--light);
 }
 .pcard__name a {
   color: inherit;
@@ -2419,19 +2377,21 @@ address {
   .heritage__grid,
   .news__grid,
   .arch__cols,
-  .etym__cols {
-    grid-template-columns: minmax(0, 1fr);
-  }
   .pillars {
     grid-template-columns: minmax(0, 1fr);
   }
-  .etym__inner {
-    grid-template-columns: minmax(0, 1fr);
+  /* Su telefono il legno resta solo dietro la parte alta; i paragrafi proseguono sul fondo scuro. */
+  .etym {
+    display: block;
+    min-height: 0;
+    padding-top: 42vh;
   }
-  .etym__seed {
-    width: 60vw;
-    margin-top: -30vw;
-    right: -20vw;
+  .etym__bg {
+    bottom: auto;
+    height: 82vh;
+  }
+  .etym__bg::after {
+    background: linear-gradient(to bottom, rgba(42, 44, 42, 0.1) 0%, rgba(42, 44, 42, 0.55) 45%, var(--carbone) 100%);
   }
 
   .persp__card {
@@ -2466,9 +2426,6 @@ address {
     flex-direction: column;
     align-items: flex-start;
   }
-  .specs div {
-    grid-template-columns: 110px 1fr;
-  }
   .footer__cols {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -2496,4 +2453,9 @@ address {
   .grain {
     animation: none;
   }
+}
+
+.persp__nav[hidden],
+.persp__progress[hidden] {
+  display: none;
 }

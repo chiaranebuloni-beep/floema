@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { gsap, prefersReducedMotion } from "@/lib/gsap";
 import { onReady } from "../Preloader";
@@ -46,15 +45,15 @@ export function Manifesto() {
             </span>
           ))}
         </p>
-
       </div>
+    </section>
+  );
+}
 
-      <figure className="manifesto__img" data-img-reveal>
-        <div className="manifesto__img-in" data-parallax="10">
-          <Image src="/images/manifesto-legno-naturale.jpg" alt="Superficie di legno con anelli di crescita e venature" fill sizes="100vw" />
-        </div>
-      </figure>
-
+// Chiusura del manifesto, dopo la sezione «Il nome» sopra il legno.
+export function ManifestoCopy() {
+  return (
+    <section className="section manifesto manifesto--copy" data-theme="light">
       <div className="container manifesto__copy">
         <p className="lead" data-fade>
           Per noi, progettare significa ascoltare il legno, rispettarne la natura e trasformarlo in qualcosa che va oltre la sua funzione.
