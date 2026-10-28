@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { LogoMark, LogoWord } from "./Logo";
+import { COMPANY } from "@/lib/company";
 
 // Da sostituire con i profili FLOEMA quando saranno attivi.
 const SOCIAL = [
@@ -70,8 +71,11 @@ export function Footer() {
         </div>
 
         <div className="footer__bottom">
-          <span>© {year} FLOEMA Wood Studio — una realtà Falegnameria Galli</span>
           <span>
+            © {year} FLOEMA Wood Studio — {COMPANY.name} · {COMPANY.address} · P.IVA {COMPANY.vat} · REA {COMPANY.rea}
+          </span>
+          <span>
+            {/* Da collegare ai testi di iubenda. */}
             <a href="#">Privacy</a> · <a href="#">Cookie</a> · <a href="#">Termini di vendita</a>
           </span>
         </div>
