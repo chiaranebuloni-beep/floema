@@ -24,7 +24,7 @@ export function SmoothScroll() {
   useEffect(() => {
     if (prefersReducedMotion()) return;
     // allowNestedScroll: i contenitori orizzontali (galleria) scorrono in modo nativo.
-    const lenis = new Lenis({ duration: 1.25, easing: (t) => 1 - Math.pow(1 - t, 4), allowNestedScroll: true });
+    const lenis = new Lenis({ duration: 0.9, easing: (t) => 1 - Math.pow(1 - t, 4), allowNestedScroll: true });
     window.__lenis = lenis;
     lenis.on("scroll", ScrollTrigger.update);
     const tick = (time: number) => lenis.raf(time * 1000);

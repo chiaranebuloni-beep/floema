@@ -11,11 +11,12 @@ export const metadata: Metadata = {
 };
 
 // Essenze e toni indicati dal cliente (ottobre 2026); lavorazioni dal catalogo materiali della Falegnameria Galli.
+// Foto delle essenze fornite dal cliente (16 novembre 2026).
 const ESSENZE = [
-  { name: "Legno antico", note: "Bruno caldo e miele scuro, con sfumature dal dorato intenso al grigiastro" },
-  { name: "Rovere", note: "Marrone chiaro, color nocciola o miele" },
-  { name: "Cirmolo", note: "Dal bianco-giallastro al miele rossiccio" },
-  { name: "Abete", note: "Laccato o bruciato, nero intenso" },
+  { name: "Legno antico", note: "Bruno caldo e miele scuro, con sfumature dal dorato intenso al grigiastro", img: "/images/essenza-legno-antico-v3.jpg" },
+  { name: "Rovere", note: "Marrone chiaro, color nocciola o miele", img: "/images/essenza-rovere-v3.jpg" },
+  { name: "Cirmolo", note: "Dal bianco-giallastro al miele rossiccio", img: "/images/essenza-cirmolo-v3.jpg" },
+  { name: "Abete", note: "Laccato o bruciato, nero intenso", img: "/images/essenza-abete-v3.jpg" },
 ];
 
 const LAVORAZIONI = ["Spazzolato", "Verniciato"];
@@ -65,8 +66,11 @@ export default function MateriaPage() {
               {ESSENZE.map((e, i) => (
                 <li key={e.name} className="mat-row" data-fade={String(i * 0.04)}>
                   <span className="mat-row__n">0{i + 1}</span>
-                  <span className="mat-row__name">{e.name}</span>
-                  <span className="mat-row__note">{e.note}</span>
+                  <h3 className="mat-row__name">{e.name}</h3>
+                  <p className="mat-row__note">{e.note}</p>
+                  <figure className="mat-row__img">
+                    <Image src={e.img} alt={`Venature del legno: ${e.name.toLowerCase()}`} fill sizes="(max-width: 900px) 64px, 120px" />
+                  </figure>
                 </li>
               ))}
             </ul>

@@ -12,10 +12,10 @@ import { SITE_URL } from "@/lib/site";
 
 const groupe = localFont({
   src: [
-    { path: "../fonts/groupe-thin.otf", weight: "200" },
-    { path: "../fonts/groupe-light.otf", weight: "300" },
-    { path: "../fonts/groupe-regular.otf", weight: "400" },
-    { path: "../fonts/groupe-medium.otf", weight: "500" },
+    { path: "../fonts/groupe-thin.woff2", weight: "200" },
+    { path: "../fonts/groupe-light.woff2", weight: "300" },
+    { path: "../fonts/groupe-regular.woff2", weight: "400" },
+    { path: "../fonts/groupe-medium.woff2", weight: "500" },
   ],
   variable: "--font-groupe",
   display: "swap",

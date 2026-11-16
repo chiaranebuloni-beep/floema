@@ -1,6 +1,6 @@
 # FLOEMA Wood Studio — recap del progetto
 
-Leggi questo file prima di qualsiasi richiesta sul progetto FLOEMA. Ultimo aggiornamento: 4 novembre 2026.
+Leggi questo file prima di qualsiasi richiesta sul progetto FLOEMA. Ultimo aggiornamento: 16 novembre 2026.
 
 ## Cos'è
 
@@ -14,7 +14,7 @@ Sito e-commerce di **FLOEMA Wood Studio**, il brand di design della Falegnameria
 
 | Cosa | Dove |
 |---|---|
-| Cartella | `/Users/chiara/Desktop/floema` |
+| Cartella | `/Users/chiara/Desktop/PROGETTI CLAUDE/floema` |
 | Sito online | https://floema-orcin.vercel.app (progetto Vercel `floema`) |
 | Admin online | https://floema-admin.vercel.app/admin/ (progetto Vercel `floema-admin`, cartella `backend/`) |
 | Database online | Neon Postgres `floema-db` (variabile `DATABASE_URL`) |
@@ -26,11 +26,13 @@ Sito e-commerce di **FLOEMA Wood Studio**, il brand di design della Falegnameria
 - **GitHub**: commit su `main` e push.
 - **Pubblica su Vercel e GitHub SOLO quando l'utente lo chiede.** Di solito chiede "pubblica su vercel e git". Se chiede solo Vercel, chiedi conferma prima di fare il commit.
 
-**In locale** (configurazione in `.claude/launch.json` della sessione):
+**In locale** (configurazione in `.claude/launch.json`; se manca, va creata):
 - sito: `npm run dev`, su http://localhost:3100;
 - admin: `backend/.venv/bin/python backend/manage.py runserver 127.0.0.1:8000`, su http://localhost:8000/admin/.
 
-`.env.local` contiene `BACKEND_URL=http://127.0.0.1:8000` e `BACKEND_API_KEY`. Se il backend non risponde, il sito usa `data/products.json`.
+**Porte occupate.** Sul computer girano anche altri progetti, che spesso occupano la 3100 e la 8000. Prima di avviare, controlla: se sono occupate, usa porte libere (per esempio 3101 per il sito e 8010 per l'admin) e aggiorna `BACKEND_URL` in `.env.local`. Non chiudere i processi degli altri progetti.
+
+`.env.local` contiene solo `BACKEND_URL=http://127.0.0.1:8000`. `BACKEND_API_KEY` non serve in locale, perché nemmeno l'admin locale richiede una chiave. Se il backend non risponde, il sito usa `data/products.json`.
 
 **Credenziali.** Stanno in file locali esclusi da git: `backend/CREDENZIALI-LOCALI.txt`, `backend/CREDENZIALI-ONLINE.txt` e `backend/CHIAVI-VERCEL.txt`. **Non scrivere mai chiavi o password in chat.** Le variabili sensibili di Vercel non si leggono da CLI.
 
@@ -90,12 +92,16 @@ La sezione Prospettive è stata **tolta**. Il componente `Perspectives.tsx` e le
 
 **Materia**:
 - l'apertura è "Scelto a mano, lavorato con rispetto.", diversa dalla home;
-- Le essenze: Legno antico, Rovere, Cirmolo, Abete;
+- Le essenze: Legno antico, Rovere, Cirmolo, Abete, una riga ciascuna con un pallino tondo con la foto del legno a destra, come i colori dello Shop. Le foto (`essenza-*-v3.jpg`) sono state fornite dall'utente il 16 novembre 2026. Non usare foto prese da internet senza licenza;
 - Le lavorazioni: **solo Spazzolato e Verniciato**.
 
 **Studio**: slideshow delle foto del metodo, foto del team panoramica in bianco e nero, anni con contatore animato.
 
-**Footer**: "© FLOEMA Wood Studio — Falegnameria F.lli Galli di Galli Stefano e C. S.a.s. · Via Ostaria 357, 23041 Livigno (SO) · P.IVA 92003670145 · REA SO 39225". Lo studio e i contatti indicano Via All, 138.
+**Footer**: "© FLOEMA Wood Studio — Falegnameria Galli di Galli Alex · Via All, 138, 23041 Livigno (SO) · P.IVA 01019410149 · REA SO 74467" (dati del cliente, 13 novembre 2026; il REA viene da una ricerca online ed è da confermare sulla visura).
+
+**Testo dello studio in home**: l'attività è guidata dal figlio Alex (non più "i figli Alex, Nadir ed Emanuele").
+
+**Font Groupe**: licenza Envato Elements intestata a Reddoak Srl per il progetto "sito web floemawoodstudio.it". Il sito usa i file `.woff2` in `src/fonts/`, esclusi da git come gli `.otf`: prima di pubblicare, controlla che ci siano nella cartella da cui lanci il deploy (si creano dagli `.otf`, vedi README).
 
 **Tecnica**:
 - icona del sito (`src/app/icon.svg`) e icona per iPhone;
@@ -112,7 +118,7 @@ La sezione Prospettive è stata **tolta**. Il componente `Perspectives.tsx` e le
    - Il sito non usa cookie di profilazione né statistiche, quindi **non serve il banner dei cookie**.
    - Servizi da indicare su iubenda: Vercel (hosting), Neon (database), Stripe (pagamenti), modulo contatti, email degli ordini, corriere.
    - I testi vanno fatti validare dal commercialista o da un legale.
-2. **Ricontrollare la P.IVA** `92003670145` sulla visura: inizia con 9, che di solito indica un codice fiscale di un ente.
+2. **Confermare il REA** SO 74467 sulla visura camerale (oggi viene da una ricerca online).
 3. **Stripe del cliente**: oggi il checkout è in modalità demo. Servono `STRIPE_SECRET_KEY` e `STRIPE_WEBHOOK_SECRET` sul progetto `floema-admin`.
 4. **Costo di spedizione e tempi di produzione**: ancora mancanti. Oggi ci sono solo "Spedizione esclusa" e "Prodotto su ordinazione".
 5. **Dominio** (per esempio floema.it). Quando arriva:

@@ -354,20 +354,11 @@ address {
 /* ---------- Grana ---------- */
 .grain {
   position: fixed;
-  inset: -50%;
+  inset: 0;
   z-index: 150;
   pointer-events: none;
   opacity: 0.07;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-  animation: grain 1.2s steps(6) infinite;
-}
-@keyframes grain {
-  0% { transform: translate(0, 0); }
-  20% { transform: translate(-3%, 2%); }
-  40% { transform: translate(2%, -3%); }
-  60% { transform: translate(-2%, -1%); }
-  80% { transform: translate(3%, 3%); }
-  100% { transform: translate(0, 0); }
 }
 
 /* ---------- Preloader ---------- */
@@ -1592,15 +1583,11 @@ address {
 }
 .mat-row {
   display: grid;
-  grid-template-columns: 80px minmax(0, 1fr) minmax(0, 1fr);
-  gap: 24px;
-  align-items: baseline;
-  padding: clamp(20px, 2.4vw, 34px) 0;
+  grid-template-columns: 80px minmax(0, 1.25fr) minmax(0, 1fr) clamp(84px, 7.5vw, 120px);
+  gap: clamp(16px, 2.4vw, 40px);
+  align-items: center;
+  padding: clamp(24px, 2.6vw, 40px) 0;
   border-bottom: 1px solid var(--line-light);
-  transition: padding 0.6s var(--ease);
-}
-.mat-row:hover {
-  padding-left: 16px;
 }
 .mat-row__n {
   font-size: 11px;
@@ -1609,15 +1596,47 @@ address {
   color: var(--tortora);
 }
 .mat-row__name {
+  margin: 0;
   font-family: var(--f-head);
   font-weight: 200;
   font-size: clamp(28px, 3.4vw, 56px);
   line-height: 1;
   text-transform: uppercase;
+  transition: transform 0.8s var(--ease);
 }
 .mat-row__note {
+  margin: 0;
+  max-width: 30ch;
   font-size: 14px;
+  line-height: 1.6;
   color: var(--light-soft);
+  transition: color 0.6s var(--ease);
+}
+/* Pallino del legno, come i colori nello Shop. */
+.mat-row__img {
+  position: relative;
+  justify-self: end;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0;
+  background: var(--antracite);
+  box-shadow: 0 0 0 1px var(--line-light);
+}
+.mat-row__img img {
+  object-fit: cover;
+  transform: scale(1.04);
+  transition: transform 1.4s var(--ease);
+}
+.mat-row:hover .mat-row__name {
+  transform: translateX(14px);
+}
+.mat-row:hover .mat-row__note {
+  color: var(--light);
+}
+.mat-row:hover .mat-row__img img {
+  transform: scale(1.12);
 }
 .mat-craft {
   margin-top: clamp(72px, 9vw, 140px);
@@ -1939,10 +1958,21 @@ address {
     gap: 12px;
   }
   .mat-row {
-    grid-template-columns: 48px minmax(0, 1fr);
+    grid-template-columns: 36px minmax(0, 1fr) 64px;
+    column-gap: 16px;
+    row-gap: 10px;
+    align-items: start;
+  }
+  .mat-row__img {
+    grid-column: 3;
+    grid-row: 1 / span 2;
   }
   .mat-row__note {
     grid-column: 2;
+    font-size: 13px;
+  }
+  .mat-row__n {
+    padding-top: 6px;
   }
   .mat-duo {
     grid-template-columns: minmax(0, 1fr);

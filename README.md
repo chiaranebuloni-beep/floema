@@ -24,6 +24,14 @@ Su un Mac con il font installato:
 for w in THIN LIGHT REGULAR MEDIUM; do cp ~/Library/Fonts/"GROUPE $w.otf" "src/fonts/groupe-$(echo $w | tr A-Z a-z).otf"; done
 ```
 
+Il sito usa le versioni `.woff2` (più leggere e pensate per il web, come chiede la licenza Envato Elements). Si creano dagli `.otf` con fontTools (`pip install fonttools brotli`):
+
+```bash
+for w in thin light regular medium; do python3 -c "import sys; from fontTools.ttLib import TTFont; f=TTFont(sys.argv[1]); f.flavor='woff2'; f.save(sys.argv[2])" "src/fonts/groupe-$w.otf" "src/fonts/groupe-$w.woff2"; done
+```
+
+Anche i `.woff2` sono esclusi da git.
+
 ## Struttura
 
 - `src/app/page.tsx` — home page

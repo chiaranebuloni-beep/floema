@@ -57,7 +57,7 @@ export function Heritage() {
           <Lines as="h2" className="display display--dark heritage__title" lines={["Esperienza artigianale,", <>visione contemporanea.</>]} />
 
           <p className="body heritage__body" data-fade="0.1">
-            Oggi l&apos;attività è guidata dai figli Alex, Nadir ed Emanuele, con una squadra di abili falegnami che segue ogni fase:
+            Oggi l&apos;attività è guidata dal figlio Alex, con una squadra di abili falegnami che segue ogni fase:
             dalla progettazione alla scelta del legno, fino alla rifinitura a mano dei dettagli. Da questa esperienza prende vita un
             nuovo modo di interpretare il legno.
           </p>

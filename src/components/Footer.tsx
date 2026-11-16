@@ -72,7 +72,7 @@ export function Footer() {
 
         <div className="footer__bottom">
           <span>
-            © {year} FLOEMA Wood Studio — {COMPANY.name} · {COMPANY.address} · P.IVA {COMPANY.vat} · REA {COMPANY.rea}
+            © {year} FLOEMA Wood Studio — {COMPANY.name} · {COMPANY.address} · P.IVA {COMPANY.vat}{COMPANY.rea && ` · REA ${COMPANY.rea}`}
           </span>
           <span>
             {/* Da collegare ai testi di iubenda. */}

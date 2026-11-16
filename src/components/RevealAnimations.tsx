@@ -14,29 +14,29 @@ export function RevealAnimations() {
           gsap.from(el.querySelectorAll(".mask__in"), {
             yPercent: 110,
             rotate: 2,
-            duration: 1.4,
+            duration: 1,
             ease: "expo.out",
-            stagger: 0.09,
-            scrollTrigger: { trigger: el, start: "top 88%" },
+            stagger: 0.06,
+            scrollTrigger: { trigger: el, start: "top 95%" },
           });
         });
 
         gsap.utils.toArray<HTMLElement>("[data-fade]").forEach((el) => {
           gsap.from(el, {
-            y: 40,
+            y: 24,
             opacity: 0,
-            duration: 1.2,
+            duration: 0.8,
             ease: "power3.out",
             delay: Number(el.dataset.fade) || 0,
-            scrollTrigger: { trigger: el, start: "top 90%" },
+            scrollTrigger: { trigger: el, start: "top 96%" },
           });
         });
 
         gsap.utils.toArray<HTMLElement>("[data-img-reveal]").forEach((el) => {
           const img = el.querySelector("img");
-          const tl = gsap.timeline({ scrollTrigger: { trigger: el, start: "top 85%" } });
-          tl.fromTo(el, { clipPath: "inset(100% 0% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 1.6, ease: "expo.inOut" });
-          if (img) tl.from(img, { scale: 1.35, duration: 2, ease: "expo.out" }, 0.2);
+          const tl = gsap.timeline({ scrollTrigger: { trigger: el, start: "top 95%" } });
+          tl.fromTo(el, { clipPath: "inset(100% 0% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 1.1, ease: "expo.inOut" });
+          if (img) tl.from(img, { scale: 1.2, duration: 1.4, ease: "expo.out" }, 0.1);
         });
 
         gsap.utils.toArray<HTMLElement>("[data-parallax]").forEach((el) => {
@@ -49,7 +49,7 @@ export function RevealAnimations() {
         });
 
         gsap.utils.toArray<HTMLElement>("[data-rule]").forEach((el) => {
-          gsap.from(el, { scaleX: 0, transformOrigin: "left", duration: 1.6, ease: "expo.inOut", scrollTrigger: { trigger: el, start: "top 92%" } });
+          gsap.from(el, { scaleX: 0, transformOrigin: "left", duration: 1.1, ease: "expo.inOut", scrollTrigger: { trigger: el, start: "top 92%" } });
         });
       });
       ScrollTrigger.refresh();
