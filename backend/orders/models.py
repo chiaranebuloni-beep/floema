@@ -86,6 +86,15 @@ class Order(models.Model):
         self.total = self.subtotal + self.shipping
 
 
+class Shipment(Order):
+    """Gli stessi ordini, visti dal lato spedizione (voce «Spedizioni» del menu)."""
+
+    class Meta:
+        proxy = True
+        verbose_name = "spedizione"
+        verbose_name_plural = "spedizioni"
+
+
 class OrderLine(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name="lines")
     product = models.ForeignKey("catalog.Product", verbose_name="prodotto", null=True, blank=True, on_delete=models.SET_NULL)

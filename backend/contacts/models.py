@@ -2,7 +2,7 @@ from django.db import models
 
 
 class ContactMessage(models.Model):
-    """Richiesta arrivata dal modulo della pagina Contatti."""
+    """Lead: richiesta arrivata dal modulo della pagina Contatti (anche dal link «offerta dedicata» dello Shop)."""
 
     class Profile(models.TextChoices):
         PRIVATE = "privato", "Privato"
@@ -17,8 +17,8 @@ class ContactMessage(models.Model):
     created_at = models.DateTimeField("ricevuto il", auto_now_add=True)
 
     class Meta:
-        verbose_name = "contatto"
-        verbose_name_plural = "contatti"
+        verbose_name = "lead"
+        verbose_name_plural = "lead dal sito"
         ordering = ["-created_at"]
 
     def __str__(self):

@@ -141,7 +141,7 @@ class Command(BaseCommand):
             (2, 6, "in_production", "paid", "fume", 2, None, ""),
             (4, 9, "in_production", "paid", "naturale", 4, None, "Per un progetto residenziale, fattura allo studio."),
             (3, 18, "shipped", "paid", "miele", 1, ("BRT", "084512339871"), ""),
-            (0, 40, "delivered", "paid", "fume", 1, ("GLS", "AB12345678"), ""),
+            (0, 40, "delivered", "paid", "fume", 1, ("Corriere espresso", "AB12345678"), ""),
             (1, 30, "cancelled", "refunded", "naturale", 1, None, ""),
         ]
         for person, days, status, payment, code, qty, shipping, note in orders:

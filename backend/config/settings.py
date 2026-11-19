@@ -148,16 +148,33 @@ UNFOLD = {
         "navigation": [
             {
                 "items": [
+                    # Clienti e Varianti non hanno una voce propria: sono schede dentro Ordini e Prodotti (vedi TABS).
                     {"title": "Ordini", "icon": "receipt_long", "link": reverse_lazy("admin:orders_order_changelist"),
                      "badge": "core.callbacks.badge_new_orders", **BADGE},
-                    {"title": "Clienti", "icon": "group", "link": reverse_lazy("admin:orders_customer_changelist")},
+                    {"title": "Spedizioni", "icon": "local_shipping", "link": reverse_lazy("admin:orders_shipment_changelist"),
+                     "badge": "core.callbacks.badge_to_ship", **BADGE},
                     {"title": "Prodotti", "icon": "chair", "link": reverse_lazy("admin:catalog_product_changelist")},
-                    {"title": "Varianti", "icon": "palette", "link": reverse_lazy("admin:catalog_variant_changelist")},
-                    {"title": "Contatti", "icon": "mail", "link": reverse_lazy("admin:contacts_contactmessage_changelist"),
+                    {"title": "Lead dal sito", "icon": "mail", "link": reverse_lazy("admin:contacts_contactmessage_changelist"),
                      "badge": "core.callbacks.badge_unanswered_contacts", **BADGE},
                     {"title": "Utenti staff", "icon": "badge", "link": reverse_lazy("admin:auth_user_changelist")},
                 ],
             },
         ],
     },
+    "TABS": [
+        {
+            "models": ["orders.order", "orders.customer"],
+            "items": [
+                {"title": "Ordini", "link": reverse_lazy("admin:orders_order_changelist")},
+                {"title": "Clienti", "link": reverse_lazy("admin:orders_customer_changelist")},
+            ],
+        },
+        {
+            "models": ["catalog.product", "catalog.variant"],
+            "items": [
+                {"title": "Prodotti", "link": reverse_lazy("admin:catalog_product_changelist")},
+                {"title": "Varianti", "link": reverse_lazy("admin:catalog_variant_changelist")},
+            ],
+        },
+    ],
 }

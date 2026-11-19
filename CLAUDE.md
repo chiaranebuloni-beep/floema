@@ -1,13 +1,13 @@
 # FLOEMA Wood Studio — recap del progetto
 
-Leggi questo file prima di qualsiasi richiesta sul progetto FLOEMA. Ultimo aggiornamento: 19 novembre 2026.
+Leggi questo file prima di qualsiasi richiesta sul progetto FLOEMA. Ultimo aggiornamento: 19 novembre 2026 (menu dell'admin).
 
 ## Cos'è
 
 Sito e-commerce di **FLOEMA Wood Studio**, il brand di design della Falegnameria F.lli Galli di Livigno. Si vende un solo prodotto, **FLOEMA 01**: uno sgabello che si usa anche come tavolino d'appoggio o comodino. Il catalogo è comunque pronto per più prodotti e più varianti.
 
 - **Sito**: Next.js 16 (App Router, Turbopack), GSAP + ScrollTrigger, Lenis, Three.js per il 3D del prodotto. Si trova in questa cartella.
-- **Admin / backend**: Django 5.2 + Unfold, nella cartella `backend/`. Ha Ordini, Clienti, Prodotti, Varianti, Contatti e Utenti staff, ed è volutamente minimale.
+- **Admin / backend**: Django 5.2 + Unfold, nella cartella `backend/`. Il menu ha **Ordini** (con la scheda Clienti), **Spedizioni** (ordini pagati da spedire e spediti; il corriere è un campo libero: non scrivere GLS o altri nomi, il corriere non è ancora scelto), **Prodotti** (con la scheda Varianti), **Lead dal sito** (richieste del modulo contatti, privati e professionisti) e Utenti staff. È volutamente minimale.
 - **Lingua**: si risponde sempre in **italiano**.
 
 ## Dove sta e come si pubblica
