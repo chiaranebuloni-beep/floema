@@ -50,7 +50,7 @@ class ProductAdmin(ModelAdmin):
     fieldsets = [
         ("Prodotto", {
             "classes": ["tab"],
-            "fields": [("name", "slug"), ("status", "price"), "variants", ("chapter", "position"), "description", ("material", "dimensions", "origin")],
+            "fields": [("name", "slug"), "status", ("price", "full_price"), "variants", ("chapter", "position"), "description", ("material", "dimensions", "origin")],
         }),
         ("Scheda tecnica", {
             "classes": ["tab"],

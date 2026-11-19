@@ -28,6 +28,9 @@ export function ProductDetail({ product }: { product: Product }) {
     if (kind === "color" && view !== "3d") setView(0);
   };
   const d = product.details;
+  // Prezzo di lancio: il prezzo pieno compare barrato (con gli stessi supplementi delle opzioni scelte).
+  const price = variantPrice(product, chosen);
+  const fullPrice = product.fullPrice && product.fullPrice > product.price ? product.fullPrice + price - product.price : null;
   const buyLabel = product.status === "preorder" ? "Pre-ordina" : "Aggiungi al carrello";
   const buy = () => add(product.slug, codes || undefined, qty);
 
@@ -100,8 +103,16 @@ export function ProductDetail({ product }: { product: Product }) {
             <span>{product.material}</span>
           </p>
           <h1 className="pcard__name">{product.name}</h1>
-          <p className="pcard__price">{formatPrice(variantPrice(product, chosen))}</p>
-          <p className="pdp__lead">Spedizione esclusa</p>
+          <p className="pcard__price">
+            {fullPrice && (
+              <s className="pcard__full">
+                <span className="sr-only">Prezzo pieno </span>
+                {formatPrice(fullPrice)}
+              </s>
+            )}
+            {formatPrice(price)}
+          </p>
+          <p className="pdp__lead">{fullPrice ? "Prezzo di lancio · Spedizione esclusa" : "Spedizione esclusa"}</p>
           <p className="body pdp__desc">{product.description}</p>
 
           {VARIANT_KINDS.map(({ kind, label }) => {
@@ -152,6 +163,9 @@ export function ProductDetail({ product }: { product: Product }) {
             </Magnetic>
           </div>
           <p className="pdp__lead">{d.leadTime}</p>
+          <p className="pdp__lead pdp__pro">
+            Sei un professionista o ti servono 5 pezzi o più? <Link href="/contatti">Chiedi un'offerta dedicata</Link>
+          </p>
 
           <div className="pdp__accordion">
             {specs.map((i) => (
@@ -182,7 +196,10 @@ export function ProductDetail({ product }: { product: Product }) {
             {product.name}
             {color && ` · ${color.name}`}
           </span>
-          <span className="pdp__bar-price">{formatPrice(variantPrice(product, chosen) * qty)}</span>
+          <span className="pdp__bar-price">
+            {fullPrice && <s className="pcard__full">{formatPrice(fullPrice * qty)}</s>}
+            {formatPrice(price * qty)}
+          </span>
         </div>
         <button className="btn btn--solid" onClick={buy} tabIndex={inSection && !buyVisible ? 0 : -1}>
           {buyLabel}

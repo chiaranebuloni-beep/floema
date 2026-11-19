@@ -45,6 +45,10 @@ class Product(models.Model):
     slug = models.SlugField(unique=True, help_text="Identificativo usato dal sito.")
     status = models.CharField("stato", max_length=12, choices=Status.choices, default=Status.DRAFT)
     price = models.DecimalField("prezzo", max_digits=10, decimal_places=2, help_text="IVA inclusa.")
+    full_price = models.DecimalField(
+        "prezzo pieno", max_digits=10, decimal_places=2, null=True, blank=True,
+        help_text="Facoltativo, IVA inclusa. Se è più alto del prezzo, sul sito compare barrato: il prezzo diventa «di lancio».",
+    )
     position = models.PositiveIntegerField("ordine", default=0)
     variants = models.ManyToManyField(Variant, verbose_name="varianti", blank=True, related_name="products")
 

@@ -61,6 +61,7 @@ class Command(BaseCommand):
             d = data.get("details", {})
             product, _ = Product.objects.update_or_create(slug=data["slug"], defaults={
                 "name": data["name"], "status": data.get("status", "available"), "price": Decimal(str(data["price"])),
+                "full_price": Decimal(str(data["fullPrice"])) if data.get("fullPrice") else None,
                 "position": i, "chapter": data.get("chapter", ""), "description": data.get("description", ""), "material": data.get("material", ""),
                 "dimensions": data.get("dimensions", ""), "origin": data.get("origin", ""),
                 "wood": d.get("wood", ""), "finish": d.get("finish", ""), "mechanism": d.get("mechanism", ""),

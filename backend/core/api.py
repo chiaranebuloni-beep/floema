@@ -40,6 +40,7 @@ def serialize_product(p):
     return {
         "slug": p.slug, "name": p.name, "chapter": p.chapter, "description": p.description,
         "material": p.material, "dimensions": p.dimensions, "origin": p.origin, "price": float(p.price),
+        **({"fullPrice": float(p.full_price)} if p.full_price and p.full_price > p.price else {}),
         "currency": "EUR", "status": p.status,
         "images": [{"src": i.path, "alt": i.alt, "variant": i.variant.code if i.variant else None}
                    for i in p.images.select_related("variant")],

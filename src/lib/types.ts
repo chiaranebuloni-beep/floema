@@ -40,6 +40,7 @@ export type Product = {
   dimensions?: string;
   origin: string;
   price: number;
+  fullPrice?: number; // prezzo pieno, mostrato barrato quando il prezzo è di lancio
   currency: "EUR";
   status: "available" | "preorder" | "soldout";
   images: { src: string; alt: string; variant?: string | null }[]; // galleria; variant = colorazione a cui si riferisce

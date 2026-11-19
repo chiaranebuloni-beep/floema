@@ -1,6 +1,6 @@
 # FLOEMA Wood Studio — recap del progetto
 
-Leggi questo file prima di qualsiasi richiesta sul progetto FLOEMA. Ultimo aggiornamento: 16 novembre 2026.
+Leggi questo file prima di qualsiasi richiesta sul progetto FLOEMA. Ultimo aggiornamento: 19 novembre 2026.
 
 ## Cos'è
 
@@ -43,7 +43,7 @@ Sito e-commerce di **FLOEMA Wood Studio**, il brand di design della Falegnameria
   - `backend/core/data/products.json`;
   - una **migrazione dati** in `backend/catalog/migrations/`, per aggiornare il database online.
 
-  Le migrazioni modificano un valore solo se è ancora quello vecchio, così non sovrascrivono le modifiche fatte a mano nell'admin. L'ultima è la `0010`.
+  Le migrazioni modificano un valore solo se è ancora quello vecchio, così non sovrascrivono le modifiche fatte a mano nell'admin. L'ultima è la `0011` (prezzo pieno).
 - **Dati aziendali** del footer: `src/lib/company.ts`.
 - **Indirizzo del sito**: `src/lib/site.ts`. Si usa per sitemap, anteprime e dati per Google. Quando ci sarà il dominio basta impostare `NEXT_PUBLIC_SITE_URL` su Vercel.
 - **Foto nuove**: vanno ottimizzate in `public/images`. Se sostituisci una foto, dai al file un **nome nuovo**, altrimenti la cache delle immagini continua a mostrare quella vecchia. Gli originali del cliente stanno in `foto nuove/`, `il metodo/` e `prospettive/` e sono esclusi da git.
@@ -77,7 +77,7 @@ Sito e-commerce di **FLOEMA Wood Studio**, il brand di design della Falegnameria
 La sezione Prospettive è stata **tolta**. Il componente `Perspectives.tsx` e le sue foto restano nel progetto, ma non sono usati.
 
 **Shop** (pagina del prodotto FLOEMA 01):
-- **Prezzo**: 490 €, spedizione esclusa; il pulsante dice "Pre-ordina".
+- **Prezzo**: prezzo di lancio 490 € con il prezzo pieno 590 € barrato (campo «prezzo pieno» del prodotto nell'admin, `fullPrice` nel JSON; il cliente paga sempre il «prezzo»). Spedizione esclusa; il pulsante dice "Pre-ordina". Sotto il pulsante: "Sei un professionista o ti servono 5 pezzi o più? Chiedi un'offerta dedicata" (link a Contatti).
 - **Colorazioni**: **Naturale, Miele, Fumé** (codici `naturale`, `miele`, `fume`). La riga "Legno" cambia con la colorazione: Cirmolo, Rovere, Legno antico con gamba in abete nero. Il testo sta nel campo `Variant.wood` dell'admin.
 - **Accanto a "Colorazione"**: niente nome, va lasciato così.
 - **Altri dati**:
@@ -120,7 +120,13 @@ La sezione Prospettive è stata **tolta**. Il componente `Perspectives.tsx` e le
    - I testi vanno fatti validare dal commercialista o da un legale.
 2. **Confermare il REA** SO 74467 sulla visura camerale (oggi viene da una ricerca online).
 3. **Stripe del cliente**: oggi il checkout è in modalità demo. Servono `STRIPE_SECRET_KEY` e `STRIPE_WEBHOOK_SECRET` sul progetto `floema-admin`.
-4. **Costo di spedizione e tempi di produzione**: ancora mancanti. Oggi ci sono solo "Spedizione esclusa" e "Prodotto su ordinazione".
+4. **Prezzo, spedizione e tempi** (decisioni del cliente, 19 novembre 2026; prezzo e riga per i professionisti già sul sito):
+   - prezzo pieno **590 € IVA inclusa**, con **prezzo di lancio 490 €** (590 € barrato); manca il limite del lancio (data o numero di pezzi);
+   - richiesta a parte per **professionisti e ordini da 5–10 pezzi in su**;
+   - costi a pezzo secondo il cliente: materiale 90 €, mano d'opera 120 €, imballo 10 € (stima), varie 30 €;
+   - lo sgabello viaggia **montato**, circa 10–12 kg imballato; scatola su misura e pluriball ancora da trovare;
+   - **corriere**: nessuno contattato; il cliente sentirà quelli di Livigno. Va chiarito con loro come funzionano IVA e dogana in uscita da Livigno (zona extradoganale);
+   - produzione: un paio di giorni a pezzo, con alcuni pezzi sempre pronti in magazzino.
 5. **Dominio** (per esempio floema.it). Quando arriva:
    - impostare `NEXT_PUBLIC_SITE_URL`;
    - configurare un servizio email per le conferme d'ordine, che oggi partirebbero da `ordini@floema.it`;

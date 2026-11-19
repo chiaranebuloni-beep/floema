@@ -1508,6 +1508,21 @@ address {
   letter-spacing: 0.04em;
   font-size: clamp(34px, 3vw, 48px);
 }
+/* Prezzo pieno barrato accanto al prezzo di lancio. */
+.pcard__full {
+  margin-right: 0.45em;
+  font-size: 0.55em;
+  color: var(--tortora);
+  text-decoration-thickness: 1px;
+}
+.pdp__pro a {
+  color: var(--ink);
+  border-bottom: 1px solid currentColor;
+  transition: color 0.3s var(--ease);
+}
+.pdp__pro a:hover {
+  color: var(--fango);
+}
 .shop-info {
   background: var(--antracite);
   color: var(--light);
