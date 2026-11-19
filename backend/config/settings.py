@@ -131,15 +131,15 @@ UNFOLD = {
     ],
     "STYLES": [lambda request: static("floema/admin.css")],
     "LOGIN": {"image": lambda request: static("floema/login.jpg")},
-    # Colori del sito (src/app/globals.css): crema, avorio, sabbia, tortora, fango, carbone, antracite.
+    # Admin chiaro e neutro (grigi puri, niente toni bruni), con l'antracite del marchio come colore principale.
     "COLORS": {
         "base": {
-            "50": "#faf8f4", "100": "#f6f2ec", "200": "#eee7de", "300": "#d8c8b8", "400": "#a29686",
-            "500": "#6f665b", "600": "#4d4740", "700": "#3a3631", "800": "#2a2c2a", "900": "#1e1e1e", "950": "#141414",
+            "50": "#fafafa", "100": "#f5f5f5", "200": "#e5e5e5", "300": "#d4d4d4", "400": "#a3a3a3",
+            "500": "#737373", "600": "#525252", "700": "#404040", "800": "#262626", "900": "#171717", "950": "#0a0a0a",
         },
         "primary": {
-            "50": "#f6f2ec", "100": "#eee7de", "200": "#d8c8b8", "300": "#bdb0a1", "400": "#a29686",
-            "500": "#6f665b", "600": "#1e1e1e", "700": "#2a2c2a", "800": "#1e1e1e", "900": "#141414", "950": "#0a0a0a",
+            "50": "#f5f5f5", "100": "#e5e5e5", "200": "#d4d4d4", "300": "#a3a3a3", "400": "#737373",
+            "500": "#404040", "600": "#1e1e1e", "700": "#171717", "800": "#141414", "900": "#0a0a0a", "950": "#050505",
         },
     },
     "SIDEBAR": {
