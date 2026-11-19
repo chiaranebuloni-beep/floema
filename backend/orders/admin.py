@@ -10,7 +10,7 @@ from core.emails import send_order_email
 
 from .models import Customer, Order, OrderLine, Shipment
 
-STATUS_LABELS = {"new": "warning", "in_production": "primary", "shipped": "info", "delivered": "success", "cancelled": "danger"}
+STATUS_LABELS = {"new": "success", "in_production": "primary", "shipped": "info", "delivered": "success", "cancelled": "danger"}
 PAYMENT_LABELS = {"pending": "warning", "paid": "success", "refunded": "info"}
 
 
