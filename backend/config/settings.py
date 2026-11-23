@@ -88,6 +88,9 @@ WSGI_APPLICATION = "config.wsgi.application"
 DATABASES = {
     "default": dj_database_url.config(default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}", conn_max_age=0, conn_health_checks=True)
 }
+# Solo per spostare i dati da un altro database (es. da Neon a Postgres di Railway): vedi «manage.py copy_database».
+if os.getenv("SOURCE_DATABASE_URL"):
+    DATABASES["source"] = dj_database_url.parse(os.environ["SOURCE_DATABASE_URL"], conn_max_age=0)
 
 AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},

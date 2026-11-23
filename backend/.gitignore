@@ -11,3 +11,4 @@ CHIAVI-VERCEL.txt
 .env*
 CREDENZIALI-ONLINE.txt
 !.env.example
+CHIAVI-DATABASE.txt
