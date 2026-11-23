@@ -1,6 +1,6 @@
 # FLOEMA Wood Studio — recap del progetto
 
-Leggi questo file prima di qualsiasi richiesta sul progetto FLOEMA. Ultimo aggiornamento: 19 novembre 2026 (menu dell'admin).
+Leggi questo file prima di qualsiasi richiesta sul progetto FLOEMA. Ultimo aggiornamento: 23 novembre 2026 (database spostato su Railway).
 
 ## Cos'è
 
@@ -17,12 +17,12 @@ Sito e-commerce di **FLOEMA Wood Studio**, il brand di design della Falegnameria
 | Cartella | `/Users/chiara/Desktop/PROGETTI CLAUDE/floema` |
 | Sito online | https://floema-orcin.vercel.app (progetto Vercel `floema`) |
 | Admin online | https://floema-production.up.railway.app/admin/ (Railway, progetto `floema`, account del collega Matteo; Root Directory `backend`). Dal 23 novembre 2026 il sito usa questo. Il vecchio https://floema-admin.vercel.app/admin/ resta acceso per qualche giorno come riserva, poi va spento |
-| Database online | Neon Postgres `floema-db` (variabile `DATABASE_URL`) |
+| Database online | Postgres di Railway, nello stesso progetto (dal 23 novembre 2026). `DATABASE_URL` usa l'indirizzo interno `railway.internal`, gratuito; l'accesso pubblico è spento e va lasciato spento (il traffico pubblico si paga). Il vecchio Neon `floema-db` resta solo per l'admin di riserva, poi va spento |
 | GitHub | `chiaranebuloni-beep/floema`, branch `main` |
 | Account Vercel | team `meraviglias-projects` |
 
 - **Pubblicare il sito**: dalla cartella esegui `npx vercel deploy --prod --yes --scope meraviglias-projects`.
-- **Pubblicare il backend**: su Railway si pubblica da solo a ogni push su `main` (vedi `backend/railway.json`: gunicorn, e prima di ogni avvio `migrate` e `seed --online`). Le variabili (database Neon, chiavi) stanno nella scheda Variables del servizio su Railway. Il vecchio comando Vercel da `backend/` vale solo per l'admin di riserva.
+- **Pubblicare il backend**: su Railway si pubblica da solo a ogni push su `main` (vedi `backend/railway.json`: gunicorn, e prima di ogni avvio `migrate`, `copy_database` e `seed --online`). `copy_database` copia i dati da un altro database solo se c'è la variabile `SOURCE_DATABASE_URL` e il database è vuoto: è servito per lo spostamento da Neon, normalmente non fa nulla. Le variabili (database, chiavi) stanno nella scheda Variables del servizio su Railway. Il vecchio comando Vercel da `backend/` vale solo per l'admin di riserva.
 - **GitHub**: commit su `main` e push.
 - **Pubblica su Vercel e GitHub SOLO quando l'utente lo chiede.** Di solito chiede "pubblica su vercel e git". Se chiede solo Vercel, chiedi conferma prima di fare il commit.
 
@@ -118,7 +118,7 @@ La sezione Prospettive è stata **tolta**. Il componente `Perspectives.tsx` e le
    - Li genera l'utente su iubenda; poi si collegano i link del footer, che oggi sono `href="#"` in `src/components/Footer.tsx`.
    - Le pagine `/privacy`, `/cookie` e `/termini` sono state **tolte su richiesta**: non ricrearle.
    - Il sito non usa cookie di profilazione né statistiche, quindi **non serve il banner dei cookie**.
-   - Servizi da indicare su iubenda: Vercel (hosting), Neon (database), Stripe (pagamenti), modulo contatti, email degli ordini, corriere.
+   - Servizi da indicare su iubenda: Vercel (sito), Railway (admin e database), Stripe (pagamenti), modulo contatti, email degli ordini, corriere.
    - I testi vanno fatti validare dal commercialista o da un legale.
 2. **Confermare il REA** SO 74467 sulla visura camerale (oggi viene da una ricerca online).
 3. **Stripe e Brevo** (in corso dal 23 novembre 2026). Il codice è pronto: si attivano con le variabili del servizio su Railway, che inserisce l'utente (mai le chiavi in chat). Railway ripubblica da solo.
