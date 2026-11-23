@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Lines } from "../Lines";
 import { Magnetic } from "../Magnetic";
+import { ProjectGallery } from "./ProjectGallery";
 
 export function Architects() {
   return (
@@ -30,6 +31,7 @@ export function Architects() {
           </Magnetic>
         </div>
       </div>
+      <ProjectGallery />
     </section>
   );
 }

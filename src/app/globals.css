@@ -993,6 +993,62 @@ address {
 .arch__list li:first-child {
   border-top: 1px solid var(--line-light);
 }
+/* Galleria dei lavori: scorre in orizzontale, parte allineata al testo e arriva al bordo dello schermo. */
+.pgal {
+  margin-top: clamp(56px, 7vw, 104px);
+}
+.pgal__track {
+  display: flex;
+  gap: clamp(10px, 1.2vw, 18px);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+  padding: 0 var(--gutter);
+  scroll-padding: 0 var(--gutter);
+  cursor: grab;
+  outline: none;
+}
+.pgal__track::-webkit-scrollbar {
+  display: none;
+}
+.pgal__track.is-dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+}
+.pgal__item {
+  position: relative;
+  flex: 0 0 auto;
+  height: clamp(320px, 38vw, 560px);
+  scroll-snap-align: start;
+  overflow: hidden;
+  background: #1a1a1a;
+}
+.pgal__item img {
+  object-fit: cover;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+.pgal__bar {
+  position: relative;
+  height: 1px;
+  margin: 28px var(--gutter) 0;
+  max-width: 320px;
+  background: var(--line-light);
+}
+.pgal__bar span {
+  position: absolute;
+  inset: 0;
+  background: var(--light);
+  transform-origin: left center;
+  transition: transform 0.3s var(--ease);
+}
+@media (max-width: 700px) {
+  .pgal__item {
+    height: 62vw;
+    min-height: 260px;
+  }
+}
 
 /* ---------- Newsletter ---------- */
 .news {
