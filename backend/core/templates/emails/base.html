@@ -1,16 +1,46 @@
 <!doctype html>
 <html lang="it">
-<head><meta charset="utf-8"><title>{{ subject }}</title></head>
-<body style="margin:0;background:#f3ede4;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:#1a1714;">
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="padding:40px 16px;">
-    <tr><td align="center">
-      <table role="presentation" width="560" cellpadding="0" cellspacing="0" style="max-width:560px;background:#ffffff;">
-        <tr><td style="padding:36px 40px 12px;font-size:13px;letter-spacing:.32em;text-transform:uppercase;">FLOEMA <span style="color:#8a7b6b;">Wood Studio</span></td></tr>
-        <tr><td style="padding:12px 40px 36px;font-size:15px;line-height:1.6;">{{ body|safe }}</td></tr>
-        <tr><td style="padding:20px 40px;border-top:1px solid #ece4d8;font-size:12px;color:#8a7b6b;line-height:1.5;">
-          Falegnameria Galli · Livigno (SO)<br>
-          Hai domande? Rispondi a questa email o scrivi a {{ store_email }}.
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="supported-color-schemes" content="light">
+  <title>{{ subject }}</title>
+  <style>
+    /* Telefono: margini più stretti e titolo più piccolo (le caselle che non leggono questo stile usano i valori in linea). */
+    @media (max-width: 480px) {
+      .fl-pad { padding-left: 22px !important; padding-right: 22px !important; }
+      .fl-body h1 { font-size: 28px !important; }
+    }
+  </style>
+</head>
+<body style="margin:0;padding:0;background:#eee7de;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:#2a2c2a;-webkit-font-smoothing:antialiased;">
+  {# Anteprima nella casella di posta, nascosta nel corpo. #}
+  <div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent;">{{ preheader }}</div>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#eee7de;">
+    <tr><td align="center" style="padding:32px 12px;">
+      <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:600px;">
+
+        {# Testata scura con il logo, come il menu del sito. #}
+        <tr><td align="center" style="background:#2a2c2a;padding:34px 24px;">
+          <a href="{{ site_url }}" style="text-decoration:none;">
+            <img src="{{ logo_url }}" width="200" height="48" alt="FLOEMA" style="display:block;width:200px;height:48px;border:0;">
+          </a>
         </td></tr>
+
+        <tr><td class="fl-pad fl-body" style="background:#faf7f2;padding:44px 40px 40px;font-size:15px;line-height:1.65;color:#2a2c2a;">
+          {{ body|safe }}
+        </td></tr>
+
+        <tr><td class="fl-pad" style="padding:28px 40px 8px;font-size:12px;line-height:1.7;color:#6f665b;text-align:center;">
+          Hai domande sul tuo ordine? Rispondi a questa email o scrivi a
+          <a href="mailto:{{ store_email }}" style="color:#2a2c2a;">{{ store_email }}</a>.
+        </td></tr>
+        <tr><td style="padding:8px 40px 0;font-size:11px;line-height:1.7;color:#a29686;text-align:center;letter-spacing:.02em;">
+          <a href="{{ site_url }}" style="color:#6f665b;text-decoration:none;letter-spacing:.24em;text-transform:uppercase;font-size:10px;">FLOEMA Wood Studio</a><br>
+          {{ company }}
+        </td></tr>
+
       </table>
     </td></tr>
   </table>

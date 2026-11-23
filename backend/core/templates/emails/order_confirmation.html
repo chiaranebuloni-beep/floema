@@ -1,4 +1,40 @@
-<h1 style="font-weight:300;font-size:26px;letter-spacing:.04em;text-transform:uppercase;margin:0 0 16px;">Grazie, {{ order.name }}.</h1>
-<p>Abbiamo ricevuto il tuo ordine <strong>{{ order.reference }}</strong>. Ogni pezzo FLOEMA viene realizzato a mano nel nostro laboratorio di Livigno: ti scriveremo quando entrerà in produzione e quando partirà la spedizione.</p>
+<p style="margin:0 0 18px;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:#a29686;">Ordine {{ order.reference }}</p>
+<h1 style="margin:0 0 20px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:200;font-size:34px;line-height:1.1;letter-spacing:.02em;text-transform:uppercase;color:#2a2c2a;">Grazie{% if first_name %}, {{ first_name }}{% endif %}.</h1>
+<p style="margin:0;color:#4d4740;">Abbiamo ricevuto il tuo ordine. Ogni pezzo FLOEMA nasce a mano nel nostro laboratorio di Livigno: ti scriveremo quando partirà la spedizione, con il numero per seguirla.</p>
+
+{# Le tre tappe dell'ordine: la prima è già fatta. #}
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:32px 0 0;">
+  <tr>
+    <td width="33%" valign="top" style="padding:14px 8px 0 0;border-top:2px solid #2a2c2a;">
+      <div style="font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#2a2c2a;">01 · Ricevuto</div>
+      <div style="font-size:12px;color:#6f665b;margin-top:4px;">Oggi</div>
+    </td>
+    <td width="33%" valign="top" style="padding:14px 8px 0;border-top:2px solid #d8c8b8;">
+      <div style="font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#a29686;">02 · In laboratorio</div>
+      <div style="font-size:12px;color:#a29686;margin-top:4px;">Realizzato a mano</div>
+    </td>
+    <td width="33%" valign="top" style="padding:14px 0 0 8px;border-top:2px solid #d8c8b8;">
+      <div style="font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#a29686;">03 · Spedito</div>
+      <div style="font-size:12px;color:#a29686;margin-top:4px;">Con il tracking</div>
+    </td>
+  </tr>
+</table>
+
 {% include "emails/_lines.html" %}
-<p style="font-size:13px;color:#8a7b6b;">Spedizione a: {{ order.address }}, {{ order.zip_code }} {{ order.city }}, {{ order.country }}</p>
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:32px 0 0;background:#eee7de;">
+  <tr><td style="padding:20px 22px;">
+    <div style="font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:#a29686;margin-bottom:8px;">Spedizione a</div>
+    <div style="font-size:14px;line-height:1.6;color:#2a2c2a;">
+      {{ order.name }}<br>
+      {{ order.address }}<br>
+      {{ order.zip_code }} {{ order.city }}, {{ order.country }}
+    </div>
+  </td></tr>
+</table>
+
+<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:32px 0 0;">
+  <tr><td style="background:#2a2c2a;border-radius:999px;">
+    <a href="{{ site_url }}/materia" style="display:inline-block;padding:14px 28px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#f3ede5;text-decoration:none;">Scopri la materia</a>
+  </td></tr>
+</table>

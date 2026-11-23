@@ -1,4 +1,40 @@
-<h1 style="font-weight:300;font-size:26px;letter-spacing:.04em;text-transform:uppercase;margin:0 0 16px;">In viaggio.</h1>
-<p>Il tuo ordine <strong>{{ order.reference }}</strong> è stato spedito{% if order.carrier %} con {{ order.carrier }}{% endif %}.</p>
-{% if order.tracking_number %}<p>Numero di tracking: <strong>{{ order.tracking_number }}</strong></p>{% endif %}
-<p style="font-size:13px;color:#8a7b6b;">Indirizzo di consegna: {{ order.address }}, {{ order.zip_code }} {{ order.city }}, {{ order.country }}</p>
+<p style="margin:0 0 18px;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:#a29686;">Ordine {{ order.reference }}</p>
+<h1 style="margin:0 0 20px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:200;font-size:34px;line-height:1.1;letter-spacing:.02em;text-transform:uppercase;color:#2a2c2a;">In viaggio.</h1>
+<p style="margin:0;color:#4d4740;">{% if first_name %}{{ first_name }}, il{% else %}Il{% endif %} tuo FLOEMA ha lasciato il nostro laboratorio di Livigno{% if order.carrier %} ed è stato affidato a {{ order.carrier }}{% endif %}.</p>
+
+{# Le tre tappe dell'ordine: tutte fatte. #}
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:32px 0 0;">
+  <tr>
+    <td width="33%" valign="top" style="padding:14px 8px 0 0;border-top:2px solid #2a2c2a;">
+      <div style="font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#2a2c2a;">01 · Ricevuto</div>
+    </td>
+    <td width="33%" valign="top" style="padding:14px 8px 0;border-top:2px solid #2a2c2a;">
+      <div style="font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#2a2c2a;">02 · In laboratorio</div>
+    </td>
+    <td width="33%" valign="top" style="padding:14px 0 0 8px;border-top:2px solid #2a2c2a;">
+      <div style="font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#2a2c2a;">03 · Spedito</div>
+    </td>
+  </tr>
+</table>
+
+{% if order.tracking_number %}
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:32px 0 0;background:#2a2c2a;">
+  <tr><td style="padding:24px 26px;">
+    <div style="font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:#a29686;margin-bottom:10px;">Numero di tracking{% if order.carrier %} · {{ order.carrier }}{% endif %}</div>
+    <div style="font-size:22px;font-weight:300;letter-spacing:.12em;color:#f3ede5;word-break:break-all;">{{ order.tracking_number }}</div>
+  </td></tr>
+</table>
+{% endif %}
+
+{% include "emails/_lines.html" %}
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:32px 0 0;background:#eee7de;">
+  <tr><td style="padding:20px 22px;">
+    <div style="font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:#a29686;margin-bottom:8px;">Indirizzo di consegna</div>
+    <div style="font-size:14px;line-height:1.6;color:#2a2c2a;">
+      {{ order.name }}<br>
+      {{ order.address }}<br>
+      {{ order.zip_code }} {{ order.city }}, {{ order.country }}
+    </div>
+  </td></tr>
+</table>
