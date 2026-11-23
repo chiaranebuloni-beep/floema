@@ -107,6 +107,8 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Email: in locale vengono stampate nel terminale; in produzione basta impostare EMAIL_HOST & co.
 EMAIL_BACKEND = os.getenv("EMAIL_BACKEND", "django.core.mail.backends.console.EmailBackend")
+# Su Railway (piano Hobby) le porte SMTP sono bloccate: si usa l'API di Brevo, EMAIL_BACKEND=core.brevo.BrevoAPIBackend.
+BREVO_API_KEY = os.getenv("BREVO_API_KEY", "")
 EMAIL_HOST = os.getenv("EMAIL_HOST", "")
 EMAIL_PORT = int(os.getenv("EMAIL_PORT", "587"))
 EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER", "")

@@ -16,13 +16,13 @@ Sito e-commerce di **FLOEMA Wood Studio**, il brand di design della Falegnameria
 |---|---|
 | Cartella | `/Users/chiara/Desktop/PROGETTI CLAUDE/floema` |
 | Sito online | https://floema-orcin.vercel.app (progetto Vercel `floema`) |
-| Admin online | https://floema-admin.vercel.app/admin/ (progetto Vercel `floema-admin`, cartella `backend/`) |
+| Admin online | https://floema-production.up.railway.app/admin/ (Railway, progetto `floema`, account del collega Matteo; Root Directory `backend`). Dal 23 novembre 2026 il sito usa questo. Il vecchio https://floema-admin.vercel.app/admin/ resta acceso per qualche giorno come riserva, poi va spento |
 | Database online | Neon Postgres `floema-db` (variabile `DATABASE_URL`) |
 | GitHub | `chiaranebuloni-beep/floema`, branch `main` |
 | Account Vercel | team `meraviglias-projects` |
 
 - **Pubblicare il sito**: dalla cartella esegui `npx vercel deploy --prod --yes --scope meraviglias-projects`.
-- **Pubblicare il backend**: lo stesso comando, lanciato da `backend/`. Durante la build vengono eseguiti `migrate` e `seed --online` con Python 3.14 (vedi `backend/vercel.json`).
+- **Pubblicare il backend**: su Railway si pubblica da solo a ogni push su `main` (vedi `backend/railway.json`: gunicorn, e prima di ogni avvio `migrate` e `seed --online`). Le variabili (database Neon, chiavi) stanno nella scheda Variables del servizio su Railway. Il vecchio comando Vercel da `backend/` vale solo per l'admin di riserva.
 - **GitHub**: commit su `main` e push.
 - **Pubblica su Vercel e GitHub SOLO quando l'utente lo chiede.** Di solito chiede "pubblica su vercel e git". Se chiede solo Vercel, chiedi conferma prima di fare il commit.
 
@@ -119,9 +119,10 @@ La sezione Prospettive è stata **tolta**. Il componente `Perspectives.tsx` e le
    - Servizi da indicare su iubenda: Vercel (hosting), Neon (database), Stripe (pagamenti), modulo contatti, email degli ordini, corriere.
    - I testi vanno fatti validare dal commercialista o da un legale.
 2. **Confermare il REA** SO 74467 sulla visura camerale (oggi viene da una ricerca online).
-3. **Stripe e Brevo** (in corso dal 23 novembre 2026). Il codice è pronto: si attivano con le variabili sul progetto Vercel `floema-admin`, che inserisce l'utente (mai le chiavi in chat). Poi si ripubblica l'admin.
-   - **Stripe**: `STRIPE_SECRET_KEY` e `STRIPE_WEBHOOK_SECRET`. Webhook su `https://floema-admin.vercel.app/api/stripe/webhook/`, evento `checkout.session.completed`. Prima in modalità test, poi live. Il sito chiede all'admin se i pagamenti sono attivi (`/api/config/`): non serve la chiave sul progetto del sito.
-   - **Brevo** (email di conferma e di spedizione, via SMTP): `EMAIL_BACKEND=django.core.mail.backends.smtp.EmailBackend`, `EMAIL_HOST=smtp-relay.brevo.com`, `EMAIL_PORT=587`, `EMAIL_HOST_USER` e `EMAIL_HOST_PASSWORD` (login e chiave SMTP di Brevo), `DEFAULT_FROM_EMAIL` (mittente verificato su Brevo), `STORE_EMAIL` (indirizzo per le risposte; oggi di default è `info@floema.it`, che non esiste).
+3. **Stripe e Brevo** (in corso dal 23 novembre 2026). Il codice è pronto: si attivano con le variabili del servizio su Railway, che inserisce l'utente (mai le chiavi in chat). Railway ripubblica da solo.
+   - **Stripe**: `STRIPE_SECRET_KEY` e `STRIPE_WEBHOOK_SECRET`. Webhook su `https://floema-production.up.railway.app/api/stripe/webhook/`, evento `checkout.session.completed`. Prima in modalità test, poi live. Il sito chiede all'admin se i pagamenti sono attivi (`/api/config/`): non serve la chiave sul progetto del sito.
+   - **Brevo: collegato il 23 novembre 2026.** Mittente `info@floemawoodstudio.it` (casella Aruba del dominio floemawoodstudio.it, comprato dal cliente). Dominio autenticato su Brevo con i record DNS su Aruba: codice Brevo (TXT @), DKIM `brevo1`/`brevo2._domainkey` (CNAME), un solo `_dmarc`. Le email usano la chiave API di Brevo (`BREVO_API_KEY`), non la chiave SMTP `floema-railway`, che si può eliminare. Non attivare su Brevo il blocco degli IP non autorizzati: Railway non ha un IP fisso.
+   - **Brevo** (variabili su Railway): Railway nel piano Hobby **blocca le porte SMTP**, quindi le email passano dall'API web di Brevo (`backend/core/brevo.py`): `EMAIL_BACKEND=core.brevo.BrevoAPIBackend`, `BREVO_API_KEY` (chiave API di Brevo, `xkeysib-…`, da *SMTP e API → Chiavi API*), `DEFAULT_FROM_EMAIL=FLOEMA Wood Studio <info@floemawoodstudio.it>`, `STORE_EMAIL=info@floemawoodstudio.it`. Le variabili `EMAIL_HOST*`/`EMAIL_PORT` non servono più. Gli errori di invio compaiono nei Deploy Logs di Railway.
    - Prima dei pagamenti veri servono le condizioni di vendita e la privacy (punto 1) e il costo di spedizione (punto 4).
 4. **Prezzo, spedizione e tempi** (decisioni del cliente, 19 novembre 2026; prezzo e riga per i professionisti già sul sito):
    - prezzo pieno **590 € IVA inclusa**, con **prezzo di lancio 490 €** (590 € barrato); manca il limite del lancio (data o numero di pezzi);
