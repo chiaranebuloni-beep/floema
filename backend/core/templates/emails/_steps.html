@@ -1,0 +1,31 @@
+{# Stato dell'ordine in tre riquadri: confermato, spedito, consegnato. «stage» = quante tappe sono già fatte. #}
+<p style="margin:40px 0 12px;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:#737373;">Stato dell'ordine</p>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="table-layout:fixed;">
+  <tr>
+    <td class="fl-step" valign="top" style="background:#1e1e1e;padding:16px 14px;">
+      <div style="font-size:16px;line-height:1;color:#ffffff;">&#10003;</div>
+      <div class="fl-step-label" style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#ffffff;margin-top:12px;">Ordine confermato</div>
+      <div style="font-size:12px;color:#a3a3a3;margin-top:4px;">{{ order.created_at|date:"j/m/Y" }}</div>
+    </td>
+    <td width="8" style="width:8px;font-size:0;line-height:0;">&nbsp;</td>
+    {% if stage >= 2 %}
+    <td class="fl-step" valign="top" style="background:#1e1e1e;padding:16px 14px;">
+      <div style="font-size:16px;line-height:1;color:#ffffff;">&#10003;</div>
+      <div class="fl-step-label" style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#ffffff;margin-top:12px;">Ordine spedito</div>
+      <div style="font-size:12px;color:#a3a3a3;margin-top:4px;">{% if order.shipped_at %}{{ order.shipped_at|date:"j/m/Y" }}{% else %}Oggi{% endif %}</div>
+    </td>
+    {% else %}
+    <td class="fl-step" valign="top" style="border:1px solid #e5e5e5;padding:15px 13px;">
+      <div style="font-size:16px;line-height:1;color:#d4d4d4;">&#9675;</div>
+      <div class="fl-step-label" style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#1e1e1e;margin-top:12px;">Ordine spedito</div>
+      <div style="font-size:12px;margin-top:6px;"><a href="{{ order_url }}" style="color:#1e1e1e;text-decoration:underline;">Segui l'ordine &rarr;</a></div>
+    </td>
+    {% endif %}
+    <td width="8" style="width:8px;font-size:0;line-height:0;">&nbsp;</td>
+    <td class="fl-step" valign="top" style="border:1px solid #e5e5e5;padding:15px 13px;">
+      <div style="font-size:16px;line-height:1;color:#d4d4d4;">&#9675;</div>
+      <div class="fl-step-label" style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#1e1e1e;margin-top:12px;">Consegnato</div>
+      <div style="font-size:12px;margin-top:6px;">{% if stage >= 2 %}<a href="{% if order.tracking_url %}{{ order.tracking_url }}{% else %}{{ order_url }}{% endif %}" style="color:#1e1e1e;text-decoration:underline;">Traccia il pacco &rarr;</a>{% else %}&nbsp;{% endif %}</div>
+    </td>
+  </tr>
+</table>

@@ -2,7 +2,7 @@ Grazie, {{ order.name }}.
 
 Abbiamo ricevuto il tuo ordine {{ order.reference }}. Ogni pezzo FLOEMA nasce a mano nel nostro laboratorio di Livigno: ti scriveremo quando partirà la spedizione, con il numero per seguirla.
 {% for line in order.lines.all %}
-- {{ line.product_name }}{% if line.variant_name %} — {{ line.variant_name }}{% endif %} × {{ line.quantity }}: {{ line.total|floatformat:2 }} €{% endfor %}
+- {{ line.product_name }}{% if line.variant_name %}, colorazione {{ line.variant_name }}{% endif %} × {{ line.quantity }}: {{ line.total|floatformat:2 }} €{% endfor %}
 
 Totale: {{ order.total|floatformat:2 }} € (IVA inclusa)
 Spedizione a: {{ order.address }}, {{ order.zip_code }} {{ order.city }}, {{ order.country }}

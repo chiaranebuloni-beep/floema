@@ -39,7 +39,7 @@ class OrderAdmin(ModelAdmin):
     inlines = [OrderLineInline]
     fieldsets = [
         ("Ordine", {"fields": [("display_reference", "created_at"), ("status", "payment_status"), ("subtotal", "shipping", "total")]}),
-        ("Spedizione", {"fields": [("carrier", "tracking_number", "shipped_at")],
+        ("Spedizione", {"fields": [("carrier", "tracking_number", "shipped_at"), "tracking_url"],
                         "description": "Quando lo stato passa a «Spedito» il cliente riceve un'email con il tracking."}),
         ("Cliente", {"fields": ["customer", ("name", "email", "phone"), "address", ("zip_code", "city", "country"), "customer_note"]}),
         ("Note interne", {"fields": ["internal_note"]}),
@@ -154,8 +154,8 @@ class ShipmentAdmin(OrderAdmin):
     readonly_fields = OrderAdmin.readonly_fields + ["name", "phone", "address", "zip_code", "city", "country", "customer_note"]
     inlines = [ShipmentLineInline]
     fieldsets = [
-        ("Spedizione", {"fields": [("display_reference", "created_at"), "status", ("carrier", "tracking_number", "shipped_at")],
-                        "description": "Scrivi il corriere che spedisce e il numero di tracking. Quando lo stato passa a «Spedito» "
+        ("Spedizione", {"fields": [("display_reference", "created_at"), "status", ("carrier", "tracking_number", "shipped_at"), "tracking_url"],
+                        "description": "Scrivi il corriere, il numero di tracking e il link del corriere per seguire il pacco. Quando lo stato passa a «Spedito» "
                                        "il cliente riceve un'email con il tracking."}),
         ("Destinatario", {"fields": [("name", "phone"), "address", ("zip_code", "city", "country"), "customer_note"]}),
         ("Note interne", {"fields": ["internal_note"]}),

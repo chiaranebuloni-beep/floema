@@ -1,4 +1,9 @@
-Il tuo ordine {{ order.reference }} è stato spedito{% if order.carrier %} con {{ order.carrier }}{% endif %}.
-{% if order.tracking_number %}Tracking: {{ order.tracking_number }}{% endif %}
+Il tuo ordine {{ order.reference }} è in viaggio.
+{% if order.carrier %}
+Corriere: {{ order.carrier }}{% endif %}{% if order.tracking_number %}
+Numero di tracking: {{ order.tracking_number }}{% endif %}{% if order.tracking_url %}
+Segui la spedizione: {{ order.tracking_url }}{% endif %}
+
+Stato: ordine confermato · ordine spedito · consegnato (in arrivo)
 
 FLOEMA Wood Studio — {{ store_email }}

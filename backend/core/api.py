@@ -69,6 +69,12 @@ def serialize_order(o):
             for l in o.lines.all()
         ],
         "subtotal": float(o.subtotal), "shipping": float(o.shipping), "total": float(o.total),
+        # Per la pagina «Segui l'ordine»: stato di lavorazione e dati del corriere.
+        "createdAt": o.created_at.isoformat(),
+        "shipment": {
+            "status": o.status, "carrier": o.carrier, "trackingNumber": o.tracking_number, "trackingUrl": o.tracking_url,
+            "shippedAt": o.shipped_at.isoformat() if o.shipped_at else None,
+        },
     }
 
 

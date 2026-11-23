@@ -47,8 +47,10 @@ def _context(order):
     ]
     return {
         "order": order, "lines": lines, "store_email": settings.STORE_EMAIL, "site_url": site_url,
-        "logo_url": f"{site_url}/email/logo-floema-chiaro.png", "company": COMPANY,
+        "logo_url": f"{site_url}/email/logo-floema-scuro.png", "company": COMPANY,
         "first_name": order.name.split(" ")[0] if order.name else "",
+        # Pagina del sito con lo stato dell'ordine (protetta dal codice dell'ordine, come la pagina di conferma).
+        "order_url": f"{site_url}/ordine?order={order.number}&t={order.token}",
     }
 
 

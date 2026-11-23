@@ -97,6 +97,8 @@ La sezione Prospettive è stata **tolta**. Il componente `Perspectives.tsx` e le
 
 **Studio**: slideshow delle foto del metodo, foto del team panoramica in bianco e nero, anni con contatore animato.
 
+**Email ai clienti** (`backend/core/templates/emails/`, inviate con Brevo): conferma d'ordine e avviso di spedizione su fondo bianco, logo scuro (`public/email/logo-floema-scuro.png`), riquadri grigi con numero ordine, data o corriere e tracking, tre tappe (Ordine confermato, Ordine spedito, Consegnato), riepilogo con la foto della colorazione scelta. Il pulsante «Segui la spedizione» usa il campo **Link di tracking** dell'ordine nell'admin (da compilare alla spedizione). Il link «Segui l'ordine» apre la pagina **`/ordine`** del sito (stato dell'ordine, protetta dal codice dell'ordine, non indicizzata).
+
 **Footer**: "© FLOEMA Wood Studio — Falegnameria Galli di Galli Alex · Via All, 138, 23041 Livigno (SO) · P.IVA 01019410149 · REA SO 74467" (dati del cliente, 13 novembre 2026; il REA viene da una ricerca online ed è da confermare sulla visura).
 
 **Testo dello studio in home**: l'attività è guidata dal figlio Alex (non più "i figli Alex, Nadir ed Emanuele").

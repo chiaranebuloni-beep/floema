@@ -58,6 +58,10 @@ class Order(models.Model):
 
     carrier = models.CharField("corriere", max_length=60, blank=True)
     tracking_number = models.CharField("numero di tracking", max_length=80, blank=True)
+    tracking_url = models.URLField(
+        "link di tracking", max_length=500, blank=True,
+        help_text="Incolla il link del corriere per seguire la spedizione: nell'email diventa il pulsante «Segui la spedizione».",
+    )
     shipped_at = models.DateTimeField("spedito il", null=True, blank=True)
     internal_note = models.TextField("note interne", blank=True)
 
