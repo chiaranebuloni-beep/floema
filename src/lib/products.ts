@@ -42,6 +42,10 @@ export async function priceCart(lines: CartLine[]) {
       existing.total = existing.unitPrice * existing.qty;
       continue;
     }
+    // Foto della colorazione scelta (quella su fondo chiaro, se c'è), altrimenti la copertina del prodotto.
+    const color = variants.find((v) => v.kind === "color");
+    const colorImages = color ? product.images.filter((i) => i.variant === color.id) : [];
+    const image = (colorImages.find((i) => i.src.includes("fondo")) ?? colorImages[0])?.src ?? product.modes[0]?.image ?? "";
     priced.push({
       key,
       slug: product.slug,
@@ -51,7 +55,8 @@ export async function priceCart(lines: CartLine[]) {
       variantName: variantLabel(variants),
       unitPrice,
       total: unitPrice * qty,
-      image: product.modes[0]?.image ?? "",
+      image,
+      swatch: color?.swatch,
     });
   }
   const subtotal = priced.reduce((sum, l) => sum + l.total, 0);

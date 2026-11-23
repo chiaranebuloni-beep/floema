@@ -39,6 +39,7 @@ export function CartDrawer() {
                 <div>
                   <p className="drawer__name">{l.name}</p>
                   <p className="drawer__meta">
+                    {l.swatch && <span className="drawer__dot" style={{ background: l.swatch }} aria-hidden />}
                     {l.variantName && `${l.variantName} · `}Pre-ordine · {formatPrice(l.unitPrice)}
                   </p>
                   <div className="qty">

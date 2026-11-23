@@ -51,4 +51,12 @@ export type Product = {
 
 export type CartLine = { slug: string; variant?: string; qty: number };
 
-export type PricedLine = CartLine & { key: string; name: string; variantName: string; unitPrice: number; total: number; image: string };
+export type PricedLine = CartLine & {
+  key: string;
+  name: string;
+  variantName: string;
+  unitPrice: number;
+  total: number;
+  image: string; // foto della colorazione scelta
+  swatch?: string; // pallino della colorazione scelta
+};

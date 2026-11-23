@@ -1312,9 +1312,21 @@ address {
   font-size: 20px;
 }
 .drawer__meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0 8px;
   font-size: 12px;
   color: var(--fango);
   margin: 4px 0 14px;
+}
+.drawer__dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  flex: 0 0 auto;
+  outline: 1px solid var(--line-dark);
+  outline-offset: 2px;
 }
 .drawer__total {
   font-size: 14px;
