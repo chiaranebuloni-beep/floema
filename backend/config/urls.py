@@ -13,6 +13,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/products/", api.product_list),
     path("api/products/<slug:slug>/", api.product_detail),
+    path("api/config/", api.shop_config),
     path("api/checkout/", api.checkout),
     path("api/orders/<int:number>/", api.order_status),
     path("api/contact/", api.contact),

@@ -119,7 +119,10 @@ La sezione Prospettive è stata **tolta**. Il componente `Perspectives.tsx` e le
    - Servizi da indicare su iubenda: Vercel (hosting), Neon (database), Stripe (pagamenti), modulo contatti, email degli ordini, corriere.
    - I testi vanno fatti validare dal commercialista o da un legale.
 2. **Confermare il REA** SO 74467 sulla visura camerale (oggi viene da una ricerca online).
-3. **Stripe del cliente**: oggi il checkout è in modalità demo. Servono `STRIPE_SECRET_KEY` e `STRIPE_WEBHOOK_SECRET` sul progetto `floema-admin`.
+3. **Stripe e Brevo** (in corso dal 23 novembre 2026). Il codice è pronto: si attivano con le variabili sul progetto Vercel `floema-admin`, che inserisce l'utente (mai le chiavi in chat). Poi si ripubblica l'admin.
+   - **Stripe**: `STRIPE_SECRET_KEY` e `STRIPE_WEBHOOK_SECRET`. Webhook su `https://floema-admin.vercel.app/api/stripe/webhook/`, evento `checkout.session.completed`. Prima in modalità test, poi live. Il sito chiede all'admin se i pagamenti sono attivi (`/api/config/`): non serve la chiave sul progetto del sito.
+   - **Brevo** (email di conferma e di spedizione, via SMTP): `EMAIL_BACKEND=django.core.mail.backends.smtp.EmailBackend`, `EMAIL_HOST=smtp-relay.brevo.com`, `EMAIL_PORT=587`, `EMAIL_HOST_USER` e `EMAIL_HOST_PASSWORD` (login e chiave SMTP di Brevo), `DEFAULT_FROM_EMAIL` (mittente verificato su Brevo), `STORE_EMAIL` (indirizzo per le risposte; oggi di default è `info@floema.it`, che non esiste).
+   - Prima dei pagamenti veri servono le condizioni di vendita e la privacy (punto 1) e il costo di spedizione (punto 4).
 4. **Prezzo, spedizione e tempi** (decisioni del cliente, 19 novembre 2026; prezzo e riga per i professionisti già sul sito):
    - prezzo pieno **590 € IVA inclusa**, con **prezzo di lancio 490 €** (590 € barrato); manca il limite del lancio (data o numero di pezzi);
    - richiesta a parte per **professionisti e ordini da 5–10 pezzi in su**;

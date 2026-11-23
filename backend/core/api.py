@@ -82,6 +82,12 @@ def product_list(request):
 
 
 @require_GET
+def shop_config(request):
+    """Il sito chiede qui se i pagamenti con Stripe sono attivi (la chiave resta solo nel backend)."""
+    return JsonResponse({"payments": stripe.enabled()})
+
+
+@require_GET
 def product_detail(request, slug):
     return JsonResponse(serialize_product(get_object_or_404(_products(), slug=slug)))
 

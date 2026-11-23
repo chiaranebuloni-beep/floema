@@ -1,8 +1,20 @@
 import "server-only";
 import type { Order } from "./orders";
+import { backendFetch, backendUrl } from "./backend";
 
 // Integrazione Stripe Checkout via API REST: si attiva solo se è presente STRIPE_SECRET_KEY (chiave di test sk_test_...).
 export const stripeEnabled = () => Boolean(process.env.STRIPE_SECRET_KEY);
+
+// Pagamenti attivi: con il backend Django lo decide lui (la chiave Stripe sta solo lì), altrimenti la chiave del sito.
+export async function paymentsEnabled() {
+  if (!backendUrl()) return stripeEnabled();
+  try {
+    const res = await backendFetch("/api/config/");
+    return res.ok ? Boolean((await res.json()).payments) : false;
+  } catch {
+    return false;
+  }
+}
 
 async function stripe(path: string, init?: { method?: string; body?: URLSearchParams }) {
   const res = await fetch(`https://api.stripe.com/v1/${path}`, {
