@@ -660,7 +660,7 @@ address {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: clamp(32px, 8vw, 160px);
-  align-items: center;
+  align-items: start;
 }
 .manifesto__copy .lead {
   max-width: 30ch;
@@ -982,7 +982,18 @@ address {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(28px, 6vw, 120px);
-  max-width: 1100px;
+}
+/* L'elenco sta sul lato destro, allineato al bordo della pagina. */
+.arch__list {
+  justify-self: end;
+  width: 100%;
+  max-width: 520px;
+}
+@media (max-width: 900px) {
+  .arch__list {
+    justify-self: stretch;
+    max-width: none;
+  }
 }
 .arch__list li {
   padding: 16px 0;
@@ -1392,6 +1403,25 @@ address {
   inset: 0;
   background: linear-gradient(180deg, rgba(20, 20, 19, 0.55) 0%, rgba(20, 20, 19, 0.2) 45%, rgba(20, 20, 19, 0.82) 100%);
 }
+/* Studio: la foto dell'apertura sfuma senza stacco nella sezione scura che segue. */
+.phero--fade .phero__veil {
+  background: linear-gradient(
+    180deg,
+    rgba(20, 20, 19, 0.55) 0%,
+    rgba(20, 20, 19, 0.25) 30%,
+    rgba(30, 30, 30, 0.7) 55%,
+    rgba(30, 30, 30, 0.95) 78%,
+    var(--antracite) 90%
+  );
+}
+.phero--fade {
+  background: var(--antracite);
+  margin-bottom: -1px;
+}
+/* Dopo l'apertura sfumata la storia parte subito, senza il vuoto di una sezione nuova. */
+.phero--fade + .studio-story {
+  padding-top: clamp(16px, 2vw, 32px);
+}
 .phero__inner {
   position: relative;
   display: flex;
@@ -1721,8 +1751,73 @@ address {
 .mat-row:hover .mat-row__img img {
   transform: scale(1.12);
 }
+.mat-craft-sec {
+  background: var(--sabbia);
+  color: var(--ink);
+}
+.mat-craft-sec .steps,
+.mat-craft-sec .step {
+  border-color: rgba(30, 30, 30, 0.18);
+}
+.mat-craft-sec .step__n {
+  color: var(--fango);
+}
+.mat-craft-sec .step__t {
+  color: var(--ink);
+}
 .mat-craft {
-  margin-top: clamp(72px, 9vw, 140px);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(32px, 6vw, 120px);
+  align-items: center;
+}
+/* Testo e video centrati ciascuno nella sua metà. */
+.mat-craft__text {
+  justify-self: center;
+  width: 100%;
+  max-width: 560px;
+}
+.mat-craft__steps {
+  margin-top: clamp(32px, 4vw, 56px);
+  max-width: 620px;
+}
+/* Il reel è alto quanto il testo accanto, dall'etichetta all'ultima riga. */
+.mat-craft__reelcell {
+  position: relative;
+  align-self: stretch;
+}
+.mat-craft__reel {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  height: 100%;
+  width: auto;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  background: var(--carbone);
+}
+/* Reel verticali (home 03, Studio, Materia) */
+.reel {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+@media (max-width: 900px) {
+  .mat-craft {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .mat-craft__reel {
+    position: relative;
+    height: auto;
+    width: 100%;
+    max-width: 420px;
+  }
 }
 .mat-tags {
   display: flex;
@@ -1740,8 +1835,19 @@ address {
 }
 
 /* Studio */
+/* La storia su fondo scuro, il metodo su fondo chiaro. */
 .studio-story {
-  background: var(--avorio);
+  background: var(--antracite);
+  color: var(--light);
+}
+.studio-story .timeline {
+  border-top-color: var(--line-light);
+}
+.studio-story .timeline__year {
+  color: var(--sabbia);
+}
+.studio-story .timeline__t {
+  color: var(--light);
 }
 .studio-team {
   background: var(--antracite);
@@ -1750,7 +1856,7 @@ address {
 }
 .studio-team__img {
   position: relative;
-  aspect-ratio: 5 / 2;
+  aspect-ratio: 1920 / 860;
   margin: clamp(36px, 5vw, 72px) 0 0;
   overflow: hidden;
 }
@@ -1799,8 +1905,18 @@ address {
   letter-spacing: 0.02em;
 }
 .studio-method {
-  background: var(--antracite);
-  color: var(--light);
+  background: var(--avorio);
+  color: var(--ink);
+}
+.studio-method .steps,
+.studio-method .step {
+  border-color: var(--line-dark);
+}
+.studio-method .step__n {
+  color: var(--fango);
+}
+.studio-method .step__t {
+  color: var(--ink);
 }
 .studio-method__grid {
   display: grid;
@@ -2740,5 +2856,29 @@ address {
     height: 48px;
     padding: 0 26px;
     flex-shrink: 0;
+  }
+}
+
+/* Home 03: il reel si vede intero, in verticale, alto quanto il blocco di testo accanto. */
+.chapter__reelcell {
+  position: relative;
+  align-self: stretch;
+}
+.chapter__stage--reel {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  aspect-ratio: 9 / 16;
+  height: 100%;
+  width: auto;
+}
+@media (max-width: 900px) {
+  .chapter__stage--reel {
+    position: relative;
+    height: auto;
+    width: 100%;
   }
 }

@@ -4,6 +4,7 @@ import { PageHero } from "@/components/pages/PageHero";
 import { Footer } from "@/components/Footer";
 import { RevealAnimations } from "@/components/RevealAnimations";
 import { Lines } from "@/components/Lines";
+import { ReelVideo } from "@/components/ReelVideo";
 
 export const metadata: Metadata = {
   title: "Materia — FLOEMA Wood Studio",
@@ -19,7 +20,10 @@ const ESSENZE = [
   { name: "Abete", note: "Laccato o bruciato, nero intenso", img: "/images/essenza-abete-v3.jpg" },
 ];
 
-const LAVORAZIONI = ["Spazzolato", "Verniciato"];
+const LAVORAZIONI = [
+  { t: "Spazzolato", d: "La spazzolatura toglie le fibre più tenere e lascia in rilievo la venatura: il legno si riconosce anche al tatto." },
+  { t: "Verniciato", d: "Una finitura protettiva, data in laboratorio, che difende il legno nell'uso di ogni giorno senza coprirne il disegno." },
+];
 
 export default function MateriaPage() {
   return (
@@ -58,10 +62,6 @@ export default function MateriaPage() {
 
         <section className="section mat-list" data-theme="dark">
           <div className="container">
-            <div className="section__label section__label--light" data-fade>
-              <span>02</span>
-              <span>Le essenze</span>
-            </div>
             <ul className="mat-rows">
               {ESSENZE.map((e, i) => (
                 <li key={e.name} className="mat-row" data-fade={String(i * 0.04)}>
@@ -75,16 +75,36 @@ export default function MateriaPage() {
               ))}
             </ul>
 
+          </div>
+        </section>
+
+        {/* Le lavorazioni: sezione a parte su fondo sabbia. */}
+        <section className="section mat-craft-sec" data-theme="light">
+          <div className="container">
             <div className="mat-craft">
-              <div className="section__label section__label--light" data-fade>
-                <span>03</span>
-                <span>Le lavorazioni</span>
+              <div className="mat-craft__text">
+                <Lines as="h2" className="display display--dark" lines={["La superficie,", "finita a mano."]} />
+                <ol className="steps mat-craft__steps">
+                  {LAVORAZIONI.map((l, i) => (
+                    <li key={l.t} className="step" data-fade={String(i * 0.06)}>
+                      <span className="step__n">0{i + 1}</span>
+                      <div>
+                        <h3 className="step__t">{l.t}</h3>
+                        <p className="body">{l.d}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
               </div>
-              <ul className="mat-tags" data-fade>
-                {LAVORAZIONI.map((l) => (
-                  <li key={l}>{l}</li>
-                ))}
-              </ul>
+              <div className="mat-craft__reelcell">
+              <figure className="mat-craft__reel" data-img-reveal>
+                <ReelVideo
+                  src="/video/floema-legno-antico.mp4"
+                  poster="/video/floema-legno-antico.jpg"
+                  label="Lavorazione di un piano in legno antico in laboratorio"
+                />
+              </figure>
+              </div>
             </div>
           </div>
         </section>

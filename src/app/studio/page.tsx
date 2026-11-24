@@ -43,11 +43,12 @@ export default function StudioPage() {
           lines={["Esperienza artigianale,", "visione contemporanea."]}
           lead="FLOEMA nasce dall'incontro tra la storia di una falegnameria di montagna e un nuovo modo di interpretare il legno."
           image={{ src: "/images/studio-legno-bn.jpg", alt: "Trave di legno antico in bianco e nero, con venature e nodi" }}
+          fadeOut
         />
 
-        <section className="section studio-story" data-theme="light">
+        <section className="section studio-story" data-theme="dark">
           <div className="container">
-            <div className="section__label" data-fade>
+            <div className="section__label section__label--light" data-fade>
               <span>02</span>
               <span>La storia</span>
             </div>
@@ -60,23 +61,13 @@ export default function StudioPage() {
                     <span className="timeline__year timeline__year--text">{t.year}</span>
                   )}
                   <h2 className="timeline__t">{t.t}</h2>
-                  <p className="body">{t.d}</p>
+                  <p className="body body--light">{t.d}</p>
                 </li>
               ))}
             </ol>
-          </div>
-        </section>
-
-        <section className="section studio-team" data-theme="dark">
-          <div className="container">
-            <div className="section__label section__label--light" data-fade>
-              <span>03</span>
-              <span>Le persone</span>
-            </div>
-            <Lines as="h2" className="display" lines={["Le mani", "di FLOEMA."]} />
             <figure className="studio-team__img" data-img-reveal>
               <Image
-                src="/images/team-falegnameria-panoramica.jpg"
+                src="/images/team-falegnameria-v4.jpg"
                 alt="Il team della Falegnameria Galli in laboratorio, con le magliette FLOEMA"
                 fill
                 sizes="(max-width: 900px) 92vw, 84vw"
@@ -88,14 +79,14 @@ export default function StudioPage() {
           </div>
         </section>
 
-        <section className="section studio-method" data-theme="dark">
+        <section className="section studio-method" data-theme="light">
           <div className="container studio-method__grid">
             <div className="studio-method__intro">
-              <div className="section__label section__label--light" data-fade>
-                <span>04</span>
+              <div className="section__label" data-fade>
+                <span>03</span>
                 <span>Il metodo</span>
               </div>
-              <Lines as="h2" className="display" lines={["Prima della forma,", "c'è il progetto."]} />
+              <Lines as="h2" className="display display--dark" lines={["Prima della forma,", "c'è il progetto."]} />
               <figure className="studio-method__img" data-img-reveal>
                 <Slideshow slides={METODO_FOTO} sizes="(max-width: 900px) 92vw, 36vw" />
               </figure>
@@ -106,7 +97,7 @@ export default function StudioPage() {
                   <span className="step__n">0{i + 1}</span>
                   <div>
                     <h3 className="step__t">{m.t}</h3>
-                    <p className="body body--light">{m.d}</p>
+                    <p className="body">{m.d}</p>
                   </div>
                 </li>
               ))}
@@ -118,7 +109,7 @@ export default function StudioPage() {
           <div className="container studio-pro__grid">
             <div>
               <div className="section__label" data-fade>
-                <span>05</span>
+                <span>04</span>
                 <span>Per i professionisti</span>
               </div>
               <Lines as="h2" className="display display--dark" lines={["Architetti e", "interior designer."]} />

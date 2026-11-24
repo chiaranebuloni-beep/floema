@@ -1,6 +1,6 @@
 # FLOEMA Wood Studio — recap del progetto
 
-Leggi questo file prima di qualsiasi richiesta sul progetto FLOEMA. Ultimo aggiornamento: 23 novembre 2026 (database spostato su Railway).
+Leggi questo file prima di qualsiasi richiesta sul progetto FLOEMA. Ultimo aggiornamento: 24 novembre 2026 (video, Materia e Studio rivisti, webhook Stripe live creato).
 
 ## Cos'è
 
@@ -70,9 +70,11 @@ Sito e-commerce di **FLOEMA Wood Studio**, il brand di design della Falegnameria
 2. 01 Manifesto.
 3. 02 Il nome: testo sopra il legno, con un velo.
 4. Testo "Per noi, progettare…", con il pulsante **Scopri la materia**.
-5. 03 La prima creazione, con il pulsante **Scopri lo sgabello**.
+5. 03 La prima creazione, con il pulsante **Scopri lo sgabello**. Al posto della foto c'è il reel verticale dei tre sgabelli (`public/video/floema-tre-colorazioni.mp4`, componente `ReelVideo`: senza audio, parte solo quando è sullo schermo), alto quanto il testo accanto.
 6. 04 Lo studio, con il pulsante **Scopri lo studio**. I due paragrafi sono allineati e il titolo è in linea con "LIVIGNO — SO".
-7. 05 Per i professionisti, con il pulsante **Parliamo del tuo progetto**.
+7. 05 Per i professionisti, con il pulsante **Parliamo del tuo progetto**; l'elenco sta a destra. Sotto, galleria orizzontale di 8 foto di lavori reali (`progetto-*.jpg`, loghi tolti), senza didascalie.
+
+**Video**: gli originali del cliente sono in `reel floema/` (esclusa da git). Sul sito vanno versioni tagliate (senza logo in sovrimpressione né fondi neri), senza audio e compresse, in `public/video/` con l'immagine di copertina `.jpg`. Lo slideshow dello Studio è voluto: l'utente non vuole il video al suo posto.
 
 La sezione Prospettive è stata **tolta**. Il componente `Perspectives.tsx` e le sue foto restano nel progetto, ma non sono usati.
 
@@ -93,9 +95,14 @@ La sezione Prospettive è stata **tolta**. Il componente `Perspectives.tsx` e le
 **Materia**:
 - l'apertura è "Scelto a mano, lavorato con rispetto.", diversa dalla home;
 - Le essenze: Legno antico, Rovere, Cirmolo, Abete, una riga ciascuna con un pallino tondo con la foto del legno a destra, come i colori dello Shop. Le foto (`essenza-*-v3.jpg`) sono state fornite dall'utente il 16 novembre 2026. Non usare foto prese da internet senza licenza;
-- Le lavorazioni: **solo Spazzolato e Verniciato**.
+- Le lavorazioni: **solo Spazzolato e Verniciato**, in una sezione a parte su fondo sabbia con il titolo «La superficie, finita a mano.», una riga di spiegazione per ciascuna e il reel `floema-legno-antico.mp4` a destra, alto quanto il testo;
+- niente etichette numerate «02 Le essenze» e «03 Le lavorazioni» (tolte su richiesta).
 
-**Studio**: slideshow delle foto del metodo, foto del team panoramica in bianco e nero, anni con contatore animato.
+**Studio**: l'apertura sfuma nel fondo scuro di «02 La storia» (1984, 2026 con contatore animato) seguita subito dalla foto del team originale in bianco e nero tagliata alle ginocchia (`team-falegnameria-v4.jpg`, niente vignettature); poi «03 Il metodo» su fondo chiaro con lo slideshow delle foto, «04 Per i professionisti» su fondo sabbia.
+
+**Carrello**: mostra la foto e il pallino della colorazione scelta.
+
+**Dominio**: floemawoodstudio.it (DNS su Aruba, record A e CNAME verso Vercel) mostra la pagina «Sito in costruzione» (`src/proxy.ts`, `src/app/in-costruzione/`). Per aprire il sito completo sul dominio: variabile `COMING_SOON_HOSTS=off` su Vercel. floema-orcin.vercel.app resta il sito completo.
 
 **Email ai clienti** (`backend/core/templates/emails/`, inviate con Brevo): conferma d'ordine e avviso di spedizione su fondo bianco, logo scuro (`public/email/logo-floema-scuro.png`), riquadri grigi con numero ordine, data o corriere e tracking, tre tappe (Ordine confermato, Ordine spedito, Consegnato), riepilogo con la foto della colorazione scelta. Il pulsante «Segui la spedizione» usa il campo **Link di tracking** dell'ordine nell'admin (da compilare alla spedizione). Il link «Segui l'ordine» apre la pagina **`/ordine`** del sito (stato dell'ordine, protetta dal codice dell'ordine, non indicizzata).
 
@@ -122,7 +129,7 @@ La sezione Prospettive è stata **tolta**. Il componente `Perspectives.tsx` e le
    - I testi vanno fatti validare dal commercialista o da un legale.
 2. **Confermare il REA** SO 74467 sulla visura camerale (oggi viene da una ricerca online).
 3. **Stripe e Brevo** (in corso dal 23 novembre 2026). Il codice è pronto: si attivano con le variabili del servizio su Railway, che inserisce l'utente (mai le chiavi in chat). Railway ripubblica da solo.
-   - **Stripe: collegato in modalità test (Sandbox di Falegnameria Galli) il 23 novembre 2026**; prova d'acquisto con la carta 4242 riuscita, email di conferma arrivata. Webhook `floema-railway` (formato Snapshot, solo `checkout.session.completed`). Per incassare davvero: attivazione dell'account da parte di Alex (documento, IBAN), poi chiave `sk_live_` e un nuovo webhook in modalità live con lo stesso URL, e sostituire le due variabili su Railway. Se l'admin cambia indirizzo, aggiornare l'URL del webhook su Stripe.
+   - **Stripe: collegato in modalità test (Sandbox di Falegnameria Galli) il 23 novembre 2026**; prova d'acquisto con la carta 4242 riuscita, email di conferma arrivata. Webhook `floema-railway` (formato Snapshot, solo `checkout.session.completed`). **24 novembre 2026**: l'account live risulta attivo (nessuna attività da completare) e il webhook live `floema-railway-live` è creato (stesso URL, solo `checkout.session.completed`, Snapshot). Manca la chiave `sk_live_` (permessi «Accesso completo, tranne operazioni sensibili»): Stripe chiede la passkey di Filippo Galli, titolare dell'accesso, quindi la crea lui o invita l'utente nel team con ruolo Sviluppatore. Poi si sostituiscono `STRIPE_SECRET_KEY` e `STRIPE_WEBHOOK_SECRET` su Railway: da quel momento i pagamenti sono veri. Se l'admin cambia indirizzo, aggiornare l'URL del webhook su Stripe.
    - **Stripe** (variabili): `STRIPE_SECRET_KEY` e `STRIPE_WEBHOOK_SECRET`. Webhook su `https://floema-production.up.railway.app/api/stripe/webhook/`, evento `checkout.session.completed`. Prima in modalità test, poi live. Il sito chiede all'admin se i pagamenti sono attivi (`/api/config/`): non serve la chiave sul progetto del sito.
    - **Brevo: collegato e funzionante il 23 novembre 2026** (prova di conferma d'ordine arrivata). Mittente `info@floemawoodstudio.it`, verificato nella scheda Mittenti di Brevo (senza mittente verificato Brevo rifiuta l'invio: «sender is not valid»). Non usare il mittente Gmail dell'account (casella Aruba del dominio floemawoodstudio.it, comprato dal cliente). Dominio autenticato su Brevo con i record DNS su Aruba: codice Brevo (TXT @), DKIM `brevo1`/`brevo2._domainkey` (CNAME), un solo `_dmarc`. Le email usano la chiave API di Brevo (`BREVO_API_KEY`), non la chiave SMTP `floema-railway`, che si può eliminare. Non attivare su Brevo il blocco degli IP non autorizzati: Railway non ha un IP fisso.
    - **Brevo** (variabili su Railway): Railway nel piano Hobby **blocca le porte SMTP**, quindi le email passano dall'API web di Brevo (`backend/core/brevo.py`): `EMAIL_BACKEND=core.brevo.BrevoAPIBackend`, `BREVO_API_KEY` (chiave API di Brevo, `xkeysib-…`, da *SMTP e API → Chiavi API*), `DEFAULT_FROM_EMAIL=FLOEMA Wood Studio <info@floemawoodstudio.it>`, `STORE_EMAIL=info@floemawoodstudio.it`. Le variabili `EMAIL_HOST*`/`EMAIL_PORT` non servono più. Gli errori di invio compaiono nei Deploy Logs di Railway.

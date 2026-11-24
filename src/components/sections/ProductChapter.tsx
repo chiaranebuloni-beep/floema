@@ -1,6 +1,6 @@
 "use client";
-import Image from "next/image";
 import type { Product } from "@/lib/types";
+import { ReelVideo } from "../ReelVideo";
 import Link from "next/link";
 import { Lines } from "../Lines";
 import { Magnetic } from "../Magnetic";
@@ -11,10 +11,16 @@ export function ProductChapter({ product }: { product: Product }) {
   return (
     <section id="creazione" className="section chapter" data-theme="dark">
       <div className="container chapter__grid">
-        <figure className="chapter__stage" data-img-reveal>
-          <Image src={cover.image} alt={`${product.name}, sgabello in legno massello`} fill sizes="(max-width: 900px) 92vw, 50vw" />
+        <div className="chapter__reelcell">
+        <figure className="chapter__stage chapter__stage--reel" data-img-reveal>
+          <ReelVideo
+            src="/video/floema-tre-colorazioni.mp4"
+            poster="/video/floema-tre-colorazioni.jpg"
+            label={`${product.name} nelle tre colorazioni, sgabelli in legno massello`}
+          />
           <span className="chapter__badge">{product.chapter}</span>
         </figure>
+        </div>
 
         <div className="chapter__info">
           <div className="section__label section__label--light" data-fade>

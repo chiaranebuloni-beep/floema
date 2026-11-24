@@ -33,7 +33,7 @@ export function RevealAnimations() {
         });
 
         gsap.utils.toArray<HTMLElement>("[data-img-reveal]").forEach((el) => {
-          const img = el.querySelector("img");
+          const img = el.querySelector("img, video");
           const tl = gsap.timeline({ scrollTrigger: { trigger: el, start: "top 95%" } });
           tl.fromTo(el, { clipPath: "inset(100% 0% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 1.1, ease: "expo.inOut" });
           if (img) tl.from(img, { scale: 1.2, duration: 1.4, ease: "expo.out" }, 0.1);

@@ -10,10 +10,11 @@ type Props = {
   lines: string[];
   lead?: string;
   image?: { src: string; alt: string };
+  fadeOut?: boolean; // la foto sfuma nel fondo scuro della sezione successiva
 };
 
 // Apertura delle pagine interne: stesso linguaggio della hero in home, più compatta.
-export function PageHero({ index, eyebrow, lines, lead, image }: Props) {
+export function PageHero({ index, eyebrow, lines, lead, image, fadeOut }: Props) {
   const root = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -47,7 +48,7 @@ export function PageHero({ index, eyebrow, lines, lead, image }: Props) {
   }, [image]);
 
   return (
-    <section ref={root} className={`phero ${image ? "" : "phero--plain"}`} data-theme="dark">
+    <section ref={root} className={`phero ${image ? "" : "phero--plain"} ${fadeOut ? "phero--fade" : ""}`} data-theme="dark">
       {image && (
         <>
           <div className="phero__media">
