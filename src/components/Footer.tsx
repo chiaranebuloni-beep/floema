@@ -2,11 +2,11 @@ import Link from "next/link";
 import { LogoMark, LogoWord } from "./Logo";
 import { COMPANY } from "@/lib/company";
 
-// Da sostituire con i profili FLOEMA quando saranno attivi.
+// Profili social FLOEMA (forniti dal cliente, 26 novembre 2026).
 const SOCIAL = [
   {
     label: "Instagram",
-    href: "#",
+    href: "https://www.instagram.com/floema_designstudio/",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3" aria-hidden>
         <rect x="3" y="3" width="18" height="18" rx="5" />
@@ -17,7 +17,7 @@ const SOCIAL = [
   },
   {
     label: "Facebook",
-    href: "#",
+    href: "https://www.facebook.com/profile.php?id=61596182532831",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round" aria-hidden>
         <path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.6-1.5h1.5V4.4c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.4H8.2v3h2.5V21" />
@@ -56,7 +56,7 @@ export function Footer() {
               <p className="eyebrow">Social</p>
               <div className="footer__social">
                 {SOCIAL.map((s) => (
-                  <a key={s.label} href={s.href} className="footer__icon" aria-label={s.label}>
+                  <a key={s.label} href={s.href} className="footer__icon" aria-label={s.label} target="_blank" rel="noopener noreferrer">
                     {s.icon}
                   </a>
                 ))}

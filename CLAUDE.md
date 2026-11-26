@@ -145,7 +145,7 @@ La sezione Prospettive è stata **tolta**. Il componente `Perspectives.tsx` e le
    - impostare `NEXT_PUBLIC_SITE_URL`;
    - configurare un servizio email per le conferme d'ordine, che oggi partirebbero da `ordini@floema.it`;
    - registrare il sito su **Google Search Console** e inviare la sitemap.
-6. **Link social veri** nel footer: oggi sono `#`.
+6. ~~**Link social** nel footer~~: fatto il 26 novembre 2026 (Instagram `floema_designstudio`, pagina Facebook; si aprono in una nuova scheda).
 
 ### Per alzare il livello (proposte, solo se l'utente le chiede)
 - **Versione in inglese**, e magari in tedesco: è il salto più grande, per i turisti di Livigno e gli architetti stranieri.
